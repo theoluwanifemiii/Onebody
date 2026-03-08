@@ -1,7 +1,7 @@
 import { renderLucideIcons } from '../utils/icons';
 import { FEATURED_VIDEO_URL } from '../utils/site-data';
 
-type PageKey = 'home' | 'about' | 'services' | 'sermons' | 'academy' | 'charity' | 'giving';
+type PageKey = 'home' | 'about' | 'services' | 'sermons' | 'academy' | 'charity' | 'giving' | 'blog';
 
 type NavLink = {
   key: PageKey;

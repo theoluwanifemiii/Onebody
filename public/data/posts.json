@@ -1,0 +1,72 @@
+[
+  {
+    "title": "God Is Calling You",
+    "author": "Jennifer Asomie",
+    "date": "May 1, 2024",
+    "category": "Teaching",
+    "excerpt": "An article adapted from a sermon by Pastor Taiwo Oyemade. Samuel's story gives insight into hearing and responding to God's voice — and what it means to truly listen.",
+    "image": "/home-gallery/photo-01.jpg",
+    "slug": "posts/god-is-calling-you.html",
+    "featured": true
+  },
+  {
+    "title": "Fruit Bearing Branches",
+    "author": "Jennifer Asomie",
+    "date": "May 1, 2024",
+    "category": "Teaching",
+    "excerpt": "An article adapted from a sermon by Pastor Pelumi Ajayi. Jesus employs the metaphor of a vine and its branches to discuss truths about our relationship with him and our mission to the world.",
+    "image": "/home-gallery/photo-03.jpg",
+    "slug": "posts/fruit-bearing-branches.html",
+    "featured": false
+  },
+  {
+    "title": "Loving Christ's Way",
+    "author": "Mary Oiza Egbe",
+    "date": "April 11, 2024",
+    "category": "Devotional",
+    "excerpt": "There's one word in today's world that suffers from overuse and yet in its usage, very little of it is propagated. It is the word \"Love\".",
+    "image": "/home-gallery/photo-07.jpg",
+    "slug": "posts/loving-christs-way.html",
+    "featured": false
+  },
+  {
+    "title": "Fish, Faith and Obedience",
+    "author": "Jennifer Asomie",
+    "date": "April 11, 2024",
+    "category": "Teaching",
+    "excerpt": "An article adapted from a sermon by Pastor Taiwo Oyemade. The scriptures reveal insights into the dynamics between human initiative and divine intervention through the journey of faith and obedience.",
+    "image": "/home-gallery/photo-11.jpg",
+    "slug": "posts/fish-faith-and-obedience.html",
+    "featured": false
+  },
+  {
+    "title": "The Pure Heart Touches God",
+    "author": "Jennifer Asomie",
+    "date": "March 26, 2024",
+    "category": "Teaching",
+    "excerpt": "An article adapted from a sermon by Pastor Taiwo Oyemade. Throughout history, humanity has struggled with the mystery of divine communication — but God's voice cannot be limited by human constraints.",
+    "image": "/about-moments/moment-02.jpg",
+    "slug": "posts/the-pure-heart-touches-god.html",
+    "featured": false
+  },
+  {
+    "title": "Spiritual Transformation",
+    "author": "Jennifer Asomie",
+    "date": "March 20, 2024",
+    "category": "Teaching",
+    "excerpt": "An article adapted from a sermon by Pastor Taiwo Oyemade. Transformation is not merely a superficial alteration of behavior — it demands a profound change in the core of one's being.",
+    "image": "/home-gallery/photo-15.jpg",
+    "slug": "posts/spiritual-transformation.html",
+    "featured": false
+  },
+  {
+    "title": "God Is Speaking! Can You Hear?",
+    "author": "Jennifer Asomie",
+    "date": "March 18, 2024",
+    "category": "Teaching",
+    "excerpt": "An article adapted from a sermon by Pastor Taiwo Oyemade. Hearing God's voice begins with a fundamental prerequisite: open ears.",
+    "image": "/about-moments/moment-04.jpg",
+    "slug": "posts/god-is-speaking-can-you-hear.html",
+    "featured": false
+  }
+]

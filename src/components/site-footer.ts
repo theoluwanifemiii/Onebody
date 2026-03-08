@@ -64,6 +64,7 @@ class SiteFooter extends HTMLElement {
           <div class="flex flex-col gap-4 text-sm">
             <span class="font-medium text-stone-900">Resources</span>
             <a href="./lords-table.html" class="text-stone-500 hover:text-stone-900">The Lord's Table</a>
+            <a href="./blog.html" class="text-stone-500 hover:text-stone-900">Blog</a>
           </div>
 
           <div class="flex flex-col gap-4 text-sm">

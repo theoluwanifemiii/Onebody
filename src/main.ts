@@ -10,6 +10,7 @@ import { setupSiteInteractions } from './utils/site-interactions';
 import { setupGsapEffects } from './effects/page-gsap-effects';
 import { setupPageTransitions } from './transitions/page-transitions';
 import { setupFlashAd } from './components/flash-ad';
+import { setupPostFeatures } from './effects/post-features';
 
 window.addEventListener('DOMContentLoaded', () => {
   // Page transitions run first so the entry animation fires immediately
@@ -21,4 +22,5 @@ window.addEventListener('DOMContentLoaded', () => {
   setupScrollReveal();
   setupAboutPageEffects();
   setupGsapEffects();
+  setupPostFeatures();
 });
