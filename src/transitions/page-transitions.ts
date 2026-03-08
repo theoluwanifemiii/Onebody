@@ -30,8 +30,8 @@ function playEntry(): void {
 
   // Logo fades in, holds, then fades out
   if (logo) {
-    tl.from(logo, { opacity: 0, y: 10, duration: 0.5, ease: 'expo.out' });
-    tl.to(logo, { opacity: 0, duration: 0.25, ease: 'expo.in' }, '+=0.4');
+    tl.from(logo, { opacity: 0, y: 10, duration: 0.3, ease: 'expo.out' });
+    tl.to(logo, { opacity: 0, duration: 0.2, ease: 'expo.in' }, '+=0.1');
   }
 
   // Overlay sweeps up to reveal the page
@@ -39,7 +39,7 @@ function playEntry(): void {
     overlay,
     {
       yPercent: -100,
-      duration: 0.9,
+      duration: 0.6,
       ease: 'expo.inOut',
       onComplete() {
         // Use autoAlpha so GSAP tracks visibility correctly for re-use
@@ -68,7 +68,7 @@ function playExit(href: string): void {
 
   gsap.to(overlay, {
     yPercent: 0,
-    duration: 0.55,
+    duration: 0.35,
     ease: 'expo.inOut',
     onComplete() {
       window.location.href = href;
