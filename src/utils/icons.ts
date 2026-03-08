@@ -1,5 +1,5 @@
-import { createIcons, icons } from 'lucide';
+import { createIcons, ArrowDown, ArrowRight, ArrowUpRight, Map, MapPin, Moon, PlayCircle, Send, Sun } from 'lucide';
 
 export const renderLucideIcons = (): void => {
-  createIcons({ icons });
+  createIcons({ icons: { ArrowDown, ArrowRight, ArrowUpRight, Map, MapPin, Moon, PlayCircle, Send, Sun } });
 };
