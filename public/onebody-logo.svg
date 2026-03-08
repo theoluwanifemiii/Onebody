@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Onebody Church logo</title>
+  <desc id="logoDesc">Black double-circle emblem with stylized lamb head and Onebody text.</desc>
+  <rect x="0" y="0" width="600" height="340" rx="170" fill="#000"/>
+  <circle cx="160" cy="170" r="125" fill="#fff"/>
+  <circle cx="440" cy="170" r="125" fill="#fff"/>
+
+  <ellipse cx="138" cy="208" rx="92" ry="62" fill="#000"/>
+  <ellipse cx="199" cy="207" rx="35" ry="27" fill="#000"/>
+  <ellipse cx="88" cy="170" rx="32" ry="12" transform="rotate(10 88 170)" fill="#000"/>
+  <path
+    d="M50 240C41 203 56 178 100 171C96 149 114 133 143 133C168 133 188 145 205 169C223 196 239 212 250 224C258 233 260 246 249 252C239 258 223 250 208 238C188 223 166 214 140 215C111 216 89 226 71 238Z"
+    fill="#000"
+  />
+  <path
+    d="M110 282C111 263 118 252 129 244C146 231 154 215 152 197L176 197C179 225 170 248 152 264C143 272 137 282 138 295L111 293Z"
+    fill="#000"
+  />
+
+  <text
+    x="440"
+    y="194"
+    text-anchor="middle"
+    font-family="Inter, Arial, sans-serif"
+    font-size="54"
+    font-style="italic"
+    font-weight="900"
+    fill="#000"
+  >
+    ONEBODY
+  </text>
+</svg>
