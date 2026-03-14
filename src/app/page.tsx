@@ -8,13 +8,13 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <>
+    <div className="flex h-screen flex-col overflow-hidden">
       <section
         data-home-hero
-        className="relative isolate flex flex-1 items-center justify-center overflow-hidden px-6 pb-16 pt-32 md:px-12 md:pb-20 md:pt-40"
+        className="relative isolate flex flex-1 items-center justify-center overflow-hidden px-6 md:px-12"
       >
         <div
-          className="pointer-events-none absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_72%_56%_at_50%_0%,#000_70%,transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_72%_56%_at_50%_0%,#000_70%,transparent_100%)]"
+          className="pointer-events-none absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_72%_56%_at_50%_0%,#000_70%,transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_72%_56%_at_50%_0%,#000_70%,transparent_100%)]"
         />
         <div className="relative z-10 mx-auto w-full max-w-5xl text-center">
           <h1 className="text-5xl font-medium leading-[1.02] tracking-tighter text-stone-900 md:text-7xl lg:text-8xl">
@@ -39,6 +39,6 @@ export default function HomePage() {
         </div>
       </section>
       <MarqueeStrip />
-    </>
+    </div>
   );
 }

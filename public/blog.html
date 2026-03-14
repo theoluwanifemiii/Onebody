@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onebody Church | Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-page="blog" data-gsap-page class="antialiased selection:bg-red-900 selection:text-red-100">
+    <div id="page-transition" aria-hidden="true" style="position:fixed;inset:0;z-index:10000;background-color:#111111;display:flex;align-items:center;justify-content:center;">
+      <div id="page-transition-logo">
+        <img src="/onebody-logo.png" alt="" />
+        <span class="pt-wordmark">Onebody</span>
+      </div>
+    </div>
+    <site-header current="blog" visit-href="./services.html#visit"></site-header>
+
+    <main>
+
+      <!-- ── 1. HERO ──────────────────────────────────────────────────────── -->
+      <section class="ob-section ob-section-dark flex flex-col justify-end" style="padding-top:9rem;">
+        <div class="mx-auto w-full max-w-7xl">
+          <p class="ob-kicker mb-6" data-gsap-hero-reveal>Words &amp; Reflections</p>
+          <h1 class="ob-display text-white" data-gsap-hero-words>The Onebody Blog</h1>
+          <div class="mt-10 flex flex-col gap-6 border-t border-white/10 pt-10 md:flex-row md:items-end md:justify-between">
+            <p class="max-w-xl ob-body-dark" data-gsap-hero-reveal>
+              Sermons, thoughts, and stories from our community — written to help you
+              grow deeper in your faith and love for Jesus.
+            </p>
+            <span class="ob-kicker-dim hidden md:block" data-gsap-hero-reveal>Scroll ↓</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 2. FEATURED POST — rendered from posts.json ───────────────────── -->
+      <section id="blog-featured" class="ob-section ob-section-light" style="min-height:auto; padding-top:5rem; padding-bottom:5rem;">
+        <div class="mx-auto w-full max-w-7xl">
+          <p class="ob-kicker mb-10">Featured</p>
+          <!-- injected by script -->
+        </div>
+      </section>
+
+      <!-- ── 3. POST GRID — rendered from posts.json ──────────────────────── -->
+      <section class="ob-section ob-section-stone" style="min-height:auto; padding-top:5rem; padding-bottom:7rem;">
+        <div class="mx-auto w-full max-w-7xl">
+          <p class="ob-kicker mb-12">Recent Posts</p>
+          <div id="blog-grid" class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Cards rendered from /data/posts.json -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 4. NEWSLETTER ────────────────────────────────────────────────── -->
+      <section class="ob-section ob-section-dark" style="min-height:auto; padding-top:6rem; padding-bottom:6rem;">
+        <div class="mx-auto w-full max-w-3xl text-center">
+          <p class="ob-kicker mb-6" data-gsap-reveal>Stay Connected</p>
+          <h2 class="ob-display text-white mb-8" data-gsap-words>Get new posts in your inbox</h2>
+          <p class="ob-body-dark mb-10 max-w-lg mx-auto" data-gsap-reveal>
+            We write when we have something worth saying. No noise — just honest words
+            from our community to yours.
+          </p>
+          <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Your email address"
+              class="flex-1 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm text-white placeholder-white/40 outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/30 transition"
+              required
+            />
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700 shrink-0"
+            >
+              Subscribe
+              <i data-lucide="send" class="h-3.5 w-3.5" stroke-width="1.5"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <script>
+      fetch('/data/posts.json')
+        .then(function(r) { return r.json(); })
+        .then(function(posts) {
+          if (!posts.length) return;
+
+          // Featured post — first entry with featured:true, fallback to first
+          var featured = posts.find(function(p) { return p.featured; }) || posts[0];
+          var featuredSection = document.getElementById('blog-featured');
+          if (featuredSection) {
+            featuredSection.querySelector('.mx-auto').innerHTML =
+              '<p class="ob-kicker mb-10">Featured</p>' +
+              '<div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">' +
+                '<div class="overflow-hidden rounded-2xl bg-stone-100 aspect-[4/3]">' +
+                  '<img src="' + featured.image + '" alt="" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />' +
+                '</div>' +
+                '<div>' +
+                  '<div class="flex items-center gap-3 mb-6">' +
+                    '<span class="ob-kicker text-stone-400">' + featured.category + '</span>' +
+                    '<span class="text-stone-300">·</span>' +
+                    '<span class="text-xs text-stone-400 tracking-wide">' + featured.date + '</span>' +
+                  '</div>' +
+                  '<h2 class="text-4xl md:text-5xl font-medium leading-tight tracking-tighter text-stone-900 mb-6">' + featured.title + '</h2>' +
+                  '<p class="ob-body mb-8">' + featured.excerpt + '</p>' +
+                  '<a href="./' + featured.slug + '" class="inline-flex items-center gap-2 rounded-full bg-stone-900 px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-stone-700">' +
+                    'Read Article' +
+                    '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>' +
+                  '</a>' +
+                '</div>' +
+              '</div>';
+          }
+
+          // Grid — all non-featured posts
+          var grid = document.getElementById('blog-grid');
+          if (!grid) return;
+          var others = posts.filter(function(p) { return p !== featured; });
+          grid.innerHTML = others.map(function(p, i) {
+            var delay = ['', ' data-gsap-delay="0.1"', ' data-gsap-delay="0.2"'][i % 3];
+            return '<article class="group flex flex-col" data-gsap-reveal' + delay + '>' +
+              '<a href="./' + p.slug + '" class="overflow-hidden rounded-xl bg-stone-100 aspect-[4/3] mb-5 block">' +
+                '<img src="' + p.image + '" alt="" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />' +
+              '</a>' +
+              '<div class="flex items-center gap-2 mb-3">' +
+                '<span class="ob-kicker">' + p.category + '</span>' +
+                '<span class="text-stone-300 text-xs">·</span>' +
+                '<span class="text-xs text-stone-400">' + p.date + '</span>' +
+              '</div>' +
+              '<h3 class="text-xl font-medium tracking-tight text-stone-900 mb-3 leading-snug group-hover:text-red-600 transition-colors">' + p.title + '</h3>' +
+              '<p class="text-sm text-stone-500 leading-relaxed mb-5 flex-1">' + p.excerpt + '</p>' +
+              '<a href="./' + p.slug + '" class="inline-flex items-center gap-1.5 text-sm font-medium text-stone-900 hover:text-red-600 transition-colors">' +
+                'Read more ' +
+                '<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"/></svg>' +
+              '</a>' +
+            '</article>';
+          }).join('');
+        })
+        .catch(function() {});
+    </script>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

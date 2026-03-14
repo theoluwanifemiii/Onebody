@@ -87,66 +87,68 @@ export default function SiteHeader() {
         </button>
       </div>
 
-      {/* Mobile backdrop */}
-      <div
-        className={expanded
-          ? 'pointer-events-auto fixed inset-0 bg-stone-950/20 opacity-100 transition-opacity duration-300 md:hidden'
-          : 'pointer-events-none fixed inset-0 bg-stone-950/20 opacity-0 transition-opacity duration-300 md:hidden'}
-        onClick={() => setExpanded(false)}
-      />
-
-      {/* Mobile nav panel */}
+      {/* Full-page mobile nav overlay */}
       <div
         id="mobile-site-nav"
-        className={`${expanded ? 'pointer-events-auto visible translate-y-0 opacity-100' : 'pointer-events-none invisible -translate-y-3 opacity-0'} fixed inset-x-6 top-24 rounded-[2rem] border border-stone-200 bg-white p-5 shadow-2xl shadow-stone-900/10 transition-all duration-300 md:hidden`}
+        className={`${expanded ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'} fixed inset-0 z-40 flex flex-col bg-stone-950 transition-opacity duration-300 md:hidden`}
       >
-        <div className="mb-5 flex items-center justify-between border-b border-stone-100 pb-4">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.24em] text-red-600">Onebody Church</p>
-            <p className="mt-1 text-sm text-stone-500">Find your next step.</p>
-          </div>
-          <TransitionLink
-            href={visitHref}
-            className="rounded-full bg-stone-900 px-4 py-2 text-sm font-medium text-white"
+        {/* Top bar inside overlay */}
+        <div className="flex items-center justify-between px-6 py-5">
+          <TransitionLink href="/" onClick={() => setExpanded(false)}>
+            <img src="/onebody-logo.png" alt="Onebody Church logo" className="h-8 w-auto rounded-md object-contain brightness-0 invert" />
+          </TransitionLink>
+          <button
+            type="button"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white"
             onClick={() => setExpanded(false)}
           >
-            Visit
-          </TransitionLink>
+            <X className="h-5 w-5" strokeWidth={1.5} />
+          </button>
         </div>
 
-        <div className="flex flex-col gap-2">
-          {NAV_LINKS.map((link) => (
-            <TransitionLink
-              key={link.key}
-              href={link.href}
-              className={link.key === current
-                ? 'rounded-2xl bg-red-50 px-4 py-3 text-base font-medium text-stone-900'
-                : 'rounded-2xl px-4 py-3 text-base text-stone-700 transition-colors hover:bg-stone-50 hover:text-stone-900'}
-              aria-current={link.key === current ? 'page' : undefined}
-              onClick={() => setExpanded(false)}
-            >
-              {link.label}
-            </TransitionLink>
-          ))}
+        {/* Nav links */}
+        <div className="flex flex-1 flex-col justify-center px-8">
+          <p className="mb-8 text-xs font-medium uppercase tracking-[0.24em] text-red-500">Navigation</p>
+          <div className="flex flex-col gap-1">
+            {NAV_LINKS.map((link) => (
+              <TransitionLink
+                key={link.key}
+                href={link.href}
+                className={`group flex items-center justify-between border-b border-white/10 py-5 text-3xl font-medium tracking-tight ${link.key === current ? 'text-white' : 'text-stone-400'}`}
+                aria-current={link.key === current ? 'page' : undefined}
+                onClick={() => setExpanded(false)}
+              >
+                {/* Vertical roll-over label */}
+                <span className="overflow-hidden leading-none" style={{ height: '1.1em' }}>
+                  <span className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-1/2">
+                    <span className="block" style={{ height: '1.1em', lineHeight: '1.1em' }}>{link.label}</span>
+                    <span className={`block ${link.key === current ? 'text-white' : 'text-white'}`} style={{ height: '1.1em', lineHeight: '1.1em' }}>{link.label}</span>
+                  </span>
+                </span>
+                <ArrowRight className="h-5 w-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" strokeWidth={1.5} />
+              </TransitionLink>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-3 border-t border-stone-100 pt-5">
+        {/* Bottom actions */}
+        <div className="grid grid-cols-2 gap-3 px-8 pb-10">
           <TransitionLink
             href="/giving"
-            className="flex items-center justify-center gap-2 rounded-2xl bg-red-600 px-4 py-3 text-sm font-medium text-white"
+            className="flex items-center justify-center gap-2 rounded-2xl bg-red-600 px-4 py-4 text-sm font-medium text-white transition-colors hover:bg-red-700"
             onClick={() => setExpanded(false)}
           >
             <Heart className="h-4 w-4" strokeWidth={1.5} />
             Give
           </TransitionLink>
-          <a
-            href="mailto:hello@onebodychurch.org"
-            className="flex items-center justify-center gap-2 rounded-2xl border border-stone-200 px-4 py-3 text-sm font-medium text-stone-800"
+          <TransitionLink
+            href={visitHref}
+            className="flex items-center justify-center gap-2 rounded-2xl border border-white/20 px-4 py-4 text-sm font-medium text-white transition-colors hover:bg-white/10"
             onClick={() => setExpanded(false)}
           >
             <Mail className="h-4 w-4" strokeWidth={1.5} />
-            Contact
-          </a>
+            Plan a Visit
+          </TransitionLink>
         </div>
       </div>
     </nav>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import SiteHeader from '@/components/layout/SiteHeader';
-import SiteFooter from '@/components/layout/SiteFooter';
+import ConditionalFooter from '@/components/layout/ConditionalFooter';
 import PageTransition from '@/components/ui/PageTransition';
 import FlashAd from '@/components/ui/FlashAd';
 import GsapEffects from '@/components/effects/GsapEffects';
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex flex-1 flex-col">
           {children}
         </main>
-        <SiteFooter />
+        <ConditionalFooter />
         <GsapEffects />
         <HomePageEffects />
       </body>
