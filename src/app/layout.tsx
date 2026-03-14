@@ -1,0 +1,34 @@
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import SiteHeader from '@/components/layout/SiteHeader';
+import SiteFooter from '@/components/layout/SiteFooter';
+import PageTransition from '@/components/ui/PageTransition';
+import FlashAd from '@/components/ui/FlashAd';
+import GsapEffects from '@/components/effects/GsapEffects';
+import HomePageEffects from '@/components/effects/HomePageEffects';
+import './globals.css';
+
+const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600'] });
+
+export const metadata: Metadata = {
+  title: 'Onebody Church',
+  description: 'A Jesus-centered church in Yaba where worship, teaching, discipleship, and service shape how we gather and how we love our city.',
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.className} flex min-h-screen flex-col antialiased selection:bg-red-900 selection:text-red-100`}>
+        <PageTransition />
+        <FlashAd />
+        <SiteHeader />
+        <main className="flex flex-1 flex-col">
+          {children}
+        </main>
+        <SiteFooter />
+        <GsapEffects />
+        <HomePageEffects />
+      </body>
+    </html>
+  );
+}
