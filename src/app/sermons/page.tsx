@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { PlayCircle, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { getAllSermons, extractYouTubeId } from '@/lib/sermons';
 import SermonFollowUpForm from '@/components/forms/SermonFollowUpForm';
+import SermonGallery from '@/components/ui/SermonGallery';
 
 export const metadata: Metadata = {
   title: 'Onebody Church | Sermons',
@@ -297,38 +298,7 @@ export default function SermonsPage() {
       </section>
 
       {/* 6. COMMUNITY PHOTOS */}
-      <section className="ob-section-dark py-20 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 md:px-12 mb-12">
-          <p className="ob-kicker-dim mb-4" data-gsap-reveal>
-            The Church
-          </p>
-          <h2 className="ob-display text-white max-w-2xl" data-gsap-words>
-            Real people. Real lives. Real Jesus.
-          </h2>
-        </div>
-        <div className="overflow-x-auto no-scrollbar">
-          <div className="flex gap-5 px-6 md:px-12" style={{ width: 'max-content' }} data-gsap-strip>
-            <figure className="flex-none w-[46vw] md:w-[26vw] aspect-[3/4] overflow-hidden bg-stone-900">
-              <img src="/home-gallery/photo-15.jpg" alt="Onebody community" className="w-full h-full object-cover opacity-85" loading="lazy" />
-            </figure>
-            <figure className="flex-none w-[46vw] md:w-[26vw] aspect-[3/4] overflow-hidden bg-stone-900 mt-12">
-              <img src="/home-gallery/photo-16.jpg" alt="Worship gathering" className="w-full h-full object-cover opacity-85" loading="lazy" />
-            </figure>
-            <figure className="flex-none w-[46vw] md:w-[26vw] aspect-[3/4] overflow-hidden bg-stone-900">
-              <img src="/home-gallery/photo-17.jpg" alt="Sunday service" className="w-full h-full object-cover opacity-85" loading="lazy" />
-            </figure>
-            <figure className="flex-none w-[46vw] md:w-[26vw] aspect-[3/4] overflow-hidden bg-stone-900 mt-12">
-              <img src="/home-gallery/photo-18.jpg" alt="Church life" className="w-full h-full object-cover opacity-85" loading="lazy" />
-            </figure>
-            <figure className="flex-none w-[46vw] md:w-[26vw] aspect-[3/4] overflow-hidden bg-stone-900">
-              <img src="/home-gallery/photo-19.jpg" alt="People of faith" className="w-full h-full object-cover opacity-85" loading="lazy" />
-            </figure>
-            <figure className="flex-none w-[46vw] md:w-[26vw] aspect-[3/4] overflow-hidden bg-stone-900 mt-12">
-              <img src="/home-gallery/photo-20.jpg" alt="Onebody family" className="w-full h-full object-cover opacity-85" loading="lazy" />
-            </figure>
-          </div>
-        </div>
-      </section>
+      <SermonGallery />
 
       {/* 7. REFLECTION GUIDE */}
       <section id="reflection-guide" className="ob-section ob-section-light">

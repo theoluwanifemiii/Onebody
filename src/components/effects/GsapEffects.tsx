@@ -161,6 +161,48 @@ export default function GsapEffects() {
         });
       });
 
+      // ── Apple-style animations ────────────────────────────────────────────
+      // Slide in from left
+      document.querySelectorAll<HTMLElement>('[data-apple-slide-left]').forEach((el) => {
+        gsap.from(el, {
+          x: -80, opacity: 0, duration: 1.1, ease: 'expo.out',
+          scrollTrigger: { trigger: el, start: 'top 85%' },
+        });
+      });
+
+      // Slide in from right
+      document.querySelectorAll<HTMLElement>('[data-apple-slide-right]').forEach((el) => {
+        gsap.from(el, {
+          x: 80, opacity: 0, duration: 1.1, ease: 'expo.out',
+          scrollTrigger: { trigger: el, start: 'top 85%' },
+        });
+      });
+
+      // Scale up + fade (product reveal)
+      document.querySelectorAll<HTMLElement>('[data-apple-scale-up]').forEach((el) => {
+        gsap.from(el, {
+          scale: 0.86, opacity: 0, duration: 1.3, ease: 'expo.out',
+          scrollTrigger: { trigger: el, start: 'top 82%' },
+        });
+      });
+
+      // Blur + fade reveal (Apple text cinematic)
+      document.querySelectorAll<HTMLElement>('[data-apple-blur]').forEach((el) => {
+        gsap.from(el, {
+          opacity: 0, filter: 'blur(14px)', y: 30, duration: 1.2, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 82%' },
+        });
+      });
+
+      // Clip-path wipe left→right (curtain reveal per list item)
+      document.querySelectorAll<HTMLElement>('[data-apple-clip]').forEach((el, i) => {
+        gsap.from(el, {
+          clipPath: 'inset(0 100% 0 0)', opacity: 1, duration: 0.9, ease: 'expo.out',
+          delay: i * 0.08,
+          scrollTrigger: { trigger: el.closest('[data-apple-clip-group]') || el, start: 'top 85%' },
+        });
+      });
+
       // Scroll reveal (IntersectionObserver)
       const revealEls = document.querySelectorAll<HTMLElement>('.reveal');
       if (revealEls.length) {

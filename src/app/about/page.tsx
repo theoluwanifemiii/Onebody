@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import HorizontalGallery from '@/components/ui/HorizontalGallery';
+import ScadTimeline from '@/components/ui/ScadTimeline';
 
 export const metadata: Metadata = {
   title: 'About Onebody',
@@ -64,32 +66,7 @@ export default function AboutPage() {
       </section>
 
       {/* 3. GALLERY */}
-      <section className="ob-section-dark py-24 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 md:px-12 mb-14">
-          <p className="ob-kicker-dim mb-4" data-gsap-reveal>About Moments</p>
-          <h2 className="ob-display text-white max-w-3xl" data-gsap-words>Worship, friendship, and service.</h2>
-        </div>
-        <div className="overflow-x-auto no-scrollbar">
-          <div className="flex gap-5 px-6 md:px-12" style={{ width: 'max-content' }} data-gsap-strip>
-            {[
-              { src: '/about-moments/moment-01.jpg', alt: 'Worship moment', mt: false },
-              { src: '/home-gallery/photo-01.jpg', alt: 'Community gathering', mt: true },
-              { src: '/about-moments/moment-02.jpg', alt: 'Serving together', mt: false },
-              { src: '/home-gallery/photo-02.jpg', alt: 'Fellowship', mt: true },
-              { src: '/about-moments/moment-03.jpg', alt: 'Congregation', mt: false },
-              { src: '/home-gallery/photo-03.jpg', alt: 'Praise and worship', mt: true },
-              { src: '/about-moments/moment-04.jpg', alt: 'Church community', mt: false },
-              { src: '/home-gallery/photo-04.jpg', alt: 'People together', mt: true },
-              { src: '/about-moments/moment-05.jpg', alt: 'Service moment', mt: false },
-              { src: '/home-gallery/photo-05.jpg', alt: 'Onebody family', mt: true },
-            ].map((img, i) => (
-              <figure key={i} className={`flex-none w-[38vw] md:w-[22vw] aspect-[3/4] overflow-hidden bg-stone-800${img.mt ? ' mt-14' : ''}`}>
-                <img src={img.src} alt={img.alt} className="w-full h-full object-cover grayscale-[30%]" loading="lazy" data-gsap-parallax={img.mt ? '-15' : '-25'} />
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HorizontalGallery />
 
       {/* 4. VISION & MISSION */}
       <section className="ob-section ob-section-light">
@@ -117,7 +94,7 @@ export default function AboutPage() {
                 className="absolute inset-0 h-full w-full"
                 src="https://www.youtube-nocookie.com/embed/Tp8Qa_5WRpQ?start=1"
                 title="Featured Onebody Church video"
-                frameBorder="0"
+                style={{ border: 0 }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
@@ -196,29 +173,7 @@ export default function AboutPage() {
       </section>
 
       {/* 7. SCAD */}
-      <section className="ob-section ob-section-dark">
-        <div className="mx-auto w-full max-w-7xl">
-          <p className="ob-kicker mb-5" data-gsap-reveal>Renewed Discipleship</p>
-          <h2 className="ob-display text-white mb-5" data-gsap-words>SCAD</h2>
-          <p className="ob-body-dark max-w-xl mb-20" data-gsap-reveal>
-            &ldquo;Therefore go and make disciples of all nations…&rdquo; burns in our hearts. We have refined our discipleship model around four stages.
-          </p>
-          <div className="grid grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-4" data-gsap-stagger>
-            {[
-              { letter: 'S', title: 'Seeking', body: 'Through music, visual content, affinity groups, and special events, we always seek new souls.' },
-              { letter: 'C', title: 'Converting', body: 'In our weekly gatherings and home meetings, we create real opportunities for conversions.' },
-              { letter: 'A', title: 'Assimilating', body: 'An 8-module, 16-week discipleship program — The Love Vision Academy — assimilates new members.' },
-              { letter: 'D', title: 'Deploying', body: 'Every disciple goes out and seeks new souls through the grace and gifts of the Holy Spirit.' },
-            ].map((s) => (
-              <div key={s.letter}>
-                <p className="text-[7rem] font-bold tracking-tighter leading-none text-white/8">{s.letter}</p>
-                <h3 className="mt-5 text-2xl font-medium text-white tracking-tight">{s.title}</h3>
-                <p className="mt-3 ob-body-dark text-base">{s.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ScadTimeline />
 
       {/* 8. PASTORS */}
       <section className="ob-section ob-section-light">
@@ -226,16 +181,17 @@ export default function AboutPage() {
           <p className="ob-kicker mb-16" data-gsap-reveal>Our Pastors</p>
           <div className="grid grid-cols-1 gap-14 md:grid-cols-3" data-gsap-stagger>
             {[
-              { img: '/home-gallery/photo-09.jpg', name: 'Taiwo Oyemade', role: 'Church Pastor', mt: false },
-              { img: '/home-gallery/photo-10.jpg', name: 'John Kenny', role: 'Worship Pastor', mt: true },
-              { img: '/home-gallery/photo-11.jpg', name: 'Omomeji Olarewaju', role: 'Admin Pastor', mt: false },
+              { img: '/home-gallery/photo-09.jpg', name: 'Taiwo Oyemade', role: 'Church Pastor', mt: false, bio: 'Taiwo planted Onebody Church in 2019 with a vision to make disciples who are deeply rooted in scripture and active in their city. He leads with a pastoral heart shaped by a love for teaching and prayer.' },
+              { img: '/home-gallery/photo-10.jpg', name: 'John Kenny', role: 'Worship Pastor', mt: true, bio: "John leads Onebody's musical worship with a conviction that singing is a form of theology. His songs draw from Scripture and the church's shared life of prayer and devotion." },
+              { img: '/home-gallery/photo-11.jpg', name: 'Omomeji Olarewaju', role: 'Admin Pastor', mt: false, bio: "Omomeji oversees the operational and structural life of Onebody, ensuring the church's mission is resourced and sustained so that every ministry can flourish." },
             ].map((p) => (
               <div key={p.name} className={p.mt ? 'md:mt-20' : ''}>
-                <div className="aspect-[3/4] overflow-hidden bg-stone-100">
+                <div className="aspect-3/4 overflow-hidden bg-stone-100">
                   <img src={p.img} alt={`Pastor ${p.name}`} className="w-full h-full object-cover object-center" loading="lazy" />
                 </div>
                 <h4 className="mt-6 text-2xl font-medium text-stone-900 tracking-tight">{p.name}</h4>
                 <p className="mt-1 ob-kicker text-stone-400">{p.role}</p>
+                <p className="mt-4 text-sm leading-relaxed text-stone-500">{p.bio}</p>
               </div>
             ))}
           </div>
