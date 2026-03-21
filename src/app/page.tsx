@@ -3,6 +3,9 @@ import { PlayCircle, ArrowRight, Sun, Moon, MapPin, Heart } from 'lucide-react';
 import MarqueeStrip from '@/components/layout/MarqueeStrip';
 import TransitionLink from '@/components/ui/TransitionLink';
 import { CHURCH_ADDRESS } from '@/lib/site-data';
+import { getAllSermons, extractYouTubeId } from '@/lib/sermons';
+import SermonFloatingCards from '@/components/ui/SermonFloatingCards';
+import WatchMessageModal from '@/components/ui/WatchMessageModal';
 
 export const metadata: Metadata = {
   title: 'Onebody Church | Home',
@@ -18,7 +21,10 @@ const LOVA_BENEFITS = [
   'Community with fellow disciples',
 ];
 
+
 export default function HomePage() {
+  const sermons = getAllSermons().slice(0, 3);
+  const featuredId = extractYouTubeId(sermons[0]?.youtubeId ?? '');
   return (
     <>
 
@@ -45,13 +51,7 @@ export default function HomePage() {
               gather and how we love our city.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <TransitionLink
-                href="/sermons#featured-message"
-                className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-7 py-3 text-base font-medium text-stone-900 transition-colors hover:border-stone-300 hover:bg-stone-50"
-              >
-                Watch a Message
-                <PlayCircle className="h-4 w-4" strokeWidth={1.5} />
-              </TransitionLink>
+              <WatchMessageModal videoId={featuredId} />
               <TransitionLink
                 href="/services"
                 className="inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-7 py-3 text-base font-medium text-stone-900 transition-colors hover:border-stone-300 hover:bg-stone-50"
@@ -142,57 +142,76 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════════════════
-          4. SERVICES — cards slide in from sides
+          4. SERVICES — full-bleed image + flat service times
           ══════════════════════════════════════════════════ */}
       <section
         id="home-services"
-        className="flex min-h-screen flex-col justify-center overflow-hidden px-6 py-24 md:px-12"
+        className="relative flex min-h-screen flex-col justify-end overflow-hidden"
         style={{ background: '#0f0f0f' }}
       >
-        <div className="mx-auto w-full max-w-7xl">
+        {/* Background image */}
+        <img
+          src="/home-gallery/photo-05.jpg"
+          alt="Onebody Church gathering"
+          className="w-full object-cover object-center"
+          style={{ position: 'absolute', top: '-15vh', left: 0, right: 0, height: '130vh', zIndex: 0 }}
+          data-gsap-parallax="-60"
+        />
+        {/* Gradient overlay */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.99) 0%, rgba(0,0,0,0.92) 50%, rgba(0,0,0,0.80) 100%)', zIndex: 1 }} />
 
-          {/* Top label + headline */}
-          <div className="mb-16 md:mb-20">
+        {/* Content */}
+        <div className="relative mx-auto w-full max-w-7xl px-6 pb-20 pt-48 md:px-12" style={{ zIndex: 2 }}>
+
+          {/* Label + headline */}
+          <div className="mb-14">
             <p className="ob-kicker mb-5" data-gsap-reveal>Our Services</p>
-            <h2
-              className="ob-display text-white max-w-2xl"
-              data-gsap-words
-            >
+            <h2 className="ob-display text-white max-w-2xl" data-gsap-words>
               Come worship with us.
             </h2>
           </div>
 
-          {/* Service times */}
-          <div className="flex flex-col gap-6 sm:flex-row sm:gap-16" data-gsap-reveal>
-            <div className="flex items-center gap-4">
-              <Sun className="h-5 w-5 text-orange-400 shrink-0" strokeWidth={1.5} />
-              <div>
-                <p className="text-xs uppercase tracking-widest text-white/30 mb-0.5">Sunday Morning</p>
-                <p className="text-lg font-medium text-white">Passion Service <span className="text-white/40 font-light">9:00 AM</span></p>
+          {/* ── Flat service time rows ── */}
+          <div className="mb-12 border-t border-white/10" data-gsap-reveal>
+
+            {/* Sunday */}
+            <div className="flex items-center justify-between border-b border-white/10 py-7">
+              <div className="flex items-center gap-5">
+                <Sun className="h-5 w-5 shrink-0 text-orange-400" strokeWidth={1.5} />
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-white/30 mb-1">Sunday Morning</p>
+                  <p className="text-2xl font-semibold text-white md:text-3xl">Passion Service</p>
+                </div>
               </div>
+              <p className="text-4xl font-bold tracking-tighter text-orange-400 md:text-5xl lg:text-6xl">9:00 AM</p>
             </div>
-            <div className="flex items-center gap-4">
-              <Moon className="h-5 w-5 text-red-400 shrink-0" strokeWidth={1.5} />
-              <div>
-                <p className="text-xs uppercase tracking-widest text-white/30 mb-0.5">Wednesday Nights</p>
-                <p className="text-lg font-medium text-white">Hope Nights <span className="text-white/40 font-light">6:00 PM</span></p>
+
+            {/* Wednesday */}
+            <div className="flex items-center justify-between border-b border-white/10 py-7">
+              <div className="flex items-center gap-5">
+                <Moon className="h-5 w-5 shrink-0 text-red-400" strokeWidth={1.5} />
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-white/30 mb-1">Wednesday Nights</p>
+                  <p className="text-2xl font-semibold text-white md:text-3xl">Hope Nights</p>
+                </div>
               </div>
+              <p className="text-4xl font-bold tracking-tighter text-red-400 md:text-5xl lg:text-6xl">6:00 PM</p>
             </div>
           </div>
 
           {/* Address + CTA */}
           <div
-            className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+            className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"
             data-gsap-reveal
             data-gsap-delay="0.15"
           >
-            <div className="flex items-center gap-2 text-sm text-white/30">
-              <MapPin className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} />
+            <div className="flex items-center gap-2.5 text-base font-medium text-white/50">
+              <MapPin className="h-4 w-4 shrink-0 text-white/30" strokeWidth={1.5} />
               <span>{CHURCH_ADDRESS}</span>
             </div>
             <TransitionLink
               href="/services"
-              className="inline-flex items-center gap-2 self-start rounded-full border border-white/20 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10 sm:self-auto"
+              className="inline-flex items-center gap-2 self-start rounded-full bg-white px-7 py-3 text-sm font-semibold text-stone-900 transition-all hover:bg-stone-100 hover:scale-105 sm:self-auto"
             >
               Plan a Visit <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
             </TransitionLink>
@@ -202,35 +221,38 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════════════════
-          5. SERMONS — cinematic dark, blur reveal on text
+          5. SERMONS — floating thumbnail cards
+          ══════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════════
+          5. SERMONS — scattered floating cards + magnetic
           ══════════════════════════════════════════════════ */}
       <section
         id="home-sermons"
-        className="flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-24 md:px-12"
+        className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-24 md:px-12"
         style={{ background: '#f5f5f4' }}
       >
-        <div className="mx-auto w-full max-w-4xl text-center">
-          <p className="ob-kicker mb-8" data-gsap-reveal>Messages</p>
+        {/* Scattered magnetic cards — absolutely positioned around the text */}
+        <SermonFloatingCards sermons={sermons} />
 
-          {/* Blur reveal on the main heading */}
+        {/* Centre content */}
+        <div className="relative z-10 mx-auto w-full max-w-2xl text-center">
+          <p className="ob-kicker mb-8" data-gsap-reveal>Messages</p>
           <h2
-            className="text-6xl font-medium tracking-tighter text-stone-900 leading-tight md:text-8xl lg:text-9xl mb-10"
+            className="text-6xl font-medium tracking-tighter text-stone-900 leading-tight md:text-8xl lg:text-9xl mb-8"
             data-apple-blur
           >
             Listen To<br />Sermons
           </h2>
-
           <p className="ob-body mb-12 max-w-lg mx-auto" data-gsap-reveal data-gsap-delay="0.1">
             Join any of our live services or catch up with any of our previous sermons.
           </p>
-
           <div data-gsap-reveal data-gsap-delay="0.2">
             <TransitionLink
               href="/sermons"
               className="inline-flex items-center gap-3 rounded-full bg-stone-900 px-10 py-4 text-base font-medium text-white transition-all hover:bg-stone-700 hover:scale-105 hover:shadow-xl"
             >
               <PlayCircle className="h-5 w-5" strokeWidth={1.5} />
-              Join Us Live
+              All Sermons
             </TransitionLink>
           </div>
         </div>
