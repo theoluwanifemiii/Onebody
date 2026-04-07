@@ -9,7 +9,7 @@ export default function MarqueeStrip() {
         {Array.from({ length: ITEM_COUNT }).map((_, i) => (
           <span key={i} className="flex items-center gap-8">
             <span className="text-xl font-medium uppercase tracking-tight">Onebody Church</span>
-            <Asterisk className="h-6 w-6 text-red-500" />
+            <Asterisk className="h-6 w-6 text-brand-500" />
           </span>
         ))}
       </div>

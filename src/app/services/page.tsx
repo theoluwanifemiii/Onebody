@@ -63,13 +63,13 @@ export default function ServicesPage() {
               <p className="mt-6 text-5xl font-semibold text-white tracking-tighter">9:00 AM</p>
             </div>
             <div className="py-10 md:py-0 md:px-16 border-t border-white/10 md:border-t-0 md:border-r md:border-white/10">
-              <Moon className="h-7 w-7 text-red-400 mb-8" strokeWidth={1.5} />
+              <Moon className="h-7 w-7 text-brand-400 mb-8" strokeWidth={1.5} />
               <h2 className="text-3xl font-medium text-white tracking-tight">Hope Nights</h2>
               <p className="mt-2 ob-kicker-dim">Wednesday Evening</p>
               <p className="mt-6 text-5xl font-semibold text-white tracking-tighter">6:00 PM</p>
             </div>
             <div className="py-10 md:py-0 md:pl-16 border-t border-white/10 md:border-t-0">
-              <MapPin className="h-7 w-7 text-red-400 mb-8" strokeWidth={1.5} />
+              <MapPin className="h-7 w-7 text-brand-400 mb-8" strokeWidth={1.5} />
               <h2 className="text-3xl font-medium text-white tracking-tight">Address</h2>
               <p className="mt-2 ob-kicker-dim">Akoka Yaba, Lagos</p>
               <p className="mt-6 text-lg leading-relaxed text-white/60">
@@ -315,7 +315,7 @@ export default function ServicesPage() {
                 <details key={i} className="site-accordion-minimal">
                   <summary className="flex cursor-pointer items-center justify-between gap-4">
                     <span className="text-xl font-medium text-stone-900">{item.q}</span>
-                    <span className="site-accordion-icon text-2xl leading-none text-red-600 shrink-0">
+                    <span className="site-accordion-icon text-2xl leading-none text-brand-600 shrink-0">
                       +
                     </span>
                   </summary>

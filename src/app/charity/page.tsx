@@ -26,7 +26,7 @@ export default function CharityPage() {
           <div className="mt-12 flex flex-wrap items-center gap-5" data-gsap-hero-reveal data-gsap-delay="0.5">
             <a
               href="#donate"
-              className="inline-flex items-center gap-3 rounded-none bg-red-600 px-8 py-4 text-sm font-medium text-white tracking-widest uppercase transition-colors hover:bg-red-700"
+              className="inline-flex items-center gap-3 rounded-none bg-brand-600 px-8 py-4 text-sm font-medium text-white tracking-widest uppercase transition-colors hover:bg-brand-700"
             >
               Donate Now
             </a>
@@ -106,13 +106,13 @@ export default function CharityPage() {
           </p>
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-32">
             <div data-gsap-reveal>
-              <p className="ob-kicker mb-6 text-red-500">Our Vision</p>
+              <p className="ob-kicker mb-6 text-brand-500">Our Vision</p>
               <h3 className="text-3xl md:text-4xl font-medium text-white tracking-tight leading-tight">
                 To help teenagers and young adults unlock a prosperous future through education.
               </h3>
             </div>
             <div data-gsap-reveal>
-              <p className="ob-kicker mb-6 text-red-500">Our Mission</p>
+              <p className="ob-kicker mb-6 text-brand-500">Our Mission</p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-5 border-t border-white/10 pt-6">
                   <span className="ob-kicker-dim w-6 shrink-0 mt-0.5">01</span>
@@ -233,7 +233,7 @@ export default function CharityPage() {
               <strong className="font-semibold text-stone-900">1,000 school packs</strong> to teenagers
               who need them most.
             </p>
-            <div className="border-l-2 border-red-600 pl-6">
+            <div className="border-l-2 border-brand-600 pl-6">
               <p className="text-xl font-medium text-stone-900 leading-snug">
                 &ldquo;Education is the most powerful weapon which you can use to change the world.&rdquo;
               </p>
@@ -263,7 +263,7 @@ export default function CharityPage() {
                 href="https://paystack.shop/pay/onebodycharity"
                 target="_blank"
                 rel="noopener"
-                className="inline-flex items-center gap-3 rounded-none bg-red-600 px-8 py-4 text-sm font-medium text-white tracking-widest uppercase transition-colors hover:bg-red-700"
+                className="inline-flex items-center gap-3 rounded-none bg-brand-600 px-8 py-4 text-sm font-medium text-white tracking-widest uppercase transition-colors hover:bg-brand-700"
               >
                 Donate Now
               </a>
@@ -286,7 +286,7 @@ export default function CharityPage() {
             {/* Item 1 */}
             <div className="relative flex gap-8 py-10">
               <div className="shrink-0 w-8 flex justify-center pt-2 relative z-10">
-                <div className="w-3 h-3 rounded-full bg-red-600 ring-4 ring-red-600/20"></div>
+                <div className="w-3 h-3 rounded-full bg-brand-600 ring-4 ring-brand-600/20"></div>
               </div>
               <div className="flex-1">
                 <p className="ob-kicker-dim mb-2">1 Student</p>
@@ -298,7 +298,7 @@ export default function CharityPage() {
             {/* Item 2 */}
             <div className="relative flex gap-8 py-10 border-t border-white/10">
               <div className="shrink-0 w-8 flex justify-center pt-2 relative z-10">
-                <div className="w-3 h-3 rounded-full bg-red-600 ring-4 ring-red-600/20"></div>
+                <div className="w-3 h-3 rounded-full bg-brand-600 ring-4 ring-brand-600/20"></div>
               </div>
               <div className="flex-1">
                 <p className="ob-kicker-dim mb-2">10 Students</p>
@@ -310,7 +310,7 @@ export default function CharityPage() {
             {/* Item 3 */}
             <div className="relative flex gap-8 py-10 border-t border-white/10">
               <div className="shrink-0 w-8 flex justify-center pt-2 relative z-10">
-                <div className="w-3 h-3 rounded-full bg-red-600 ring-4 ring-red-600/20"></div>
+                <div className="w-3 h-3 rounded-full bg-brand-600 ring-4 ring-brand-600/20"></div>
               </div>
               <div className="flex-1">
                 <p className="ob-kicker-dim mb-2">100 Students</p>

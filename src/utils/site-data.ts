@@ -19,7 +19,7 @@ export const SERVICE_SCHEDULE = [
     name: 'Hope Nights',
     day: 'Wednesday Evening',
     time: '6:00 PM',
-    accentClass: 'text-red-500',
+    accentClass: 'text-brand-500',
     icon: 'moon'
   }
 ] as const;

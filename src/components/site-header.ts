@@ -72,7 +72,7 @@ class SiteHeader extends HTMLElement {
     const mobileLinksMarkup = NAV_LINKS.map((link) => {
       const linkClass =
         link.key === current
-          ? 'rounded-2xl bg-red-50 px-4 py-3 text-base font-medium text-stone-900'
+          ? 'rounded-2xl bg-brand-50 px-4 py-3 text-base font-medium text-stone-900'
           : 'rounded-2xl px-4 py-3 text-base text-stone-700 transition-colors hover:bg-stone-50 hover:text-stone-900';
       const ariaCurrent = link.key === current ? ' aria-current="page"' : '';
 
@@ -107,7 +107,7 @@ class SiteHeader extends HTMLElement {
           <div class="hidden items-center gap-3 md:flex">
             <a
               href="./giving.html"
-              class="rounded-full bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700"
+              class="rounded-full bg-brand-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-700"
             >
               Give
             </a>
@@ -143,7 +143,7 @@ class SiteHeader extends HTMLElement {
         >
           <div class="mb-5 flex items-center justify-between border-b border-stone-100 pb-4">
             <div>
-              <p class="text-xs font-medium uppercase tracking-[0.24em] text-red-600">Onebody Church</p>
+              <p class="text-xs font-medium uppercase tracking-[0.24em] text-brand-600">Onebody Church</p>
               <p class="mt-1 text-sm text-stone-500">Find your next step.</p>
             </div>
             <a
@@ -162,7 +162,7 @@ class SiteHeader extends HTMLElement {
           <div class="mt-6 grid grid-cols-2 gap-3 border-t border-stone-100 pt-5">
             <a
               href="./giving.html"
-              class="flex items-center justify-center gap-2 rounded-2xl bg-red-600 px-4 py-3 text-sm font-medium text-white"
+              class="flex items-center justify-center gap-2 rounded-2xl bg-brand-600 px-4 py-3 text-sm font-medium text-white"
               data-nav-close
             >
               <i data-lucide="heart" class="h-4 w-4" stroke-width="1.5"></i>

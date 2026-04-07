@@ -34,7 +34,7 @@ export default function SermonsPage() {
 
         <div className="relative z-10 mx-auto w-full max-w-7xl">
           <div className="flex items-center gap-3 mb-6" data-gsap-hero-reveal>
-            <div className="h-2 w-2 rounded-full bg-red-500 animate-pulse"></div>
+            <div className="h-2 w-2 rounded-full bg-brand-500 animate-pulse"></div>
             <p className="ob-kicker">Media &amp; Teaching</p>
           </div>
           <h1 className="ob-display text-white max-w-4xl" data-gsap-hero-words>
@@ -49,7 +49,7 @@ export default function SermonsPage() {
             <div className="flex flex-wrap gap-4" data-gsap-hero-reveal>
               <a
                 href="#featured-message"
-                className="inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 text-sm font-medium text-stone-900 transition-colors hover:bg-red-50"
+                className="inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 text-sm font-medium text-stone-900 transition-colors hover:bg-brand-50"
               >
                 Watch featured
                 <PlayCircle className="h-4 w-4" strokeWidth={1.5} />
@@ -82,8 +82,8 @@ export default function SermonsPage() {
             {/* YouTube Live */}
             <div className="border border-white/10 p-10 flex flex-col gap-8" data-gsap-reveal>
               <div className="flex items-center gap-4">
-                <div className="h-2 w-2 rounded-full bg-red-500 animate-pulse"></div>
-                <p className="ob-kicker text-red-500">Video — YouTube Live</p>
+                <div className="h-2 w-2 rounded-full bg-brand-500 animate-pulse"></div>
+                <p className="ob-kicker text-brand-500">Video — YouTube Live</p>
               </div>
               <div>
                 <h3 className="text-2xl font-medium text-white tracking-tight mb-3">Watch the live service</h3>
@@ -97,7 +97,7 @@ export default function SermonsPage() {
                   href="https://www.youtube.com/@onebodychurchng/live"
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-3 bg-red-600 px-7 py-4 text-sm font-medium text-white tracking-widest uppercase transition-colors hover:bg-red-700"
+                  className="inline-flex items-center gap-3 bg-brand-600 px-7 py-4 text-sm font-medium text-white tracking-widest uppercase transition-colors hover:bg-brand-700"
                 >
                   Watch Live
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
@@ -188,7 +188,7 @@ export default function SermonsPage() {
                 <p className="ob-kicker text-stone-400 mb-4">Next gathering</p>
                 <h3 className="text-2xl font-medium tracking-tight text-stone-900">Do not stay online only.</h3>
                 <p className="mt-3 text-base leading-relaxed text-stone-500">Let the sermon route people back toward Passion Service, Hope Nights, and real connection.</p>
-                <a href="/services#visit" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-red-600">
+                <a href="/services#visit" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-brand-600">
                   Plan your visit <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
                 </a>
               </div>
@@ -196,7 +196,7 @@ export default function SermonsPage() {
                 <p className="ob-kicker text-stone-400 mb-4">Need prayer?</p>
                 <h3 className="text-2xl font-medium tracking-tight text-stone-900">Follow up with the team.</h3>
                 <p className="mt-3 text-base leading-relaxed text-stone-500">If the message raises a burden or decision, reaching out should be as frictionless as pressing send.</p>
-                <a href="mailto:hello@onebodychurch.org?subject=Response%20to%20a%20message" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-red-600">
+                <a href="mailto:hello@onebodychurch.org?subject=Response%20to%20a%20message" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-brand-600">
                   Email the team <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
                 </a>
               </div>
@@ -264,7 +264,7 @@ export default function SermonsPage() {
               href="https://www.youtube.com/@onebodychurchng/streams"
               target="_blank"
               rel="noopener"
-              className="ob-kicker text-red-600 hover:text-red-700 transition-colors shrink-0"
+              className="ob-kicker text-brand-600 hover:text-brand-700 transition-colors shrink-0"
               data-gsap-reveal
             >
               All sermons on YouTube →
@@ -288,7 +288,7 @@ export default function SermonsPage() {
                     />
                   </div>
                   <p className="ob-kicker text-stone-400 mb-2">{sermon.series} · {sermon.date}</p>
-                  <h3 className="text-xl font-medium text-stone-900 tracking-tight group-hover:text-red-600 transition-colors">{sermon.title}</h3>
+                  <h3 className="text-xl font-medium text-stone-900 tracking-tight group-hover:text-brand-600 transition-colors">{sermon.title}</h3>
                   <p className="mt-1 text-sm text-stone-400">{sermon.speaker}</p>
                 </a>
               );
@@ -321,7 +321,7 @@ export default function SermonsPage() {
               <details className="site-accordion-minimal">
                 <summary className="flex cursor-pointer items-center justify-between gap-4">
                   <span className="text-xl font-medium text-stone-900">What truth about Jesus stood out most?</span>
-                  <span className="site-accordion-icon text-2xl leading-none text-red-600 shrink-0">+</span>
+                  <span className="site-accordion-icon text-2xl leading-none text-brand-600 shrink-0">+</span>
                 </summary>
                 <div className="accordion-body">
                   Summarize the central truth in one sentence and ask how it corrects, comforts, or redirects your heart.
@@ -330,7 +330,7 @@ export default function SermonsPage() {
               <details className="site-accordion-minimal">
                 <summary className="flex cursor-pointer items-center justify-between gap-4">
                   <span className="text-xl font-medium text-stone-900">What response does this message call for?</span>
-                  <span className="site-accordion-icon text-2xl leading-none text-red-600 shrink-0">+</span>
+                  <span className="site-accordion-icon text-2xl leading-none text-brand-600 shrink-0">+</span>
                 </summary>
                 <div className="accordion-body">
                   Turn the sermon into a specific step: repentance, renewed trust, generosity, witness, or a conversation you need to have.
@@ -339,7 +339,7 @@ export default function SermonsPage() {
               <details className="site-accordion-minimal">
                 <summary className="flex cursor-pointer items-center justify-between gap-4">
                   <span className="text-xl font-medium text-stone-900">Who should I share this with?</span>
-                  <span className="site-accordion-icon text-2xl leading-none text-red-600 shrink-0">+</span>
+                  <span className="site-accordion-icon text-2xl leading-none text-brand-600 shrink-0">+</span>
                 </summary>
                 <div className="accordion-body">
                   Think about one person who might need the encouragement, correction, or invitation the message contains.

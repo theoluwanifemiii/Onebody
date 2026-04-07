@@ -7,7 +7,7 @@ const POST_CONTENT: Record<string, PostContent> = {
   'god-is-calling-you': {
     intro:
       'An article adapted from a sermon by Pastor Taiwo Oyemade titled "God is Calling You (Part 2)" at Onebody Church, Yaba Lagos on Sunday, 17th March 2024.',
-    body: `<blockquote class="border-l-2 border-red-500 pl-6 my-8">
+    body: `<blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"So the Lord called a third time, and once more Samuel got up and went to Eli. 'Here I am. Did you call me?' Then Eli realized it was the Lord who was calling the boy. So he said to Samuel, 'Go and lie down again, and if someone calls again, say, "Speak, Lord, your servant is listening."' So Samuel went back to bed."</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">1 Samuel 3:8–9 NLT</cite>
             </blockquote>
@@ -34,7 +34,7 @@ const POST_CONTENT: Record<string, PostContent> = {
   'fruit-bearing-branches': {
     intro:
       'An article adapted from a sermon by Pastor Pelumi Ajayi titled "Fruit Bearing Branches (Part 1)" at Onebody Church, Yaba Lagos on Sunday, 24th March 2024.',
-    body: `<blockquote class="border-l-2 border-red-500 pl-6 my-8">
+    body: `<blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"I am the true grapevine, and my Father is the gardener. He cuts off every branch of mine that doesn't produce fruit, and he prunes the branches that do bear fruit so they will produce even more. You have already been pruned and purified by the message I have given you. Remain in me, and I will remain in you. For a branch cannot produce fruit if it is severed from the vine, and you cannot be fruitful unless you remain in me."</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">John 15:1–4 NLT</cite>
             </blockquote>
@@ -45,7 +45,7 @@ const POST_CONTENT: Record<string, PostContent> = {
 
             <p>The use of the term pruning carries strong implications. It straightaway entails discomfort and sacrifice. But it is essential for ensuring fruitfulness. This truth echoes throughout the scripture, portraying God as the faithful gardener who tends to his vineyard with care and wisdom. However, the response to this divine cultivation varies among individuals, leading to either acceptance or resistance. Furthermore, bearing fruit is contingent upon abiding in Christ, as shown in verse 4. This reciprocal relationship underscores the inseparable union between the believer and Christ, facilitated by the indwelling of the Word.</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"Yes, I am the vine; you are the branches. Those who remain in me, and I in them, will produce much fruit. For apart from me you can do nothing."</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">John 15:5 NLT</cite>
             </blockquote>
@@ -62,7 +62,7 @@ const POST_CONTENT: Record<string, PostContent> = {
 
             <p>Before we get any deeper into this discussion, what does the Bible say about love?</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"1 If I could speak all the languages of earth and of angels, but didn't love others, I would only be a noisy gong or a clanging cymbal. 2 If I had the gift of prophecy, and if I understood all of God's secret plans and possessed all knowledge, and if I had such faith that I could move mountains, but didn't love others, I would be nothing. 3 If I gave everything I have to the poor and even sacrificed my body, I could boast about it; but if I didn't love others, I would have gained nothing. 4 Love is patient and kind. Love is not jealous or boastful or proud 5 or rude. It does not demand its own way. It is not irritable, and it keeps no record of being wronged. 6 It does not rejoice about injustice but rejoices whenever the truth wins out. 7 Love never gives up, never loses faith, is always hopeful, and endures through every circumstance. 8 Prophecy and speaking in unknown languages and special knowledge will become useless. But love will last forever!"</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">1 Corinthians 13:1–8</cite>
             </blockquote>
@@ -75,20 +75,20 @@ const POST_CONTENT: Record<string, PostContent> = {
 
             <p>Jesus Christ loved differently; He sought to bring you and me into God's purpose by first appearing in the flesh and was offered up as a sacrifice so that we can become children of God. Jesus throughout His walk on earth, did only that which pleased the Father, even till the point of death. Let's have a look at this verse from the Bible, John 14:31, Jesus said:</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"…but I will do what the Father requires of me, so that the world will know that I love the Father. Come, let's be going."</p>
             </blockquote>
 
             <p>Jesus loved the Father by doing what the Father required of him. He loved us by paying the ultimate price of dying on the cross for us so that we too can boldly approach the Father. In loving God, what is required of us is strict obedience to what He requires us to do. Jesus said:</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"If you love me, obey my commandments."</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">John 14:15 NLT</cite>
             </blockquote>
 
             <p>Using Christ as a template, if we must love as He did, we need to lay aside our selfish interests, and put God first and the brethren next. Jesus Christ showed this path (Ephesians 5:2) when He laid down His life for our sake. He saw the joy before Him and endured the cross. This love does not seek its own, it seeks to satisfy the interest of others above personal desires and ambition. In the same manner, in which Christ showed his love towards us through the cross, we ought to love God's people in that way.</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"17 If someone has enough money to live well and sees a brother or sister in need but shows no compassion — how can God's love be in that person? 18 Dear children, let's not merely say that we love each other; let us show the truth by our actions. 19 Our actions will show that we belong to the truth, so we will be confident when we stand before God."</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">1 John 3:17–19</cite>
             </blockquote>
@@ -103,7 +103,7 @@ const POST_CONTENT: Record<string, PostContent> = {
       'An article adapted from a sermon by Pastor Taiwo Oyemade titled "God is Calling You (Part 3)" at Onebody Church, Yaba Lagos on Wednesday, 20th March 2024.',
     body: `<p>The scriptures reveal insights into the dynamics between human initiative and divine intervention through the journey of faith and obedience. In Luke 5:4-5, we see Jesus initiating a miraculous event, prompting Peter to cast his nets again after a fruitless night of fishing.</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"When he had finished speaking, he said to Simon, 'Now go out where it is deeper, and let down your nets to catch some fish.' 'Master,' Simon replied, 'we worked hard all last night and didn't catch a thing. But if you say so, I'll let the nets down again.'"</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">Luke 5:4–5 NLT</cite>
             </blockquote>
@@ -112,7 +112,7 @@ const POST_CONTENT: Record<string, PostContent> = {
 
             <p>This act of faith echoes Romans 10:17, affirming that hearing the word of God engenders faith. Similarly, in Matthew 14:28, we encounter another instance where faith is sparked by hearing the voice of Jesus.</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"Then Peter called to him, 'Lord, if it's really you, tell me to come to you, walking on the water.' 'Yes, come,' Jesus said. So Peter went over the side of the boat and walked on the water toward Jesus."</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">Matthew 14:28–29 NLT</cite>
             </blockquote>
@@ -141,7 +141,7 @@ const POST_CONTENT: Record<string, PostContent> = {
 
             <p>Jesus articulates the principle of mercy in one of these beatitudes, proclaiming:</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"Blessed are the merciful, for they will be shown mercy."</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">Matthew 5:7 NIV</cite>
             </blockquote>
@@ -150,14 +150,14 @@ const POST_CONTENT: Record<string, PostContent> = {
 
             <p>More relevant to our conversation about communication is a beatitude in Matthew 5:8:</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"Blessed are the pure in heart, for they will see God."</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">Matthew 5:8 NIV</cite>
             </blockquote>
 
             <p>The central focus of this proclamation is the condition of the heart. The heart, also known as the "cardia," serves here not merely as a blood-pumping organ but as the effective center of our being. The psalmist, in Psalm 24:3-4, delineates the conditions for dwelling in God's presence, emphasizing the necessity of purity and righteousness:</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"Who may ascend the mountain of the Lord? Who may stand in his holy place? The one who has clean hands and a pure heart, who does not trust in an idol or swear by a false god."</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">Psalms 24:3–4 NIV</cite>
             </blockquote>
@@ -176,7 +176,7 @@ const POST_CONTENT: Record<string, PostContent> = {
       'An article adapted from a sermon by Pastor Taiwo Oyemade titled "God is Calling You" at Onebody Church, Yaba Lagos on Wednesday, 13th March 2024.',
     body: `<p>In the spirit, transformation is not merely a superficial alteration of behavior or speech; it demands a profound change in the core of one's being. Romans 12:1-2 underscores the necessity of a spiritual metamorphosis, urging believers to renew their minds, aligning them with the divine will.</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"And so, dear brothers and sisters, I plead with you to give your bodies to God because of all he has done for you. Let them be a living and holy sacrifice — the kind he will find acceptable. This is truly the way to worship him. Don't copy the behavior and customs of this world, but let God transform you into a new person by changing the way you think. Then you will learn to know God's will for you, which is good and pleasing and perfect."</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">Romans 12:1–2 NLT</cite>
             </blockquote>
@@ -185,7 +185,7 @@ const POST_CONTENT: Record<string, PostContent> = {
 
             <p>Reflecting on 1 Samuel 3:1:</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"Meanwhile, the boy Samuel served the Lord by assisting Eli. Now in those days, messages from the Lord were very rare, and visions were quite uncommon."</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">1 Samuel 3:1 NLT</cite>
             </blockquote>
@@ -210,7 +210,7 @@ const POST_CONTENT: Record<string, PostContent> = {
 
             <p>Central to the discussion is the recognition of the incomparable value of God's voice. Matthew 4:4 records Jesus' words:</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"Man shall not live by bread alone, but by every word that comes from the mouth of God."</p>
             </blockquote>
 
@@ -222,7 +222,7 @@ const POST_CONTENT: Record<string, PostContent> = {
 
             <p>Moreover, Zechariah 4:6 reinforces the notion that hearing God is facilitated by His provision and empowerment. This verse assures believers that it is not by their own might but by the Spirit of God that they can stand and hear His voice. The scriptures also emphasise the urgency of heeding God's voice.</p>
 
-            <blockquote class="border-l-2 border-red-500 pl-6 my-8">
+            <blockquote class="border-l-2 border-brand-500 pl-6 my-8">
               <p class="text-stone-600 italic">"Long ago, at many times and in many ways, God spoke to our fathers by the prophets, but in these last days, he has spoken to us by his Son."</p>
               <cite class="block mt-3 text-sm text-stone-400 not-italic">Hebrews 1:1–2</cite>
             </blockquote>

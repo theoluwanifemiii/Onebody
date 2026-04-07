@@ -136,7 +136,7 @@ export default function ScadTimeline() {
                 style={{ left: `${(i / (STEPS.length - 1)) * 100}%` }}
               >
                 <div
-                  className="w-[1.1rem] h-[1.1rem] rounded-full border-2 border-red-600 bg-stone-950"
+                  className="w-[1.1rem] h-[1.1rem] rounded-full border-2 border-brand-600 bg-stone-950"
                   style={{ boxShadow: '0 0 0 4px rgba(220,38,38,0.12)' }}
                 />
               </div>

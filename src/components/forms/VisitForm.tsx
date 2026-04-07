@@ -106,7 +106,7 @@ export default function VisitForm() {
       </div>
       <button
         type="submit"
-        className="inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700"
+        className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-700"
       >
         Send via email <Send className="h-4 w-4" strokeWidth={1.5} />
       </button>

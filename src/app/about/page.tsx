@@ -162,7 +162,7 @@ export default function AboutPage() {
                 <details key={i} className="site-accordion-minimal">
                   <summary className="flex cursor-pointer items-center justify-between gap-4">
                     <span className="text-xl font-medium text-stone-900">{item.q}</span>
-                    <span className="site-accordion-icon text-2xl leading-none text-red-600 shrink-0">+</span>
+                    <span className="site-accordion-icon text-2xl leading-none text-brand-600 shrink-0">+</span>
                   </summary>
                   <div className="accordion-body">{item.a}</div>
                 </details>
@@ -205,17 +205,17 @@ export default function AboutPage() {
           <h2 className="ob-display text-white max-w-4xl mb-20" data-gsap-words>See the church, then come meet the church.</h2>
           <div className="grid grid-cols-1 gap-0 md:grid-cols-3" data-gsap-stagger>
             <a href="/services#visit" className="group py-10 md:py-0 md:pr-16 border-t border-white/10 md:border-t-0 md:border-r md:border-white/10">
-              <p className="ob-kicker-dim group-hover:text-red-500 transition-colors duration-200">Plan a Visit</p>
+              <p className="ob-kicker-dim group-hover:text-brand-500 transition-colors duration-200">Plan a Visit</p>
               <h3 className="mt-5 text-2xl font-medium text-white tracking-tight leading-snug">See service times, directions, and visit details.</h3>
               <span className="mt-6 inline-flex items-center gap-2 text-sm text-white/30 group-hover:text-white transition-colors duration-200">Visit →</span>
             </a>
             <a href="/sermons#featured-message" className="group py-10 md:py-0 md:px-16 border-t border-white/10 md:border-t-0 md:border-r md:border-white/10">
-              <p className="ob-kicker-dim group-hover:text-red-500 transition-colors duration-200">Watch a Message</p>
+              <p className="ob-kicker-dim group-hover:text-brand-500 transition-colors duration-200">Watch a Message</p>
               <h3 className="mt-5 text-2xl font-medium text-white tracking-tight leading-snug">Hear the teaching and keep engaging through the week.</h3>
               <span className="mt-6 inline-flex items-center gap-2 text-sm text-white/30 group-hover:text-white transition-colors duration-200">Watch →</span>
             </a>
             <a href="/academy#apply" className="group py-10 md:py-0 md:pl-16 border-t border-white/10 md:border-t-0">
-              <p className="ob-kicker-dim group-hover:text-red-500 transition-colors duration-200">Join LOVA</p>
+              <p className="ob-kicker-dim group-hover:text-brand-500 transition-colors duration-200">Join LOVA</p>
               <h3 className="mt-5 text-2xl font-medium text-white tracking-tight leading-snug">Step into a clearer discipleship pathway.</h3>
               <span className="mt-6 inline-flex items-center gap-2 text-sm text-white/30 group-hover:text-white transition-colors duration-200">Apply →</span>
             </a>

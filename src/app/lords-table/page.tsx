@@ -56,7 +56,7 @@ export default function LordsTablePage() {
                 This significant spiritual event has been oversimplified at precisely the moment the
                 church needs to find its center again.
               </p>
-              <p className="italic border-l-2 border-red-600 pl-5 text-stone-500">
+              <p className="italic border-l-2 border-brand-600 pl-5 text-stone-500">
                 &ldquo;By this shall all men know that ye are my disciples, when ye love one another.&rdquo;
                 <span className="not-italic block mt-1 text-sm text-stone-400">John 13:35</span>
               </p>
@@ -188,7 +188,7 @@ export default function LordsTablePage() {
                 because He clearly instituted it and clearly intends for it to be observed in
                 its fullness.
               </p>
-              <p className="italic border-l-2 border-red-600 pl-5 text-stone-500">
+              <p className="italic border-l-2 border-brand-600 pl-5 text-stone-500">
                 &ldquo;For I received from the Lord what I also passed on to you...&rdquo;
                 <span className="not-italic block mt-1 text-sm text-stone-400">1 Corinthians 11:23</span>
               </p>

@@ -12,7 +12,7 @@ class MarqueeStrip extends HTMLElement {
       .map(
         () => `
           <span class="text-xl font-medium uppercase tracking-tight">Onebody Church</span>
-          <i data-lucide="asterisk" class="h-6 w-6 text-red-500"></i>
+          <i data-lucide="asterisk" class="h-6 w-6 text-brand-500"></i>
         `
       )
       .join('');

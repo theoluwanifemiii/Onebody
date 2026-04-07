@@ -63,7 +63,7 @@ export default function BlogPage() {
                   <span className="text-stone-300">·</span>
                   <span className="text-xs text-stone-400 tracking-wide">{featuredPost.date}</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-medium leading-tight tracking-tighter text-stone-900 mb-6">
+                <h2 className="font-body text-4xl md:text-5xl font-bold leading-tight tracking-tighter text-stone-900 mb-6">
                   {featuredPost.title}
                 </h2>
                 <p className="ob-body mb-8">{featuredPost.excerpt}</p>
@@ -106,13 +106,13 @@ export default function BlogPage() {
                   <span className="text-stone-300 text-xs">·</span>
                   <span className="text-xs text-stone-400">{post.date}</span>
                 </div>
-                <h3 className="text-xl font-medium tracking-tight text-stone-900 mb-3 leading-snug group-hover:text-red-600 transition-colors">
+                <h3 className="text-xl font-medium tracking-tight text-stone-900 mb-3 leading-snug group-hover:text-brand-600 transition-colors">
                   {post.title}
                 </h3>
                 <p className="text-sm text-stone-500 leading-relaxed mb-5 flex-1">{post.excerpt}</p>
                 <a
                   href={`/posts/${getCleanSlug(post)}`}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-stone-900 hover:text-red-600 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-stone-900 hover:text-brand-600 transition-colors"
                 >
                   Read more{' '}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" /></svg>
@@ -143,12 +143,12 @@ export default function BlogPage() {
             <input
               type="email"
               placeholder="Your email address"
-              className="flex-1 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm text-white placeholder-white/40 outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/30 transition"
+              className="flex-1 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm text-white placeholder-white/40 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 transition"
               required
             />
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-red-700 shrink-0"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-700 shrink-0"
             >
               Subscribe
               <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>

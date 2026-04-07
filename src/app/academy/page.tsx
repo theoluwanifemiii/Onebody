@@ -185,23 +185,23 @@ export default function AcademyPage() {
             {/* Steps */}
             <div data-gsap-stagger>
               <div className="flex items-start gap-8 py-9 border-t border-stone-200 cursor-default group/step" data-pathway-step="0">
-                <span className="ob-kicker text-stone-300 w-16 shrink-0 mt-1 transition-colors duration-300 group-hover/step:text-red-600">Step 01</span>
+                <span className="ob-kicker text-stone-300 w-16 shrink-0 mt-1 transition-colors duration-300 group-hover/step:text-brand-600">Step 01</span>
                 <div>
-                  <h3 className="text-3xl font-medium text-stone-900 tracking-tight transition-colors duration-300 group-hover/step:text-red-600">Rooted in truth</h3>
+                  <h3 className="text-3xl font-medium text-stone-900 tracking-tight transition-colors duration-300 group-hover/step:text-brand-600">Rooted in truth</h3>
                   <p className="mt-3 ob-body max-w-xl">Start with Scripture, the gospel, and a deeper understanding of Christ and His church.</p>
                 </div>
               </div>
               <div className="flex items-start gap-8 py-9 border-t border-stone-200 cursor-default group/step" data-pathway-step="1">
-                <span className="ob-kicker text-stone-300 w-16 shrink-0 mt-1 transition-colors duration-300 group-hover/step:text-red-600">Step 02</span>
+                <span className="ob-kicker text-stone-300 w-16 shrink-0 mt-1 transition-colors duration-300 group-hover/step:text-brand-600">Step 02</span>
                 <div>
-                  <h3 className="text-3xl font-medium text-stone-900 tracking-tight transition-colors duration-300 group-hover/step:text-red-600">Formed in community</h3>
+                  <h3 className="text-3xl font-medium text-stone-900 tracking-tight transition-colors duration-300 group-hover/step:text-brand-600">Formed in community</h3>
                   <p className="mt-3 ob-body max-w-xl">Let doctrine shape habits, culture, relationships, worship, and the way you love the city.</p>
                 </div>
               </div>
               <div className="flex items-start gap-8 py-9 border-y border-stone-200 cursor-default group/step" data-pathway-step="2">
-                <span className="ob-kicker text-stone-300 w-16 shrink-0 mt-1 transition-colors duration-300 group-hover/step:text-red-600">Step 03</span>
+                <span className="ob-kicker text-stone-300 w-16 shrink-0 mt-1 transition-colors duration-300 group-hover/step:text-brand-600">Step 03</span>
                 <div>
-                  <h3 className="text-3xl font-medium text-stone-900 tracking-tight transition-colors duration-300 group-hover/step:text-red-600">Released into service</h3>
+                  <h3 className="text-3xl font-medium text-stone-900 tracking-tight transition-colors duration-300 group-hover/step:text-brand-600">Released into service</h3>
                   <p className="mt-3 ob-body max-w-xl">Finish with clearer conviction, stronger identity, and readiness for meaningful ministry engagement.</p>
                 </div>
               </div>
@@ -300,15 +300,15 @@ export default function AcademyPage() {
                 <p className="ob-kicker mb-6">What You Leave With</p>
                 <div className="space-y-5 text-base leading-relaxed text-stone-600 border-t border-stone-200 pt-6">
                   <p className="flex items-start gap-3">
-                    <span className="text-red-600 mt-0.5 shrink-0">—</span>
+                    <span className="text-brand-600 mt-0.5 shrink-0">—</span>
                     A deeper grasp of the gospel and God&apos;s vision for His church.
                   </p>
                   <p className="flex items-start gap-3">
-                    <span className="text-red-600 mt-0.5 shrink-0">—</span>
+                    <span className="text-brand-600 mt-0.5 shrink-0">—</span>
                     Clearer identity in Christ and stronger Kingdom-shaped habits.
                   </p>
                   <p className="flex items-start gap-3">
-                    <span className="text-red-600 mt-0.5 shrink-0">—</span>
+                    <span className="text-brand-600 mt-0.5 shrink-0">—</span>
                     Practical readiness for meaningful service in the local church and the city.
                   </p>
                 </div>
@@ -321,7 +321,7 @@ export default function AcademyPage() {
                 </p>
                 <a
                   href="mailto:hello@onebodychurch.org?subject=Supporting%20LOVA"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-red-600"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brand-600"
                 >
                   Ask how to give
                   <ArrowRight className="h-4 w-4" strokeWidth={1.5} />

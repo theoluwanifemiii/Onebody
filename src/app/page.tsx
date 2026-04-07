@@ -44,7 +44,7 @@ export default function HomePage() {
               Love is changing hearts,{' '}
               <span className="text-stone-400">lighting eyes,</span>{' '}
               moving hands and{' '}
-              <span className="font-serif italic text-red-600">leading feet.</span>
+              <span className="font-serif italic ob-gradient-text">leading feet.</span>
             </h1>
             <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-stone-500 md:text-xl">
               Onebody is a Jesus-centered church in Yaba where worship, teaching, discipleship, and service shape how we
@@ -133,7 +133,7 @@ export default function HomePage() {
               key={i}
               className="flex items-center gap-3 text-sm font-medium uppercase tracking-[0.2em] text-stone-400 shrink-0"
             >
-              <span className="h-1 w-1 rounded-full bg-red-500 shrink-0" />
+              <span className="h-1 w-1 rounded-full bg-brand-500 shrink-0" />
               {text}
             </span>
           ))}
@@ -189,13 +189,13 @@ export default function HomePage() {
             {/* Wednesday */}
             <div className="flex items-center justify-between border-b border-white/10 py-7">
               <div className="flex items-center gap-5">
-                <Moon className="h-5 w-5 shrink-0 text-red-400" strokeWidth={1.5} />
+                <Moon className="h-5 w-5 shrink-0 text-brand-400" strokeWidth={1.5} />
                 <div>
                   <p className="text-xs uppercase tracking-widest text-white/30 mb-1">Wednesday Nights</p>
                   <p className="text-2xl font-semibold text-white md:text-3xl">Hope Nights</p>
                 </div>
               </div>
-              <p className="text-4xl font-bold tracking-tighter text-red-400 md:text-5xl lg:text-6xl">6:00 PM</p>
+              <p className="text-4xl font-bold tracking-tighter text-brand-400 md:text-5xl lg:text-6xl">6:00 PM</p>
             </div>
           </div>
 
@@ -362,7 +362,7 @@ export default function HomePage() {
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div className="flex items-start gap-4">
-                    <Heart className="mt-0.5 h-4 w-4 shrink-0 text-red-500" strokeWidth={1.5} />
+                    <Heart className="mt-0.5 h-4 w-4 shrink-0 text-brand-500" strokeWidth={1.5} />
                     <p className="text-base font-medium leading-snug text-stone-800">{benefit}</p>
                   </div>
                 </div>

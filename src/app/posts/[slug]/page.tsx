@@ -84,7 +84,7 @@ export default async function PostPage({ params }: Props) {
           <div className="ob-divider mt-14 mb-10"></div>
           <a
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-medium text-stone-900 hover:text-red-600 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium text-stone-900 hover:text-brand-600 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" strokeWidth={1.5} /> Back to Blog
           </a>

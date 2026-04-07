@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onebody Church — Design System 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       DESIGN TOKENS — Single source of truth
+       All brand colours, type, spacing live here as CSS vars
+    ═══════════════════════════════════════════════════════ */
+    :root {
+      /* ── Brand Gradient ─────────────────────────────── */
+      --ob-magenta:        #FF33CC;
+      --ob-orange:         #FF6600;
+      --ob-gradient:       linear-gradient(90deg, #FF33CC 0%, #FF6600 100%);
+      --ob-gradient-135:   linear-gradient(135deg, #FF33CC 0%, #FF6600 100%);
+
+      /* ── Soft Pastels (flexible palette) ────────────── */
+      --ob-pastel-peach:   #FFE8D6;
+      --ob-pastel-pink:    #FFE0F0;
+      --ob-pastel-lavender:#F5E6FF;
+      --ob-pastel-cream:   #FFF8F2;
+      --ob-pastel-mint:    #E8F8F0;
+      --ob-pastel-sky:     #E6F2FF;
+      --ob-pastel-lemon:   #FFF9E0;
+
+      /* ── Neutrals ────────────────────────────────────── */
+      --ob-white:          #FFFFFF;
+      --ob-off-white:      #FAF9F7;
+      --ob-stone-50:       #F5F2EE;
+      --ob-stone-100:      #E8E5E0;
+      --ob-stone-300:      #C4BDB5;
+      --ob-stone-500:      #78716C;
+      --ob-stone-700:      #44403C;
+      --ob-stone-900:      #1C1917;
+      --ob-black:          #111111;
+
+      /* ── Semantic Colours ────────────────────────────── */
+      --ob-text-primary:   #1C1917;
+      --ob-text-secondary: #57534E;
+      --ob-text-muted:     #78716C;
+      --ob-text-light:     #F0EDE8;
+      --ob-bg-default:     #FAF9F7;
+      --ob-bg-white:       #FFFFFF;
+      --ob-bg-dark:        #111111;
+      --ob-surface:        #FFFFFF;
+      --ob-border:         #E7E5E4;
+      --ob-border-dark:    rgba(240,237,232,0.12);
+
+      /* ── Brand Accent Semantic (replaces the wrong red) ─ */
+      --ob-accent:         #FF33CC;
+      --ob-accent-alt:     #FF6600;
+      --ob-accent-glow:    rgba(255,51,204,0.18);
+      --ob-accent-glow-alt:rgba(255,102,0,0.18);
+
+      /* Type Scale */
+      --ob-text-xs:        0.7rem;      /* 11.2px — labels, kickers */
+      --ob-text-sm:        0.875rem;    /* 14px   — captions */
+      --ob-text-base:      1rem;        /* 16px   — body */
+      --ob-text-lg:        1.125rem;    /* 18px   — body large */
+      --ob-text-xl:        1.25rem;     /* 20px   */
+      --ob-text-2xl:       1.5rem;      /* 24px   */
+      --ob-text-3xl:       1.875rem;    /* 30px   */
+      --ob-text-4xl:       2.25rem;     /* 36px   */
+      --ob-text-5xl:       3rem;        /* 48px   */
+      --ob-text-display:   clamp(3rem, 7.5vw, 7.5rem); /* hero display */
+
+      /* Line Heights */
+      --ob-leading-tight:  0.95;
+      --ob-leading-snug:   1.2;
+      --ob-leading-normal: 1.5;
+      --ob-leading-relaxed:1.78;
+
+      /* Letter Spacing */
+      --ob-tracking-kicker:0.28em;
+      --ob-tracking-tight: -0.03em;
+
+      /* ── Spacing Scale (4px base) ────────────────────── */
+      --ob-space-1:  0.25rem;  /*  4px */
+      --ob-space-2:  0.5rem;   /*  8px */
+      --ob-space-3:  0.75rem;  /* 12px */
+      --ob-space-4:  1rem;     /* 16px */
+      --ob-space-5:  1.25rem;  /* 20px */
+      --ob-space-6:  1.5rem;   /* 24px */
+      --ob-space-8:  2rem;     /* 32px */
+      --ob-space-10: 2.5rem;   /* 40px */
+      --ob-space-12: 3rem;     /* 48px */
+      --ob-space-16: 4rem;     /* 64px */
+      --ob-space-20: 5rem;     /* 80px */
+      --ob-space-24: 6rem;     /* 96px */
+      --ob-space-32: 8rem;     /* 128px */
+
+      /* ── Border Radius ───────────────────────────────── */
+      --ob-radius-sm:   0.25rem;  /* 4px  — sharp */
+      --ob-radius-md:   0.5rem;   /* 8px  — subtle */
+      --ob-radius-lg:   1rem;     /* 16px — cards */
+      --ob-radius-xl:   1.5rem;   /* 24px — large cards */
+      --ob-radius-pill: 999px;    /* pill buttons */
+      --ob-radius-full: 50%;      /* circle */
+
+      /* ── Shadows / Elevation ─────────────────────────── */
+      --ob-shadow-xs:  0 1px 3px rgba(0,0,0,0.06);
+      --ob-shadow-sm:  0 2px 8px rgba(0,0,0,0.08);
+      --ob-shadow-md:  0 4px 16px rgba(0,0,0,0.10);
+      --ob-shadow-lg:  0 8px 32px rgba(0,0,0,0.12);
+      --ob-shadow-xl:  0 20px 48px rgba(0,0,0,0.14);
+      --ob-shadow-brand: 0 8px 32px rgba(255,51,204,0.22);
+
+      /* ── Motion ──────────────────────────────────────── */
+      --ob-ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+      --ob-ease-in:    cubic-bezier(0.64, 0, 0.78, 0);
+      --ob-ease-spring:cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ob-duration-fast:   120ms;
+      --ob-duration-base:   220ms;
+      --ob-duration-slow:   420ms;
+      --ob-duration-slower: 620ms;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       DESIGN SYSTEM PAGE SHELL
+    ═══════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--ob-font-body);
+      background: var(--ob-off-white);
+      color: var(--ob-text-primary);
+      font-size: var(--ob-text-base);
+      line-height: var(--ob-leading-normal);
+    }
+
+    /* Doc shell */
+    .ds-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ob-black);
+      padding: 0 2rem;
+      display: flex; align-items: center; gap: 2rem;
+      height: 52px;
+      overflow-x: auto;
+    }
+    .ds-nav-brand {
+      font-family: var(--ob-font-body);
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ob-text-light); white-space: nowrap;
+    }
+    .ds-nav a {
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(240,237,232,0.4); text-decoration: none;
+      white-space: nowrap; transition: color 180ms ease;
+    }
+    .ds-nav a:hover { color: var(--ob-text-light); }
+
+    .ds-main { max-width: 1280px; margin: 0 auto; padding: 0 2rem 8rem; }
+
+    /* Section headers */
+    .ds-section { margin-top: 5rem; }
+    .ds-section-header {
+      display: flex; align-items: center; gap: 1rem;
+      border-bottom: 1px solid var(--ob-border);
+      padding-bottom: 1rem; margin-bottom: 2.5rem;
+    }
+    .ds-section-tag {
+      font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      background: var(--ob-gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .ds-section-title {
+      font-family: var(--ob-font-heading);
+      font-size: 1.75rem; font-weight: 600;
+      color: var(--ob-text-primary);
+    }
+
+    /* Grid helpers */
+    .ds-grid { display: grid; gap: 1rem; }
+    .ds-grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .ds-grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .ds-grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .ds-grid-5 { grid-template-columns: repeat(5, 1fr); }
+    @media (max-width: 768px) {
+      .ds-grid-2, .ds-grid-3, .ds-grid-4, .ds-grid-5 { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Token cards */
+    .ds-token-card {
+      background: var(--ob-white); border: 1px solid var(--ob-border);
+      border-radius: var(--ob-radius-lg); overflow: hidden;
+    }
+    .ds-token-swatch {
+      height: 72px; width: 100%;
+    }
+    .ds-token-info { padding: 0.75rem; }
+    .ds-token-name { font-size: 0.75rem; font-weight: 600; color: var(--ob-text-primary); }
+    .ds-token-var  { font-size: 0.65rem; color: var(--ob-text-muted); font-family: monospace; margin-top: 2px; }
+    .ds-token-hex  { font-size: 0.65rem; color: var(--ob-text-muted); font-family: monospace; }
+
+    /* Alert / callout */
+    .ds-callout {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      padding: 1rem 1.25rem; border-radius: var(--ob-radius-md);
+      margin-bottom: 1.5rem; font-size: 0.875rem; line-height: 1.6;
+    }
+    .ds-callout-warn {
+      background: #FFF8E6; border: 1px solid #F5C842; color: #7A5A00;
+    }
+    .ds-callout-brand {
+      background: #FFF0FA; border: 1px solid rgba(255,51,204,0.25); color: var(--ob-text-primary);
+    }
+    .ds-callout-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* Delta badge */
+    .ds-delta {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+      padding: 0.2rem 0.6rem; border-radius: var(--ob-radius-pill);
+    }
+    .ds-delta-wrong { background: #FEE2E2; color: #991B1B; }
+    .ds-delta-right { background: #DCFCE7; color: #166534; }
+
+    /* Component preview card */
+    .ds-component {
+      background: var(--ob-white); border: 1px solid var(--ob-border);
+      border-radius: var(--ob-radius-xl);
+      overflow: hidden; margin-bottom: 1.5rem;
+    }
+    .ds-component-preview {
+      padding: 2.5rem 2rem; display: flex;
+      flex-wrap: wrap; gap: 1rem; align-items: center;
+    }
+    .ds-component-preview-dark {
+      background: var(--ob-black);
+    }
+    .ds-component-preview-stone {
+      background: var(--ob-off-white);
+    }
+    .ds-component-preview-pastel {
+      background: var(--ob-pastel-peach);
+    }
+    .ds-component-meta {
+      padding: 1.25rem 1.5rem; border-top: 1px solid var(--ob-border);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
+    }
+    .ds-component-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ob-text-muted); }
+    .ds-component-value { font-size: 0.8rem; color: var(--ob-text-primary); font-family: monospace; }
+
+    /* Code block */
+    .ds-code {
+      background: var(--ob-black); color: #E2E8F0;
+      border-radius: var(--ob-radius-md); padding: 1.25rem 1.5rem;
+      font-family: 'Courier New', monospace; font-size: 0.8rem;
+      line-height: 1.7; overflow-x: auto; margin-top: 0.75rem;
+    }
+    .ds-code .c-var  { color: #93C5FD; }
+    .ds-code .c-val  { color: #86EFAC; }
+    .ds-code .c-sel  { color: #FCA5A5; }
+    .ds-code .c-prop { color: #FCD34D; }
+    .ds-code .c-cmt  { color: #6B7280; }
+
+    /* ── Spacing preview ── */
+    .ds-space-row { display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--ob-border); }
+    .ds-space-bar { background: var(--ob-gradient); border-radius: 2px; height: 20px; flex-shrink: 0; }
+    .ds-space-label { font-size: 0.75rem; font-family: monospace; color: var(--ob-text-muted); min-width: 100px; }
+    .ds-space-val   { font-size: 0.75rem; font-family: monospace; color: var(--ob-text-primary); }
+
+    /* ── Typography specimens ── */
+    .ds-type-row {
+      padding: 1.25rem 0; border-bottom: 1px solid var(--ob-border);
+      display: grid; grid-template-columns: 200px 1fr; gap: 1rem; align-items: center;
+    }
+    .ds-type-meta { font-size: 0.7rem; color: var(--ob-text-muted); }
+    .ds-type-meta strong { display: block; color: var(--ob-text-primary); font-size: 0.75rem; margin-bottom: 2px; }
+
+    /* ── Gradient text helper ── */
+    .gradient-text {
+      background: var(--ob-gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ══════════════════════════════════════
+       ACTUAL COMPONENTS (as they should be)
+    ══════════════════════════════════════ */
+
+    /* Buttons */
+    .ob-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--ob-font-body); font-weight: 500;
+      font-size: 0.875rem; letter-spacing: 0.01em;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: all var(--ob-duration-base) var(--ob-ease-out);
+      white-space: nowrap;
+    }
+    .ob-btn-sm  { padding: 0.55rem 1.1rem; border-radius: var(--ob-radius-pill); font-size: 0.8rem; }
+    .ob-btn-md  { padding: 0.75rem 1.5rem; border-radius: var(--ob-radius-pill); }
+    .ob-btn-lg  { padding: 0.95rem 2rem;   border-radius: var(--ob-radius-pill); font-size: 1rem; }
+
+    /* Primary — gradient */
+    .ob-btn-primary {
+      background: var(--ob-gradient);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(255,51,204,0.25);
+    }
+    .ob-btn-primary:hover {
+      box-shadow: 0 6px 24px rgba(255,51,204,0.4);
+      transform: translateY(-1px);
+    }
+
+    /* Secondary — dark fill */
+    .ob-btn-secondary {
+      background: var(--ob-black);
+      color: #fff;
+    }
+    .ob-btn-secondary:hover { background: var(--ob-stone-700); }
+
+    /* Outline */
+    .ob-btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--ob-stone-300);
+      color: var(--ob-text-primary);
+    }
+    .ob-btn-outline:hover {
+      border-color: var(--ob-stone-700);
+      color: var(--ob-text-primary);
+    }
+
+    /* Ghost */
+    .ob-btn-ghost {
+      background: transparent;
+      color: var(--ob-text-primary);
+      padding-left: 0; padding-right: 0;
+    }
+    .ob-btn-ghost:hover { color: var(--ob-magenta); }
+
+    /* Give — small solid magenta */
+    .ob-btn-give {
+      background: var(--ob-magenta);
+      color: #fff;
+    }
+    .ob-btn-give:hover { background: #e020b8; }
+
+    /* Kicker / Label */
+    .ob-kicker {
+      display: inline-block;
+      font-family: var(--ob-font-body);
+      font-size: var(--ob-text-xs);
+      font-weight: 500;
+      letter-spacing: var(--ob-tracking-kicker);
+      text-transform: uppercase;
+      background: var(--ob-gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .ob-kicker-dim {
+      display: inline-block;
+      font-family: var(--ob-font-body);
+      font-size: var(--ob-text-xs);
+      font-weight: 500;
+      letter-spacing: var(--ob-tracking-kicker);
+      text-transform: uppercase;
+      color: rgba(240,237,232,0.4);
+    }
+
+    /* Logo badge */
+    .ob-logo-gradient {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 52px; height: 30px;
+      background: var(--ob-gradient);
+      border-radius: var(--ob-radius-pill);
+      font-family: var(--ob-font-body); font-size: 0.5rem;
+      font-weight: 700; letter-spacing: 0.1em; color: #fff;
+      text-transform: uppercase;
+    }
+
+    /* Accent line */
+    .ob-accent-line {
+      width: 3rem; height: 3px;
+      background: var(--ob-gradient);
+      border-radius: 2px;
+    }
+
+    /* Tag pill */
+    .ob-tag {
+      display: inline-flex; align-items: center;
+      padding: 0.3rem 0.8rem; border-radius: var(--ob-radius-pill);
+      font-size: 0.72rem; font-weight: 500;
+      border: 1px solid var(--ob-border);
+      background: var(--ob-white);
+      color: var(--ob-text-secondary);
+      transition: all var(--ob-duration-base) ease;
+    }
+    .ob-tag:hover { border-color: var(--ob-magenta); color: var(--ob-magenta); }
+    .ob-tag-active {
+      background: var(--ob-black); border-color: var(--ob-black); color: #fff;
+    }
+
+    /* Card */
+    .ob-card {
+      background: var(--ob-white); border: 1px solid var(--ob-border);
+      border-radius: var(--ob-radius-xl);
+      overflow: hidden; transition: box-shadow var(--ob-duration-base) ease;
+    }
+    .ob-card:hover { box-shadow: var(--ob-shadow-lg); }
+    .ob-card-image {
+      width: 100%; aspect-ratio: 16/9;
+      background: var(--ob-gradient); object-fit: cover;
+    }
+    .ob-card-body { padding: 1.25rem; }
+    .ob-card-title {
+      font-family: var(--ob-font-heading); font-size: 1.25rem;
+      font-weight: 600; color: var(--ob-text-primary); margin-bottom: 0.5rem;
+    }
+    .ob-card-body-text { font-size: 0.875rem; color: var(--ob-text-muted); line-height: 1.65; }
+
+    /* Service time display */
+    .ob-service-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 0; border-bottom: 1px solid var(--ob-border-dark);
+    }
+    .ob-service-name { font-size: 1.125rem; font-weight: 500; color: var(--ob-text-light); }
+    .ob-service-time {
+      font-family: var(--ob-font-heading); font-size: 1.75rem;
+      font-weight: 600;
+      background: var(--ob-gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Form elements */
+    .ob-field {
+      width: 100%;
+      border: 1.5px solid var(--ob-border);
+      border-radius: var(--ob-radius-lg);
+      background: var(--ob-white);
+      color: var(--ob-text-primary);
+      padding: 0.875rem 1rem;
+      font-family: var(--ob-font-body); font-size: 0.9rem;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+      outline: none;
+    }
+    .ob-field:focus {
+      border-color: var(--ob-magenta);
+      box-shadow: 0 0 0 4px rgba(255,51,204,0.10);
+    }
+    .ob-field::placeholder { color: var(--ob-stone-300); }
+
+    .ob-field-dark {
+      background: transparent; border: none;
+      border-bottom: 1px solid rgba(240,237,232,0.2);
+      border-radius: 0; color: var(--ob-text-light);
+      padding: 0.875rem 0; outline: none;
+      font-family: var(--ob-font-body); font-size: 0.9rem;
+      transition: border-color 180ms ease;
+    }
+    .ob-field-dark:focus { border-color: var(--ob-magenta); }
+    .ob-field-dark::placeholder { color: rgba(240,237,232,0.3); }
+
+    /* Accordion */
+    .ob-accordion {
+      border: 1px solid var(--ob-border); border-radius: var(--ob-radius-xl);
+      background: var(--ob-white);
+      transition: border-color 220ms ease, box-shadow 220ms ease;
+      margin-bottom: 0.5rem;
+    }
+    .ob-accordion[open] {
+      border-color: rgba(255,51,204,0.3);
+      box-shadow: 0 8px 24px rgba(255,51,204,0.08);
+    }
+    .ob-accordion summary {
+      list-style: none; padding: 1.25rem 1.5rem;
+      cursor: pointer; font-weight: 500; font-size: 0.95rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .ob-accordion summary::-webkit-details-marker { display: none; }
+    .ob-accordion-icon { transition: transform 180ms ease; font-size: 1.2rem; color: var(--ob-stone-300); }
+    .ob-accordion[open] .ob-accordion-icon { transform: rotate(45deg); color: var(--ob-magenta); }
+    .ob-accordion-body { padding: 0 1.5rem 1.25rem; color: var(--ob-text-muted); font-size: 0.9rem; line-height: 1.7; }
+
+    /* Value card (About page) */
+    .ob-value-card {
+      border: 1px solid var(--ob-border); border-radius: var(--ob-radius-xl);
+      background: var(--ob-white); padding: 1.5rem;
+      transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+    .ob-value-card:hover {
+      background: var(--ob-gradient);
+      border-color: transparent;
+      box-shadow: 0 20px 44px rgba(255,51,204,0.25);
+    }
+    .ob-value-card:hover .ob-value-title,
+    .ob-value-card:hover .ob-value-copy { color: #fff; }
+
+    .ob-value-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--ob-radius-full);
+      border: 1px solid var(--ob-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; margin-bottom: 1rem;
+      transition: border-color 220ms ease, background 220ms ease;
+    }
+    .ob-value-card:hover .ob-value-icon { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.15); }
+    .ob-value-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; transition: color 220ms ease; }
+    .ob-value-copy  { font-size: 0.85rem; color: var(--ob-text-muted); line-height: 1.6; transition: color 220ms ease; }
+
+    /* Marquee ticker */
+    .ob-ticker {
+      background: var(--ob-black); overflow: hidden;
+      padding: 0.9rem 0; display: flex; white-space: nowrap;
+    }
+    .ob-ticker-track {
+      display: flex; gap: 2rem; animation: marquee 25s linear infinite;
+    }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .ob-ticker-item {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(240,237,232,0.7);
+    }
+    .ob-ticker-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--ob-gradient); flex-shrink: 0;
+    }
+
+    /* Stat badge */
+    .ob-stat {
+      display: flex; flex-direction: column; gap: 0.25rem;
+    }
+    .ob-stat-number {
+      font-family: var(--ob-font-heading); font-size: 3.5rem;
+      font-weight: 600; line-height: 1; color: rgba(240,237,232,0.15);
+    }
+    .ob-stat-label {
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(240,237,232,0.4);
+    }
+
+    /* Hero heading */
+    .ob-hero-h1 {
+      font-family: var(--ob-font-heading);
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      font-weight: 600; line-height: 1.05;
+      color: var(--ob-text-primary);
+    }
+    .ob-hero-h1 em {
+      font-style: italic;
+      background: var(--ob-gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .ob-hero-h1 span.muted { color: var(--ob-stone-300); }
+
+    /* Section heading */
+    .ob-section-h {
+      font-family: var(--ob-font-heading);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 600; line-height: 1.1;
+    }
+
+    /* Body copy */
+    .ob-body { font-size: 1.1rem; line-height: 1.78; color: var(--ob-text-muted); }
+    .ob-body-dark { font-size: 1.1rem; line-height: 1.78; color: rgba(240,237,232,0.5); }
+
+    /* Dividers */
+    .ob-divider     { height: 1px; background: rgba(28,25,23,0.1); width: 100%; }
+    .ob-divider-dark{ height: 1px; background: rgba(240,237,232,0.1); width: 100%; }
+
+    /* Sermon card */
+    .ob-sermon-card {
+      border-radius: var(--ob-radius-lg); overflow: hidden;
+      background: var(--ob-white); border: 1px solid var(--ob-border);
+      transition: box-shadow var(--ob-duration-base) ease, transform var(--ob-duration-base) var(--ob-ease-out);
+    }
+    .ob-sermon-card:hover {
+      box-shadow: var(--ob-shadow-xl);
+      transform: translateY(-4px);
+    }
+    .ob-sermon-thumb {
+      width: 100%; aspect-ratio: 16/10;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .ob-sermon-thumb-text {
+      font-family: var(--ob-font-body); font-size: 1.25rem; font-weight: 800;
+      color: #fff; text-transform: uppercase; letter-spacing: 0.05em;
+      text-align: center; padding: 1rem;
+    }
+    .ob-sermon-thumb-logo {
+      position: absolute; bottom: 0.6rem; right: 0.8rem;
+      display: flex; align-items: center; gap: 0.35rem;
+    }
+    .ob-sermon-thumb-logo-dot {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.6);
+    }
+    .ob-sermon-info { padding: 1rem 1rem 1.25rem; }
+    .ob-sermon-series { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ob-magenta); margin-bottom: 0.35rem; }
+    .ob-sermon-title  { font-family: var(--ob-font-heading); font-size: 1.05rem; font-weight: 600; color: var(--ob-text-primary); }
+
+    /* Nav preview */
+    .ob-nav-preview {
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(250,249,247,0.88); backdrop-filter: blur(12px);
+      border-radius: var(--ob-radius-pill);
+      padding: 0.6rem 1.25rem 0.6rem 1rem;
+      border: 1px solid var(--ob-border);
+      box-shadow: var(--ob-shadow-sm);
+    }
+    .ob-nav-logo {
+      width: 36px; height: 21px;
+      background: var(--ob-gradient);
+      border-radius: var(--ob-radius-pill);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.4rem; font-weight: 700; color: #fff;
+      letter-spacing: 0.05em;
+    }
+    .ob-nav-links {
+      display: flex; gap: 1.5rem; list-style: none;
+      font-size: 0.85rem; font-weight: 450; color: var(--ob-text-secondary);
+    }
+    .ob-nav-actions { display: flex; gap: 0.5rem; align-items: center; }
+
+    /* Footer */
+    .ob-footer-preview {
+      background: var(--ob-off-white); border-top: 1px solid var(--ob-border);
+      padding: 2rem; border-radius: 0 0 var(--ob-radius-xl) var(--ob-radius-xl);
+    }
+
+    /* Do/Don't */
+    .ds-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    .ds-do, .ds-dont {
+      border-radius: var(--ob-radius-lg); overflow: hidden; border: 2px solid;
+    }
+    .ds-do   { border-color: #16A34A; }
+    .ds-dont { border-color: #DC2626; }
+    .ds-do-header, .ds-dont-header {
+      padding: 0.6rem 1rem; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .ds-do-header   { background: #DCFCE7; color: #15803D; }
+    .ds-dont-header { background: #FEE2E2; color: #991B1B; }
+    .ds-do-body, .ds-dont-body { padding: 1.25rem; background: var(--ob-white); }
+
+    /* Pastels showcase */
+    .ob-pastel-card {
+      border-radius: var(--ob-radius-lg); padding: 1.5rem 1rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+      font-size: 0.75rem;
+    }
+    .ob-pastel-name { font-weight: 600; font-size: 0.7rem; color: var(--ob-stone-700); }
+    .ob-pastel-hex  { font-family: monospace; color: var(--ob-stone-500); }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════ -->
+<nav class="ds-nav">
+  <span class="ds-nav-brand">Onebody DS 2025</span>
+  <a href="#tokens">Tokens</a>
+  <a href="#typography">Typography</a>
+  <a href="#logo">Logo</a>
+  <a href="#buttons">Buttons</a>
+  <a href="#labels">Labels</a>
+  <a href="#cards">Cards</a>
+  <a href="#forms">Forms</a>
+  <a href="#nav">Navigation</a>
+  <a href="#sections">Sections</a>
+  <a href="#delta">Fixes</a>
+  <a href="#css">CSS Vars</a>
+</nav>
+
+<main class="ds-main">
+
+  <!-- ─── HERO ─────────────────────────────── -->
+  <div style="padding: 4rem 0 2rem;">
+    <p style="font-size:0.65rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:0.75rem;" class="gradient-text">Onebody Church</p>
+    <h1 style="font-family:var(--ob-font-heading);font-size:clamp(2rem,5vw,4rem);font-weight:600;color:var(--ob-text-primary);line-height:1.1;margin-bottom:0.75rem;">
+      Design System <em style="font-style:italic;" class="gradient-text">2025</em>
+    </h1>
+    <p style="font-size:1rem;color:var(--ob-text-muted);max-width:560px;line-height:1.7;">
+      Built from the Onebody Church Brand Style Guide. This is the single source of truth for all visual decisions across the website — tokens, components, patterns, and copy conventions.
+    </p>
+    <div style="margin-top:1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
+      <span class="ds-delta ds-delta-wrong">⚠ Current: Inter + #dc2626 (red)</span>
+      <span class="ds-delta ds-delta-right">✓ Correct: Garamond + Montserrat + #FF33CC / #FF6600</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       1. DESIGN TOKENS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="tokens">
+    <div class="ds-section-header">
+      <span class="ds-section-tag">01</span>
+      <h2 class="ds-section-title">Design Tokens</h2>
+    </div>
+
+    <!-- Brand colours -->
+    <h3 style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--ob-text-muted);margin-bottom:1rem;">Brand Colours</h3>
+    <div class="ds-grid ds-grid-4" style="margin-bottom:2rem;">
+      <div class="ds-token-card">
+        <div class="ds-token-swatch" style="background:linear-gradient(135deg,#FF33CC,#FF6600);"></div>
+        <div class="ds-token-info">
+          <div class="ds-token-name">Brand Gradient</div>
+          <div class="ds-token-var">--ob-gradient</div>
+          <div class="ds-token-hex">#FF33CC → #FF6600</div>
+        </div>
+      </div>
+      <div class="ds-token-card">
+        <div class="ds-token-swatch" style="background:#FF33CC;"></div>
+        <div class="ds-token-info">
+          <div class="ds-token-name">Vivid Magenta</div>
+          <div class="ds-token-var">--ob-magenta</div>
+          <div class="ds-token-hex">#FF33CC</div>
+        </div>
+      </div>
+      <div class="ds-token-card">
+        <div class="ds-token-swatch" style="background:#FF6600;"></div>
+        <div class="ds-token-info">
+          <div class="ds-token-name">Orange</div>
+          <div class="ds-token-var">--ob-orange</div>
+          <div class="ds-token-hex">#FF6600</div>
+        </div>
+      </div>
+      <div class="ds-token-card">
+        <div class="ds-token-swatch" style="background:#dc2626;border: 3px dashed #991b1b;"></div>
+        <div class="ds-token-info">
+          <div class="ds-token-name" style="color:#991b1b;">❌ Red (wrong)</div>
+          <div class="ds-token-var" style="color:#b91c1c;">Current accent: #dc2626</div>
+          <div class="ds-token-hex" style="color:#b91c1c;">Replace with brand gradient</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soft Pastels -->
+    <h3 style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--ob-text-muted);margin-bottom:1rem;">Soft Pastels <span style="font-weight:400;text-transform:none;letter-spacing:0;">(flexible palette — use as backgrounds & accents)</span></h3>
+    <div class="ds-grid ds-grid-5" style="margin-bottom:2rem;">
+      <div class="ob-pastel-card" style="background:var(--ob-pastel-peach);">
+        <div class="ob-pastel-name">Peach</div>
+        <div class="ob-pastel-hex">--ob-pastel-peach<br>#FFE8D6</div>
+      </div>
+      <div class="ob-pastel-card" style="background:var(--ob-pastel-pink);">
+        <div class="ob-pastel-name">Blush</div>
+        <div class="ob-pastel-hex">--ob-pastel-pink<br>#FFE0F0</div>
+      </div>
+      <div class="ob-pastel-card" style="background:var(--ob-pastel-lavender);">
+        <div class="ob-pastel-name">Lavender</div>
+        <div class="ob-pastel-hex">--ob-pastel-lavender<br>#F5E6FF</div>
+      </div>
+      <div class="ob-pastel-card" style="background:var(--ob-pastel-mint);">
+        <div class="ob-pastel-name">Mint</div>
+        <div class="ob-pastel-hex">--ob-pastel-mint<br>#E8F8F0</div>
+      </div>
+      <div class="ob-pastel-card" style="background:var(--ob-pastel-lemon);">
+        <div class="ob-pastel-name">Lemon</div>
+        <div class="ob-pastel-hex">--ob-pastel-lemon<br>#FFF9E0</div>
+      </div>
+    </div>
+
+    <!-- Neutrals -->
+    <h3 style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--ob-text-muted);margin-bottom:1rem;">Neutrals</h3>
+    <div class="ds-grid ds-grid-5" style="margin-bottom:2rem;">
+      <div class="ds-token-card"><div class="ds-token-swatch" style="background:#FFFFFF;border-bottom:1px solid #eee;"></div><div class="ds-token-info"><div class="ds-token-name">White</div><div class="ds-token-var">--ob-white</div><div class="ds-token-hex">#FFFFFF</div></div></div>
+      <div class="ds-token-card"><div class="ds-token-swatch" style="background:#FAF9F7;"></div><div class="ds-token-info"><div class="ds-token-name">Off White</div><div class="ds-token-var">--ob-off-white</div><div class="ds-token-hex">#FAF9F7</div></div></div>
+      <div class="ds-token-card"><div class="ds-token-swatch" style="background:#78716C;"></div><div class="ds-token-info"><div class="ds-token-name">Stone 500</div><div class="ds-token-var">--ob-stone-500</div><div class="ds-token-hex">#78716C</div></div></div>
+      <div class="ds-token-card"><div class="ds-token-swatch" style="background:#1C1917;"></div><div class="ds-token-info"><div class="ds-token-name">Stone 900</div><div class="ds-token-var">--ob-stone-900</div><div class="ds-token-hex">#1C1917</div></div></div>
+      <div class="ds-token-card"><div class="ds-token-swatch" style="background:#111111;"></div><div class="ds-token-info"><div class="ds-token-name">Black</div><div class="ds-token-var">--ob-black</div><div class="ds-token-hex">#111111</div></div></div>
+    </div>
+
+    <!-- Spacing -->
+    <h3 style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--ob-text-muted);margin-bottom:1rem;">Spacing Scale</h3>
+    <div style="background:var(--ob-white);border:1px solid var(--ob-border);border-radius:var(--ob-radius-lg);padding:1.5rem;margin-bottom:2rem;">
+      <div class="ds-space-row"><span class="ds-space-label">--ob-space-1</span><div class="ds-space-bar" style="width:4px;"></div><span class="ds-space-val">4px / 0.25rem</span></div>
+      <div class="ds-space-row"><span class="ds-space-label">--ob-space-2</span><div class="ds-space-bar" style="width:8px;"></div><span class="ds-space-val">8px / 0.5rem</span></div>
+      <div class="ds-space-row"><span class="ds-space-label">--ob-space-4</span><div class="ds-space-bar" style="width:16px;"></div><span class="ds-space-val">16px / 1rem</span></div>
+      <div class="ds-space-row"><span class="ds-space-label">--ob-space-6</span><div class="ds-space-bar" style="width:24px;"></div><span class="ds-space-val">24px / 1.5rem</span></div>
+      <div class="ds-space-row"><span class="ds-space-label">--ob-space-8</span><div class="ds-space-bar" style="width:32px;"></div><span class="ds-space-val">32px / 2rem</span></div>
+      <div class="ds-space-row"><span class="ds-space-label">--ob-space-12</span><div class="ds-space-bar" style="width:48px;"></div><span class="ds-space-val">48px / 3rem</span></div>
+      <div class="ds-space-row"><span class="ds-space-label">--ob-space-16</span><div class="ds-space-bar" style="width:64px;"></div><span class="ds-space-val">64px / 4rem</span></div>
+      <div class="ds-space-row"><span class="ds-space-label">--ob-space-24</span><div class="ds-space-bar" style="width:96px;"></div><span class="ds-space-val">96px / 6rem</span></div>
+      <div class="ds-space-row" style="border:none;"><span class="ds-space-label">--ob-space-32</span><div class="ds-space-bar" style="width:128px;"></div><span class="ds-space-val">128px / 8rem</span></div>
+    </div>
+
+    <!-- Border radius -->
+    <h3 style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--ob-text-muted);margin-bottom:1rem;">Border Radius</h3>
+    <div class="ds-grid ds-grid-5" style="margin-bottom:2rem;">
+      <div style="text-align:center;padding:1rem;background:var(--ob-white);border:1px solid var(--ob-border);border-radius:var(--ob-radius-lg);">
+        <div style="width:56px;height:36px;background:var(--ob-gradient);border-radius:4px;margin:0 auto 0.6rem;"></div>
+        <div style="font-size:0.7rem;font-weight:600;">Sharp</div>
+        <div style="font-family:monospace;font-size:0.65rem;color:var(--ob-text-muted);">--ob-radius-sm / 4px</div>
+      </div>
+      <div style="text-align:center;padding:1rem;background:var(--ob-white);border:1px solid var(--ob-border);border-radius:var(--ob-radius-lg);">
+        <div style="width:56px;height:36px;background:var(--ob-gradient);border-radius:8px;margin:0 auto 0.6rem;"></div>
+        <div style="font-size:0.7rem;font-weight:600;">Subtle</div>
+        <div style="font-family:monospace;font-size:0.65rem;color:var(--ob-text-muted);">--ob-radius-md / 8px</div>
+      </div>
+      <div style="text-align:center;padding:1rem;background:var(--ob-white);border:1px solid var(--ob-border);border-radius:var(--ob-radius-lg);">
+        <div style="width:56px;height:36px;background:var(--ob-gradient);border-radius:16px;margin:0 auto 0.6rem;"></div>
+        <div style="font-size:0.7rem;font-weight:600;">Card</div>
+        <div style="font-family:monospace;font-size:0.65rem;color:var(--ob-text-muted);">--ob-radius-lg / 16px</div>
+      </div>
+      <div style="text-align:center;padding:1rem;background:var(--ob-white);border:1px solid var(--ob-border);border-radius:var(--ob-radius-lg);">
+        <div style="width:56px;height:36px;background:var(--ob-gradient);border-radius:999px;margin:0 auto 0.6rem;"></div>
+        <div style="font-size:0.7rem;font-weight:600;">Pill</div>
+        <div style="font-family:monospace;font-size:0.65rem;color:var(--ob-text-muted);">--ob-radius-pill / 999px</div>
+      </div>
+      <div style="text-align:center;padding:1rem;background:var(--ob-white);border:1px solid var(--ob-border);border-radius:var(--ob-radius-lg);">
+        <div style="width:36px;height:36px;background:var(--ob-gradient);border-radius:50%;margin:0 auto 0.6rem;"></div>
+        <div style="font-size:0.7rem;font-weight:600;">Circle</div>
+        <div style="font-family:monospace;font-size:0.65rem;color:var(--ob-text-muted);">--ob-radius-full / 50%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       2. TYPOGRAPHY
+  ═══════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="typography">
+    <div class="ds-section-header">
+      <span class="ds-section-tag">02</span>
+      <h2 class="ds-section-title">Typography</h2>
+    </div>
+
+    <div class="ds-callout ds-callout-warn">
+      <span class="ds-callout-icon">⚠️</span>
+      <div><strong>Current site is using Inter — this is wrong.</strong> The brand guide specifies <strong>EB Garamond</strong> for headings (H1) and <strong>Montserrat</strong> for subheadings and body. Both must be loaded from Google Fonts.</div>
+    </div>
+
+    <div style="background:var(--ob-white);border:1px solid var(--ob-border);border-radius:var(--ob-radius-xl);padding:2rem;margin-bottom:1.5rem;">
+      <!-- H1 Garamond -->
+      <div class="ds-type-row">
+        <div class="ds-type-meta">
+          <strong>Display / H1</strong>
+          EB Garamond · Bold<br>clamp(3rem, 7.5vw, 7.5rem)<br>Leading 0.95 · Track −0.03em
+        </div>
+        <div style="font-family:var(--ob-font-heading);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:600;line-height:0.95;letter-spacing:-0.03em;color:var(--ob-text-primary);">Love, Heart,<br>Eyes &amp; Feet</div>
+      </div>
+
+      <!-- H1 italic -->
+      <div class="ds-type-row">
+        <div class="ds-type-meta">
+          <strong>H1 Italic Accent</strong>
+          EB Garamond · Italic<br>Used for emphasis words<br>Color: brand gradient
+        </div>
+        <div style="font-family:var(--ob-font-heading);font-size:clamp(2rem,4vw,3.5rem);font-weight:600;line-height:1.05;">
+          Love is changing hearts, <span style="font-style:italic;" class="gradient-text">leading feet.</span>
+        </div>
+      </div>
+
+      <!-- H2 Montserrat -->
+      <div class="ds-type-row">
+        <div class="ds-type-meta">
+          <strong>H2 / Section</strong>
+          Montserrat · SemiBold<br>clamp(1.875rem, 4vw, 3rem)<br>Leading 1.2
+        </div>
+        <div style="font-family:var(--ob-font-body);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:600;line-height:1.2;color:var(--ob-text-primary);">Listen To Sermons</div>
+      </div>
+
+      <!-- H3 -->
+      <div class="ds-type-row">
+        <div class="ds-type-meta">
+          <strong>H3</strong>
+          Montserrat · SemiBold<br>1.25rem<br>Leading 1.3
+        </div>
+        <div style="font-family:var(--ob-font-body);font-size:1.25rem;font-weight:600;line-height:1.3;color:var(--ob-text-primary);">Passion Service</div>
+      </div>
+
+      <!-- Body Large -->
+      <div class="ds-type-row">
+        <div class="ds-type-meta">
+          <strong>Body Large</strong>
+          Montserrat · Regular<br>1.125rem · Leading 1.78<br>Color: --ob-text-muted
+        </div>
+        <div class="ob-body">Onebody is a Jesus-centered church in Yaba where worship, teaching, discipleship, and service shape how we gather and how we love our city.</div>
+      </div>
+
+      <!-- Body -->
+      <div class="ds-type-row">
+        <div class="ds-type-meta">
+          <strong>Body</strong>
+          Montserrat · Regular<br>1rem · Leading 1.65
+        </div>
+        <div style="font-family:var(--ob-font-body);font-size:1rem;line-height:1.65;color:var(--ob-text-muted);">In our community, the message of and about the teachings of Jesus Christ takes center stage. Here, Jesus is our conversation, culture, aspiration, and our everything.</div>
+      </div>
+
+      <!-- Kicker -->
+      <div class="ds-type-row">
+        <div class="ds-type-meta">
+          <strong>Kicker / Label</strong>
+          Montserrat · Medium<br>0.7rem · Track 0.28em<br>Brand gradient
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <span class="ob-kicker">About Onebody</span>
+          <span class="ob-kicker">Messages</span>
+          <span class="ob-kicker-dim" style="background:var(--ob-stone-900);padding:4px 8px;border-radius:4px;">Partnership (on dark)</span>
+        </div>
+      </div>
+
+      <!-- Caption -->
+      <div class="ds-type-row" style="border:none;">
+        <div class="ds-type-meta">
+          <strong>Caption</strong>
+          Montserrat · Regular<br>0.75rem · Leading 1.5
+        </div>
+        <div style="font-family:var(--ob-font-body);font-size:0.75rem;line-height:1.5;color:var(--ob-text-muted);">Sunday Morning · 9:00 AM | Wednesday Evening · 6:00 PM</div>
+      </div>
+    </div>
+
+    <!-- CSS to paste -->
+    <div class="ds-code"><span class="c-cmt">/* globals.css — Typography fix */</span>
+<span class="c-sel">@import url</span>(<span class="c-val">'https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap'</span>);
+
+<span class="c-sel">body</span> {
+  <span class="c-prop">font-family</span>: <span class="c-val">var(--ob-font-body)</span>; <span class="c-cmt">/* was: 'Inter' */</span>
+}
+
+<span class="c-sel">h1, .ob-display, .ob-hero-h1</span> {
+  <span class="c-prop">font-family</span>: <span class="c-val">var(--ob-font-heading)</span>; <span class="c-cmt">/* EB Garamond */</span>
+}</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       3. LOGO SYSTEM
+  ═══════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="logo">
+    <div class="ds-section-header">
+      <span class="ds-section-tag">03</span>
+      <h2 class="ds-section-title">Logo System</h2>
+    </div>
+
+    <div class="ds-compare">
+      <div class="ds-do">
+        <div class="ds-do-header">✓ Correct Usage</div>
+        <div class="ds-do-body">
+          <p style="font-size:0.8rem;color:var(--ob-text-muted);margin-bottom:1rem;">On light backgrounds — use full gradient version</p>
+          <div style="background:var(--ob-off-white);padding:1.5rem;border-radius:8px;display:flex;align-items:center;gap:0.75rem;">
+            <div style="width:48px;height:28px;background:var(--ob-gradient);border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:0.42rem;font-weight:800;color:#fff;letter-spacing:0.05em;">⬤ ONEBODY</div>
+            <span style="font-family:var(--ob-font-heading);font-size:0.9rem;font-style:italic;font-weight:600;color:var(--ob-text-primary);">Church</span>
+          </div>
+          <p style="font-size:0.8rem;color:var(--ob-text-muted);margin-top:1rem;margin-bottom:0.75rem;">On dark backgrounds — use white reversed version</p>
+          <div style="background:var(--ob-black);padding:1.5rem;border-radius:8px;display:flex;align-items:center;gap:0.75rem;">
+            <div style="width:48px;height:28px;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.3);border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:0.42rem;font-weight:800;color:#fff;letter-spacing:0.05em;">⬤ ONEBODY</div>
+            <span style="font-family:var(--ob-font-heading);font-size:0.9rem;font-style:italic;font-weight:600;color:#fff;">Church</span>
+          </div>
+        </div>
+      </div>
+      <div class="ds-dont">
+        <div class="ds-dont-header">✗ Wrong Usage</div>
+        <div class="ds-dont-body">
+          <p style="font-size:0.8rem;color:var(--ob-text-muted);margin-bottom:1rem;">Currently on the website — monochrome on light bg, no "Church" wordmark</p>
+          <div style="background:var(--ob-off-white);padding:1.5rem;border-radius:8px;display:flex;align-items:center;gap:0.75rem;">
+            <div style="width:48px;height:28px;background:#1c1917;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:0.42rem;font-weight:800;color:#fff;letter-spacing:0.05em;">⬤ ONEBODY</div>
+            <span style="font-size:0.7rem;color:var(--ob-stone-500);">← no gradient, no "Church"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-callout ds-callout-brand">
+      <span class="ds-callout-icon">💡</span>
+      <div>The <strong>"Church"</strong> wordmark (italic script) must appear below the icon on all primary placements (website header, footer, OG images). The icon-only variant is only for platforms where the audience is already familiar — e.g. YouTube avatar.</div>
+    </div>
+
+    <!-- Logo rules -->
+    <div style="background:var(--ob-white);border:1px solid var(--ob-border);border-radius:var(--ob-radius-xl);padding:1.5rem;">
+      <h4 style="font-size:0.8rem;font-weight:700;margin-bottom:1rem;color:var(--ob-text-primary);">Logo Rules</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;font-size:0.82rem;line-height:1.6;color:var(--ob-text-muted);">
+        <div>
+          <p style="color:#16a34a;font-weight:600;margin-bottom:0.4rem;">✓ Do</p>
+          <ul style="list-style:disc;padding-left:1rem;">
+            <li>Use gradient version on light backgrounds</li>
+            <li>Use white version on dark photos / dark sections</li>
+            <li>Maintain clear space equal to the logo height on all sides</li>
+            <li>Include "Church" wordmark in primary usage</li>
+          </ul>
+        </div>
+        <div>
+          <p style="color:#dc2626;font-weight:600;margin-bottom:0.4rem;">✗ Don't</p>
+          <ul style="list-style:disc;padding-left:1rem;">
+            <li>Stretch, rotate, skew, or distort the logo</li>
+            <li>Use on busy / multicolour backgrounds</li>
+            <li>Use monochrome version on white / off-white backgrounds</li>
+            <li>Add words or extra design elements alongside the logo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       4. BUTTONS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="buttons">
+    <div class="ds-section-header">
+      <span class="ds-section-tag">04</span>
+      <h2 class="ds-section-title">Buttons</h2>
+    </div>
+
+    <!-- Variants preview -->
+    <div class="ds-component">
+      <div class="ds-component-preview ds-component-preview-stone">
+        <button class="ob-btn ob-btn-primary ob-btn-lg">Watch a Message →</button>
+        <button class="ob-btn ob-btn-secondary ob-btn-lg">Worship with us →</button>
+        <button class="ob-btn ob-btn-outline ob-btn-lg">Read more →</button>
+        <button class="ob-btn ob-btn-give ob-btn-md">Give</button>
+      </div>
+      <div class="ds-component-meta">
+        <span class="ds-component-label">Primary</span><span class="ds-component-value">background: var(--ob-gradient) | Used for main CTA</span>
+        <span class="ds-component-label">Secondary</span><span class="ds-component-value">background: var(--ob-black) | Paired with primary</span>
+        <span class="ds-component-label">Outline</span><span class="ds-component-value">border: --ob-stone-300 | Tertiary actions</span>
+        <span class="ds-component-label">Give</span><span class="ds-component-value">background: var(--ob-magenta) | Nav give button</span>
+      </div>
+    </div>
+
+    <!-- Sizes -->
+    <div class="ds-component">
+      <div class="ds-component-preview">
+        <button class="ob-btn ob-btn-primary ob-btn-sm">Small</button>
+        <button class="ob-btn ob-btn-primary ob-btn-md">Medium</button>
+        <button class="ob-btn ob-btn-primary ob-btn-lg">Large</button>
+      </div>
+      <div class="ds-component-meta">
+        <span class="ds-component-label">sm</span><span class="ds-component-value">padding: 0.55rem 1.1rem | font-size: 0.8rem</span>
+        <span class="ds-component-label">md</span><span class="ds-component-value">padding: 0.75rem 1.5rem | font-size: 0.875rem</span>
+        <span class="ds-component-label">lg</span><span class="ds-component-value">padding: 0.95rem 2rem | font-size: 1rem</span>
+      </div>
+    </div>
+
+    <div class="ds-code"><span class="c-cmt">/* Primary Button — replaces the current black button */</span>
+<span class="c-sel">.ob-btn-primary</span> {
+  <span class="c-prop">background</span>: <span class="c-val">linear-gradient(90deg, #FF33CC 0%, #FF6600 100%)</span>;
+  <span class="c-prop">color</span>: <span class="c-val">#fff</span>;
+  <span class="c-prop">box-shadow</span>: <span class="c-val">0 4px 16px rgba(255, 51, 204, 0.25)</span>;
+}
+<span class="c-cmt">/* Give button — replaces the wrong red #dc2626 */</span>
+<span class="c-sel">.ob-btn-give</span> {
+  <span class="c-prop">background</span>: <span class="c-val">#FF33CC</span>; <span class="c-cmt">/* was: #dc2626 */</span>
+  <span class="c-prop">color</span>: <span class="c-val">#fff</span>;
+}</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       5. LABELS & KICKERS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="labels">
+    <div class="ds-section-header">
+      <span class="ds-section-tag">05</span>
+      <h2 class="ds-section-title">Labels, Kickers & Tags</h2>
+    </div>
+
+    <div class="ds-component">
+      <div class="ds-component-preview" style="flex-direction:column;align-items:flex-start;gap:1.5rem;">
+        <div>
+          <p style="font-size:0.7rem;color:var(--ob-text-muted);margin-bottom:0.5rem;">Section kicker (light background)</p>
+          <span class="ob-kicker">About Onebody</span>
+        </div>
+        <div style="background:var(--ob-black);padding:1rem;border-radius:8px;width:100%;">
+          <p style="font-size:0.7rem;color:rgba(240,237,232,0.4);margin-bottom:0.5rem;">Section kicker (dark background)</p>
+          <span class="ob-kicker-dim">Partnership</span>
+        </div>
+        <div>
+          <p style="font-size:0.7rem;color:var(--ob-text-muted);margin-bottom:0.5rem;">Filter tags</p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <span class="ob-tag ob-tag-active">All</span>
+            <span class="ob-tag">Sermons</span>
+            <span class="ob-tag">Events</span>
+            <span class="ob-tag">Devotionals</span>
+          </div>
+        </div>
+      </div>
+      <div class="ds-component-meta">
+        <span class="ds-component-label">Kicker colour</span><span class="ds-component-value">brand gradient (was: #dc2626 red)</span>
+        <span class="ds-component-label">Font</span><span class="ds-component-value">Montserrat · 500 · 0.7rem · 0.28em tracking</span>
+        <span class="ds-component-label">Active tag</span><span class="ds-component-value">background: var(--ob-black)</span>
+        <span class="ds-component-label">Tag hover</span><span class="ds-component-value">border-color + color: var(--ob-magenta)</span>
+      </div>
+    </div>
+
+    <div class="ds-code"><span class="c-sel">.ob-kicker</span> {
+  <span class="c-prop">background</span>: <span class="c-val">linear-gradient(90deg, #FF33CC, #FF6600)</span>;
+  <span class="c-prop">-webkit-background-clip</span>: <span class="c-val">text</span>;
+  <span class="c-prop">-webkit-text-fill-color</span>: <span class="c-val">transparent</span>;
+  <span class="c-prop">background-clip</span>: <span class="c-val">text</span>;
+  <span class="c-cmt">/* was: color: #dc2626 */</span>
+}</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       6. CARDS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="cards">
+    <div class="ds-section-header">
+      <span class="ds-section-tag">06</span>
+      <h2 class="ds-section-title">Cards</h2>
+    </div>
+
+    <div class="ds-grid ds-grid-3" style="margin-bottom:1.5rem;">
+      <!-- Sermon card -->
+      <div class="ob-sermon-card">
+        <div class="ob-sermon-thumb">
+          <div class="ob-sermon-thumb-text">Graces of<br>the Spirit</div>
+          <div class="ob-sermon-thumb-logo">
+            <div class="ob-sermon-thumb-logo-dot"></div>
+            <div class="ob-sermon-thumb-logo-dot" style="background:rgba(255,255,255,0.2);"></div>
+          </div>
+        </div>
+        <div class="ob-sermon-info">
+          <div class="ob-sermon-series">Series · Ep 3</div>
+          <div class="ob-sermon-title">Graces of the Spirit</div>
+        </div>
+      </div>
+
+      <!-- Event card -->
+      <div class="ob-card">
+        <div style="height:120px;background:var(--ob-pastel-peach);display:flex;align-items:center;justify-content:center;">
+          <div style="font-family:var(--ob-font-heading);font-size:1.5rem;font-style:italic;color:var(--ob-stone-700);">Rain of Grace</div>
+        </div>
+        <div class="ob-card-body">
+          <div class="ob-sermon-series">Onebody Gospel Music</div>
+          <div class="ob-card-title">Youth Revival Tour</div>
+          <div class="ob-card-body-text" style="margin-top:0.5rem;">Friday 20th March · 10 AM<br>Chief Paul Alabi Hall, Akoka</div>
+          <button class="ob-btn ob-btn-primary ob-btn-sm" style="margin-top:1rem;">Get details →</button>
+        </div>
+      </div>
+
+      <!-- Value card -->
+      <div class="ob-value-card">
+        <div class="ob-value-icon">♥</div>
+        <div class="ob-value-title">Love</div>
+        <div class="ob-value-copy">We love God with all our heart, and our neighbours as ourselves — this shapes how we live.</div>
+      </div>
+    </div>
+
+    <div class="ds-callout ds-callout-brand">
+      <span class="ds-callout-icon">🎨</span>
+      <div>Sermon thumbnail graphic style: <strong>Dark background, minimal text, white logo watermark.</strong> The series label above the title should be in <strong>--ob-magenta (#FF33CC)</strong>, not red. Value cards on hover should transition to the brand gradient background.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       7. FORMS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="forms">
+    <div class="ds-section-header">
+      <span class="ds-section-tag">07</span>
+      <h2 class="ds-section-title">Form Elements</h2>
+    </div>
+
+    <div class="ds-component">
+      <div class="ds-component-preview ds-component-preview-stone" style="flex-direction:column;gap:1rem;max-width:500px;">
+        <input class="ob-field" type="text" placeholder="First name" />
+        <input class="ob-field" type="email" placeholder="Email address" />
+        <textarea class="ob-field" placeholder="Your message" style="min-height:100px;resize:vertical;"></textarea>
+      </div>
+      <div class="ds-component-meta">
+        <span class="ds-component-label">Focus ring</span><span class="ds-component-value">border-color: --ob-magenta + 0 0 0 4px rgba(255,51,204,0.10)</span>
+        <span class="ds-component-label">Border</span><span class="ds-component-value">1.5px solid --ob-border (was: red focus ring)</span>
+      </div>
+    </div>
+
+    <div class="ds-component">
+      <div class="ds-component-preview ds-component-preview-dark" style="flex-direction:column;gap:1rem;max-width:500px;">
+        <input class="ob-field-dark" type="text" placeholder="First name" />
+        <input class="ob-field-dark" type="email" placeholder="Email address" />
+      </div>
+      <div class="ds-component-meta">
+        <span class="ds-component-label">Dark variant</span><span class="ds-component-value">border-bottom only · transparent background</span>
+        <span class="ds-component-label">Focus</span><span class="ds-component-value">border-color: --ob-magenta (was: red rgba(220,38,38,0.7))</span>
+      </div>
+    </div>
+
+    <div class="ds-code"><span class="c-cmt">/* Fix focus states — replace red with magenta */</span>
+<span class="c-sel">.site-field:focus, .site-select:focus, .site-textarea:focus</span> {
+  <span class="c-prop">border-color</span>: <span class="c-val">rgba(255, 51, 204, 0.55)</span>; <span class="c-cmt">/* was: rgba(220, 38, 38, 0.55) */</span>
+  <span class="c-prop">box-shadow</span>: <span class="c-val">0 0 0 4px rgba(255, 51, 204, 0.10)</span>; <span class="c-cmt">/* was: rgba(254, 226, 226, 0.85) */</span>
+}
+<span class="c-sel">.site-field-dark:focus, .site-textarea-dark:focus</span> {
+  <span class="c-prop">border-color</span>: <span class="c-val">rgba(255, 51, 204, 0.7)</span>; <span class="c-cmt">/* was: rgba(220, 38, 38, 0.7) */</span>
+}</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       8. NAVIGATION
+  ═══════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="nav">
+    <div class="ds-section-header">
+      <span class="ds-section-tag">08</span>
+      <h2 class="ds-section-title">Navigation</h2>
+    </div>
+
+    <div class="ds-component">
+      <div class="ds-component-preview ds-component-preview-stone">
+        <div class="ob-nav-preview" style="width:100%;max-width:700px;">
+          <div style="display:flex;align-items:center;gap:0.6rem;">
+            <div class="ob-nav-logo">⬤ OB</div>
+            <span style="font-family:var(--ob-font-heading);font-size:0.85rem;font-style:italic;font-weight:600;color:var(--ob-text-primary);">Church</span>
+          </div>
+          <ul class="ob-nav-links">
+            <li>About</li>
+            <li>Sermons</li>
+            <li>LOVA</li>
+            <li>Charity</li>
+          </ul>
+          <div class="ob-nav-actions">
+            <button class="ob-btn ob-btn-give ob-btn-sm">Give</button>
+            <button class="ob-btn ob-btn-secondary ob-btn-sm">Plan a Visit →</button>
+          </div>
+        </div>
+      </div>
+      <div class="ds-component-meta">
+        <span class="ds-component-label">Logo</span><span class="ds-component-value">Gradient icon + "Church" wordmark (italic Garamond)</span>
+        <span class="ds-component-label">Give btn</span><span class="ds-component-value">background: --ob-magenta (not red)</span>
+        <span class="ds-component-label">Plan a Visit</span><span class="ds-component-value">background: --ob-black</span>
+        <span class="ds-component-label">Nav background</span><span class="ds-component-value">rgba(250,249,247,0.88) + backdrop-blur</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       9. SECTIONS & PATTERNS
+  ═══════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="sections">
+    <div class="ds-section-header">
+      <span class="ds-section-tag">09</span>
+      <h2 class="ds-section-title">Section Patterns</h2>
+    </div>
+
+    <!-- Ticker -->
+    <h3 style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--ob-text-muted);margin-bottom:0.75rem;">Ticker / Marquee</h3>
+    <div class="ob-ticker" style="border-radius:var(--ob-radius-md);margin-bottom:1.5rem;">
+      <div class="ob-ticker-track">
+        <div class="ob-ticker-item"><div class="ob-ticker-dot"></div>ONEBODY CHURCH</div>
+        <div class="ob-ticker-item"><div class="ob-ticker-dot"></div>ONEBODY CHURCH</div>
+        <div class="ob-ticker-item"><div class="ob-ticker-dot"></div>ONEBODY CHURCH</div>
+        <div class="ob-ticker-item"><div class="ob-ticker-dot"></div>ONEBODY CHURCH</div>
+        <div class="ob-ticker-item"><div class="ob-ticker-dot"></div>ONEBODY CHURCH</div>
+        <div class="ob-ticker-item"><div class="ob-ticker-dot"></div>ONEBODY CHURCH</div>
+        <div class="ob-ticker-item"><div class="ob-ticker-dot"></div>ONEBODY CHURCH</div>
+        <div class="ob-ticker-item"><div class="ob-ticker-dot"></div>ONEBODY CHURCH</div>
+      </div>
+    </div>
+
+    <!-- Service times -->
+    <h3 style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--ob-text-muted);margin-bottom:0.75rem;">Service Times Display</h3>
+    <div style="background:var(--ob-black);border-radius:var(--ob-radius-xl);padding:1.5rem 2rem;margin-bottom:1.5rem;">
+      <div class="ob-service-row">
+        <div>
+          <div class="ob-kicker-dim" style="margin-bottom:0.25rem;">Sunday Morning</div>
+          <div class="ob-service-name">Passion Service</div>
+        </div>
+        <div class="ob-service-time">9:00 AM</div>
+      </div>
+      <div class="ob-service-row" style="border-bottom:none;">
+        <div>
+          <div class="ob-kicker-dim" style="margin-bottom:0.25rem;">Wednesday Nights</div>
+          <div class="ob-service-name">Hope Nights</div>
+        </div>
+        <div class="ob-service-time">6:00 PM</div>
+      </div>
+    </div>
+
+    <!-- Accordion -->
+    <h3 style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--ob-text-muted);margin-bottom:0.75rem;">Accordion</h3>
+    <details class="ob-accordion">
+      <summary>What time do services start? <span class="ob-accordion-icon">+</span></summary>
+      <div class="ob-accordion-body">Sunday Morning Passion Service starts at 9:00 AM. Wednesday Hope Nights begin at 6:00 PM. We always recommend arriving 10–15 minutes early.</div>
+    </details>
+    <details class="ob-accordion">
+      <summary>Where are you located? <span class="ob-accordion-icon">+</span></summary>
+      <div class="ob-accordion-body">We meet at 20 Adebiyi Street, off Lawani Street, Akoka Yaba, Lagos.</div>
+    </details>
+
+    <!-- Stats (dark bg) -->
+    <h3 style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--ob-text-muted);margin-bottom:0.75rem;margin-top:1.5rem;">Stats / Partnership Section</h3>
+    <div style="background:var(--ob-black);border-radius:var(--ob-radius-xl);padding:2rem;display:flex;gap:3rem;">
+      <div class="ob-stat">
+        <div class="ob-stat-number">8</div>
+        <div class="ob-stat-label">Years of Ministry</div>
+      </div>
+      <div class="ob-stat">
+        <div class="ob-stat-number">2</div>
+        <div class="ob-stat-label">Active Campuses</div>
+      </div>
+      <div class="ob-stat">
+        <div class="ob-stat-number">∞</div>
+        <div class="ob-stat-label">In Christ</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       10. WHAT NEEDS TO CHANGE (DELTA)
+  ═══════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="delta">
+    <div class="ds-section-header">
+      <span class="ds-section-tag">10</span>
+      <h2 class="ds-section-title">Current Gaps — What to Fix</h2>
+    </div>
+
+    <div style="background:var(--ob-white);border:1px solid var(--ob-border);border-radius:var(--ob-radius-xl);overflow:hidden;margin-bottom:1.5rem;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+        <thead>
+          <tr style="background:var(--ob-off-white);border-bottom:1px solid var(--ob-border);">
+            <th style="text-align:left;padding:0.9rem 1.25rem;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ob-text-muted);">Element</th>
+            <th style="text-align:left;padding:0.9rem 1.25rem;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ob-text-muted);">Current (Wrong)</th>
+            <th style="text-align:left;padding:0.9rem 1.25rem;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ob-text-muted);">Should Be</th>
+            <th style="text-align:left;padding:0.9rem 1.25rem;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ob-text-muted);">Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--ob-border);">
+            <td style="padding:0.9rem 1.25rem;font-weight:500;">Body font</td>
+            <td style="padding:0.9rem 1.25rem;color:#991b1b;font-family:monospace;">Inter</td>
+            <td style="padding:0.9rem 1.25rem;color:#166534;font-family:monospace;">Montserrat</td>
+            <td style="padding:0.9rem 1.25rem;"><span class="ds-delta ds-delta-wrong">High</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--ob-border);">
+            <td style="padding:0.9rem 1.25rem;font-weight:500;">Heading font</td>
+            <td style="padding:0.9rem 1.25rem;color:#991b1b;font-family:monospace;">Inter (inherited)</td>
+            <td style="padding:0.9rem 1.25rem;color:#166534;font-family:monospace;">EB Garamond</td>
+            <td style="padding:0.9rem 1.25rem;"><span class="ds-delta ds-delta-wrong">High</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--ob-border);">
+            <td style="padding:0.9rem 1.25rem;font-weight:500;">Primary accent colour</td>
+            <td style="padding:0.9rem 1.25rem;color:#991b1b;font-family:monospace;">#dc2626 (red)</td>
+            <td style="padding:0.9rem 1.25rem;color:#166534;font-family:monospace;">#FF33CC / gradient</td>
+            <td style="padding:0.9rem 1.25rem;"><span class="ds-delta ds-delta-wrong">High</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--ob-border);">
+            <td style="padding:0.9rem 1.25rem;font-weight:500;">Navbar logo</td>
+            <td style="padding:0.9rem 1.25rem;color:#991b1b;">Monochrome, no "Church"</td>
+            <td style="padding:0.9rem 1.25rem;color:#166534;">Gradient + "Church" wordmark</td>
+            <td style="padding:0.9rem 1.25rem;"><span class="ds-delta ds-delta-wrong">High</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--ob-border);">
+            <td style="padding:0.9rem 1.25rem;font-weight:500;">Give button</td>
+            <td style="padding:0.9rem 1.25rem;color:#991b1b;font-family:monospace;">#dc2626 (red)</td>
+            <td style="padding:0.9rem 1.25rem;color:#166534;font-family:monospace;">#FF33CC (magenta)</td>
+            <td style="padding:0.9rem 1.25rem;"><span class="ds-delta ds-delta-wrong">High</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--ob-border);">
+            <td style="padding:0.9rem 1.25rem;font-weight:500;">.ob-kicker colour</td>
+            <td style="padding:0.9rem 1.25rem;color:#991b1b;font-family:monospace;">#dc2626</td>
+            <td style="padding:0.9rem 1.25rem;color:#166534;font-family:monospace;">brand gradient text</td>
+            <td style="padding:0.9rem 1.25rem;"><span class="ds-delta ds-delta-wrong">High</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--ob-border);">
+            <td style="padding:0.9rem 1.25rem;font-weight:500;">Value card hover</td>
+            <td style="padding:0.9rem 1.25rem;color:#991b1b;font-family:monospace;">#dc2626 solid</td>
+            <td style="padding:0.9rem 1.25rem;color:#166534;font-family:monospace;">brand gradient background</td>
+            <td style="padding:0.9rem 1.25rem;"><span class="ds-delta ds-delta-wrong">High</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--ob-border);">
+            <td style="padding:0.9rem 1.25rem;font-weight:500;">Flash Ad popup</td>
+            <td style="padding:0.9rem 1.25rem;color:#991b1b;">Yellow/Black/Red — off-brand</td>
+            <td style="padding:0.9rem 1.25rem;color:#166534;">Brand gradient header, soft pastel bg</td>
+            <td style="padding:0.9rem 1.25rem;"><span style="background:#FEF9C3;color:#854D0E;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.7rem;font-weight:600;">Medium</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--ob-border);">
+            <td style="padding:0.9rem 1.25rem;font-weight:500;">Form focus ring</td>
+            <td style="padding:0.9rem 1.25rem;color:#991b1b;font-family:monospace;">rgba(220,38,38,...) red</td>
+            <td style="padding:0.9rem 1.25rem;color:#166534;font-family:monospace;">rgba(255,51,204,...) magenta</td>
+            <td style="padding:0.9rem 1.25rem;"><span style="background:#FEF9C3;color:#854D0E;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.7rem;font-weight:600;">Medium</span></td>
+          </tr>
+          <tr>
+            <td style="padding:0.9rem 1.25rem;font-weight:500;">Sermon thumbnail graphics</td>
+            <td style="padding:0.9rem 1.25rem;color:#991b1b;">Heavy red text, off-brand style</td>
+            <td style="padding:0.9rem 1.25rem;color:#166534;">Dark bg, soft title, brand logo mark</td>
+            <td style="padding:0.9rem 1.25rem;"><span style="background:#DBEAFE;color:#1E40AF;padding:0.2rem 0.6rem;border-radius:999px;font-size:0.7rem;font-weight:600;">Low</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       11. CSS VARIABLES — PASTE INTO globals.css
+  ═══════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="css">
+    <div class="ds-section-header">
+      <span class="ds-section-tag">11</span>
+      <h2 class="ds-section-title">CSS Variables — Paste into globals.css</h2>
+    </div>
+
+    <div class="ds-callout ds-callout-brand">
+      <span class="ds-callout-icon">📋</span>
+      <div>Add this <code>:root</code> block at the top of <strong>globals.css</strong>, then replace all hardcoded <code>#dc2626</code>, <code>#b91c1c</code>, <code>#ef4444</code> values with the brand variables below.</div>
+    </div>
+
+    <div class="ds-code">
+<span class="c-cmt">/* ══════════════════════════════════════════════
+   ONEBODY CHURCH — Design Tokens v2025
+   Add to: src/app/globals.css
+══════════════════════════════════════════════ */</span>
+
+<span class="c-sel">@import url</span>(<span class="c-val">'https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap'</span>);
+
+<span class="c-sel">:root</span> {
+  <span class="c-cmt">/* Brand gradient */</span>
+  <span class="c-var">--ob-magenta</span>:      <span class="c-val">#FF33CC</span>;
+  <span class="c-var">--ob-orange</span>:       <span class="c-val">#FF6600</span>;
+  <span class="c-var">--ob-gradient</span>:     <span class="c-val">linear-gradient(90deg, #FF33CC 0%, #FF6600 100%)</span>;
+  <span class="c-var">--ob-gradient-135</span>: <span class="c-val">linear-gradient(135deg, #FF33CC 0%, #FF6600 100%)</span>;
+
+  <span class="c-cmt">/* Soft pastels */</span>
+  <span class="c-var">--ob-pastel-peach</span>:    <span class="c-val">#FFE8D6</span>;
+  <span class="c-var">--ob-pastel-pink</span>:     <span class="c-val">#FFE0F0</span>;
+  <span class="c-var">--ob-pastel-lavender</span>: <span class="c-val">#F5E6FF</span>;
+  <span class="c-var">--ob-pastel-cream</span>:    <span class="c-val">#FFF8F2</span>;
+  <span class="c-var">--ob-pastel-mint</span>:     <span class="c-val">#E8F8F0</span>;
+
+  <span class="c-cmt">/* Typography */</span>
+  <span class="c-var">--ob-font-heading</span>: <span class="c-val">'EB Garamond', Georgia, serif</span>;
+  <span class="c-var">--ob-font-body</span>:    <span class="c-val">'Montserrat', system-ui, sans-serif</span>;
+
+  <span class="c-cmt">/* Accent semantic */</span>
+  <span class="c-var">--ob-accent</span>:      <span class="c-val">#FF33CC</span>;
+  <span class="c-var">--ob-accent-alt</span>:  <span class="c-val">#FF6600</span>;
+  <span class="c-var">--ob-accent-glow</span>: <span class="c-val">rgba(255, 51, 204, 0.18)</span>;
+}
+
+<span class="c-cmt">/* ── Font application ──────────────────────── */</span>
+<span class="c-sel">body</span> {
+  <span class="c-prop">font-family</span>: <span class="c-val">var(--ob-font-body)</span>; <span class="c-cmt">/* was: 'Inter' */</span>
+}
+
+<span class="c-cmt">/* ── Brand colour replacements ─────────────── */</span>
+<span class="c-cmt">/* Replace every instance of these: */</span>
+
+<span class="c-sel">.ob-kicker</span> {
+  <span class="c-prop">background</span>:              <span class="c-val">var(--ob-gradient)</span>;
+  <span class="c-prop">-webkit-background-clip</span>: <span class="c-val">text</span>;
+  <span class="c-prop">-webkit-text-fill-color</span>: <span class="c-val">transparent</span>;
+  <span class="c-prop">background-clip</span>:         <span class="c-val">text</span>;
+}
+
+<span class="c-sel">.site-field:focus, .site-select:focus, .site-textarea:focus</span> {
+  <span class="c-prop">border-color</span>: <span class="c-val">rgba(255, 51, 204, 0.55)</span>;
+  <span class="c-prop">box-shadow</span>:   <span class="c-val">0 0 0 4px rgba(255, 51, 204, 0.10)</span>;
+}
+
+<span class="c-sel">.site-field-dark:focus, .site-textarea-dark:focus, .site-select-dark:focus</span> {
+  <span class="c-prop">border-color</span>: <span class="c-val">rgba(255, 51, 204, 0.7)</span>;
+}
+
+<span class="c-sel">.about-value-card:is(:hover, .is-hovered)</span> {
+  <span class="c-prop">background</span>:    <span class="c-val">var(--ob-gradient-135)</span>;
+  <span class="c-prop">border-color</span>: <span class="c-val">transparent</span>;
+  <span class="c-prop">box-shadow</span>:   <span class="c-val">0 20px 44px rgba(255, 51, 204, 0.25)</span>;
+}
+
+<span class="c-sel">.about-scad-step.is-active .about-scad-badge</span> {
+  <span class="c-prop">border-color</span>: <span class="c-val">rgba(255, 51, 204, 0.45)</span>;
+  <span class="c-prop">color</span>:        <span class="c-val">var(--ob-magenta)</span>;
+  <span class="c-prop">box-shadow</span>:   <span class="c-val">0 10px 30px rgba(255, 51, 204, 0.14)</span>;
+}
+
+<span class="c-sel">.site-accordion[open]</span> {
+  <span class="c-prop">border-color</span>: <span class="c-val">rgba(255, 51, 204, 0.22)</span>;
+}
+
+<span class="c-sel">.site-accordion-dark[open]</span> {
+  <span class="c-prop">border-color</span>: <span class="c-val">rgba(255, 51, 204, 0.35)</span>;
+}
+
+<span class="c-sel">.site-accordion-dark[open] .site-accordion-icon</span> {
+  <span class="c-prop">color</span>: <span class="c-val">var(--ob-magenta)</span>;
+}
+
+<span class="c-sel">.site-accordion-minimal[open]</span> {
+  <span class="c-prop">border-color</span>: <span class="c-val">rgba(255, 51, 204, 0.3)</span>;
+}
+
+<span class="c-sel">#flash-ad-cta</span> {
+  <span class="c-prop">background</span>: <span class="c-val">var(--ob-gradient)</span>; <span class="c-cmt">/* was: #dc2626 */</span>
+}
+
+<span class="c-sel">#flash-ad-cta:hover</span> {
+  <span class="c-prop">background</span>: <span class="c-val">var(--ob-magenta)</span>;
+}
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div style="margin-top:5rem;padding-top:2rem;border-top:1px solid var(--ob-border);display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:var(--ob-text-muted);">
+    <span>Onebody Church Design System 2025 · Produced from Brand Style Guide by Taiwo Oyemade</span>
+    <span class="gradient-text" style="font-weight:600;">Design System v1.0</span>
+  </div>
+
+</main>
+</body>
+</html>

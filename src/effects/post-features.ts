@@ -75,13 +75,13 @@ export async function setupPostFeatures(): Promise<void> {
     ${prev
       ? `<a href="../${prev.slug}" class="group flex flex-col gap-1 max-w-[45%]">
            <span class="text-xs text-stone-400 uppercase tracking-widest">← Previous</span>
-           <span class="text-sm font-medium text-stone-900 leading-snug group-hover:text-red-600 transition-colors">${prev.title}</span>
+           <span class="text-sm font-medium text-stone-900 leading-snug group-hover:text-brand-600 transition-colors">${prev.title}</span>
          </a>`
       : '<div></div>'}
     ${next
       ? `<a href="../${next.slug}" class="group flex flex-col gap-1 text-right max-w-[45%] ml-auto">
            <span class="text-xs text-stone-400 uppercase tracking-widest">Next →</span>
-           <span class="text-sm font-medium text-stone-900 leading-snug group-hover:text-red-600 transition-colors">${next.title}</span>
+           <span class="text-sm font-medium text-stone-900 leading-snug group-hover:text-brand-600 transition-colors">${next.title}</span>
          </a>`
       : '<div></div>'}
   `;

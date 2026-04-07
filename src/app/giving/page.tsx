@@ -26,7 +26,7 @@ export default function GivingPage() {
           <div className="mt-12" data-gsap-hero-reveal data-gsap-delay="0.5">
             <a
               href="#give"
-              className="inline-flex items-center gap-3 rounded-none bg-red-600 px-8 py-4 text-sm font-medium text-white tracking-widest uppercase transition-colors hover:bg-red-700"
+              className="inline-flex items-center gap-3 rounded-none bg-brand-600 px-8 py-4 text-sm font-medium text-white tracking-widest uppercase transition-colors hover:bg-brand-700"
             >
               Give Now ↓
             </a>
@@ -56,7 +56,7 @@ export default function GivingPage() {
           </div>
 
           {/* Scripture pull quote */}
-          <div className="border-l-2 border-red-600 pl-10" data-gsap-reveal>
+          <div className="border-l-2 border-brand-600 pl-10" data-gsap-reveal>
             <blockquote className="text-3xl md:text-4xl font-medium text-stone-900 tracking-tight leading-snug">
               &ldquo;Each of you should give what you have decided in your heart to give, not reluctantly
               or under compulsion, for God loves a cheerful giver.&rdquo;

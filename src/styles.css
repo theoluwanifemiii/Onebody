@@ -1,5 +1,5 @@
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', system-ui, sans-serif;
   background-color: #fafaf9;
   color: #1c1917;
 }
@@ -215,8 +215,8 @@ marquee-strip {
 }
 
 .about-value-card:is(:hover, .is-hovered) {
-  background-color: #dc2626;
-  border-color: #dc2626;
+  background-color: #FF33CC;
+  border-color: #FF33CC;
   box-shadow: 0 20px 44px rgba(220, 38, 38, 0.22);
 }
 
@@ -265,7 +265,7 @@ marquee-strip {
 
 .about-scad-step.is-active .about-scad-badge {
   border-color: rgba(239, 68, 68, 0.45);
-  color: #dc2626;
+  color: #FF33CC;
   box-shadow: 0 10px 30px rgba(220, 38, 38, 0.14);
 }
 
@@ -383,7 +383,7 @@ marquee-strip {
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #dc2626;
+  color: #FF33CC;
 }
 
 .ob-kicker-dim {
@@ -447,7 +447,7 @@ marquee-strip {
 
 .site-accordion-dark[open] .site-accordion-icon {
   transform: rotate(45deg);
-  color: #dc2626;
+  color: #FF33CC;
 }
 
 .site-accordion-dark .accordion-body {
@@ -648,7 +648,7 @@ marquee-strip {
   display: block;
   width: 100%;
   padding: 1rem;
-  background: #dc2626;
+  background: #FF33CC;
   color: #fff;
   font-size: 0.75rem;
   font-weight: 500;
@@ -660,5 +660,5 @@ marquee-strip {
 }
 
 #flash-ad-cta:hover {
-  background: #b91c1c;
+  background: #e020b8;
 }
