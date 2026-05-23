@@ -7,7 +7,7 @@ import TransitionLink from '@/components/ui/TransitionLink';
 
 type PageKey = 'home' | 'about' | 'services' | 'sermons' | 'academy' | 'charity' | 'giving' | 'blog';
 
-const NAV_LINKS: { key: PageKey; href: string; label: string }[] = [
+const NAV_LINKS: { key: PageKey; href: string; label: string; highlight?: boolean }[] = [
   { key: 'about', href: '/about', label: 'About' },
   { key: 'sermons', href: '/sermons', label: 'Sermons' },
   { key: 'academy', href: '/academy', label: 'LOVA' },
@@ -52,7 +52,14 @@ export default function SiteHeader() {
             <TransitionLink
               key={link.key}
               href={link.href}
-              className={link.key === current ? 'text-sm text-stone-900' : 'text-sm transition-colors hover:text-stone-900'}
+              className={
+                link.key === current
+                  ? 'text-sm text-stone-900'
+                  : link.highlight
+                  ? 'text-sm font-semibold transition-opacity hover:opacity-80'
+                  : 'text-sm transition-colors hover:text-stone-900'
+              }
+              style={link.highlight ? { color: '#C9A227' } : undefined}
               aria-current={link.key === current ? 'page' : undefined}
             >
               {link.label}

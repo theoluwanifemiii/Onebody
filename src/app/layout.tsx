@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Cormorant_Garamond } from 'next/font/google';
 import SiteHeader from '@/components/layout/SiteHeader';
 import ConditionalFooter from '@/components/layout/ConditionalFooter';
 import PageTransition from '@/components/ui/PageTransition';
@@ -9,6 +9,12 @@ import HomePageEffects from '@/components/effects/HomePageEffects';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600'] });
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+});
 
 export const metadata: Metadata = {
   title: 'Onebody Church',
@@ -18,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} flex min-h-screen flex-col antialiased`} suppressHydrationWarning>
+      <body className={`${inter.className} ${cormorant.variable} flex min-h-screen flex-col antialiased`} suppressHydrationWarning>
         <PageTransition />
         <FlashAd />
         <SiteHeader />

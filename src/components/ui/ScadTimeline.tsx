@@ -98,7 +98,7 @@ export default function ScadTimeline() {
         <div className="relative">
 
           {/* Row 1: ghost letters — uniform height so line position is predictable */}
-          <div className="grid grid-cols-1 md:grid-cols-4 mb-0">
+          <div className="hidden md:grid md:grid-cols-4 mb-0">
             {STEPS.map((step, i) => (
               <div
                 key={step.letter + '-letter'}

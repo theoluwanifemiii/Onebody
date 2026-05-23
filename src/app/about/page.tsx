@@ -201,9 +201,9 @@ export default function AboutPage() {
       {/* 9. CTA */}
       <section className="ob-section ob-section-dark border-t border-white/10">
         <div className="mx-auto w-full max-w-7xl">
-          <p className="ob-kicker mb-8" data-gsap-reveal>Take The Next Step</p>
-          <h2 className="ob-display text-white max-w-4xl mb-20" data-gsap-words>See the church, then come meet the church.</h2>
-          <div className="grid grid-cols-1 gap-0 md:grid-cols-3" data-gsap-stagger>
+          <p className="ob-kicker mb-8">Take The Next Step</p>
+          <h2 className="ob-display text-white max-w-4xl mb-20">See the church, then come meet the church.</h2>
+          <div className="grid grid-cols-1 gap-0 md:grid-cols-3">
             <a href="/services#visit" className="group py-10 md:py-0 md:pr-16 border-t border-white/10 md:border-t-0 md:border-r md:border-white/10">
               <p className="ob-kicker-dim group-hover:text-brand-500 transition-colors duration-200">Plan a Visit</p>
               <h3 className="mt-5 text-2xl font-medium text-white tracking-tight leading-snug">See service times, directions, and visit details.</h3>

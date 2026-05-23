@@ -44,6 +44,7 @@ export default function GsapEffects() {
         const trigger = el.closest<HTMLElement>('[data-gsap-trigger]') || el;
         gsap.from(words, {
           yPercent: 110, duration: 1, stagger: 0.055, ease: 'expo.out',
+          immediateRender: false,
           scrollTrigger: { trigger, start: 'top 88%' },
         });
       });
@@ -53,6 +54,7 @@ export default function GsapEffects() {
         const delay = parseFloat(el.dataset.gsapDelay || '0');
         gsap.from(el, {
           y: 36, opacity: 0, duration: 0.95, delay, ease: 'expo.out',
+          immediateRender: false,
           scrollTrigger: { trigger: el, start: 'top 88%' },
         });
       });
@@ -63,6 +65,7 @@ export default function GsapEffects() {
         const delay = parseFloat(group.dataset.gsapDelay || '0');
         gsap.from(children, {
           y: 44, opacity: 0, duration: 0.9, stagger: 0.1, delay, ease: 'expo.out',
+          immediateRender: false,
           scrollTrigger: { trigger: group, start: 'top 85%' },
         });
       });
@@ -92,6 +95,7 @@ export default function GsapEffects() {
       document.querySelectorAll<HTMLElement>('[data-gsap-line]').forEach((el) => {
         gsap.from(el, {
           scaleX: 0, transformOrigin: 'left center', duration: 1.2, ease: 'expo.out',
+          immediateRender: false,
           scrollTrigger: { trigger: el, start: 'top 92%' },
         });
       });
@@ -156,6 +160,7 @@ export default function GsapEffects() {
         children.forEach((child) => {
           gsap.from(child, {
             opacity: 0, y: 110, duration: 1, ease: 'expo.out',
+            immediateRender: false,
             scrollTrigger: { trigger: child, start: 'top 92%', end: 'top 55%', scrub: 0.9 },
           });
         });
@@ -166,6 +171,7 @@ export default function GsapEffects() {
       document.querySelectorAll<HTMLElement>('[data-apple-slide-left]').forEach((el) => {
         gsap.from(el, {
           x: -80, opacity: 0, duration: 1.1, ease: 'expo.out',
+          immediateRender: false,
           scrollTrigger: { trigger: el, start: 'top 85%' },
         });
       });
@@ -174,6 +180,7 @@ export default function GsapEffects() {
       document.querySelectorAll<HTMLElement>('[data-apple-slide-right]').forEach((el) => {
         gsap.from(el, {
           x: 80, opacity: 0, duration: 1.1, ease: 'expo.out',
+          immediateRender: false,
           scrollTrigger: { trigger: el, start: 'top 85%' },
         });
       });
@@ -182,6 +189,7 @@ export default function GsapEffects() {
       document.querySelectorAll<HTMLElement>('[data-apple-scale-up]').forEach((el) => {
         gsap.from(el, {
           scale: 0.86, opacity: 0, duration: 1.3, ease: 'expo.out',
+          immediateRender: false,
           scrollTrigger: { trigger: el, start: 'top 82%' },
         });
       });
@@ -190,6 +198,7 @@ export default function GsapEffects() {
       document.querySelectorAll<HTMLElement>('[data-apple-blur]').forEach((el) => {
         gsap.from(el, {
           opacity: 0, filter: 'blur(14px)', y: 30, duration: 1.2, ease: 'power3.out',
+          immediateRender: false,
           scrollTrigger: { trigger: el, start: 'top 82%' },
         });
       });
@@ -199,6 +208,7 @@ export default function GsapEffects() {
         gsap.from(el, {
           clipPath: 'inset(0 100% 0 0)', opacity: 1, duration: 0.9, ease: 'expo.out',
           delay: i * 0.08,
+          immediateRender: false,
           scrollTrigger: { trigger: el.closest('[data-apple-clip-group]') || el, start: 'top 85%' },
         });
       });
