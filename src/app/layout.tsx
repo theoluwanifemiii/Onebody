@@ -6,7 +6,7 @@ import PageTransition from '@/components/ui/PageTransition';
 import FlashAd from '@/components/ui/FlashAd';
 import GsapEffects from '@/components/effects/GsapEffects';
 import HomePageEffects from '@/components/effects/HomePageEffects';
-import DevImageTools from '@/components/dev/DevImageTools';
+import DevToolsLoader from '@/components/ui/DevToolsLoader';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], weight: ['300', '400', '500', '600'] });
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ConditionalFooter />
         <GsapEffects />
         <HomePageEffects />
-        {process.env.NODE_ENV === 'development' && <DevImageTools />}
+        <DevToolsLoader />
       </body>
     </html>
   );
