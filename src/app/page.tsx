@@ -33,7 +33,7 @@ export default function HomePage() {
           ══════════════════════════════════════════════════ */}
       <div className="flex h-screen flex-col overflow-hidden">
         <section
-          data-home-hero
+          data-cursor-trail-hero
           className="relative isolate flex flex-1 items-center justify-center overflow-hidden px-6 md:px-12"
         >
           <div

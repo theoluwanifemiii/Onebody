@@ -1,11 +1,32 @@
 import type { Metadata } from 'next';
 import CopyAccountButton from '@/components/forms/CopyAccountButton';
+import InternationalAccounts from '@/components/forms/InternationalAccounts';
 
 export const metadata: Metadata = {
   title: 'Giving — Onebody Church',
   description:
     'God loves a cheerful giver. Give to Onebody Church and support the mission, Sunday gatherings, discipleship, and community outreach.',
 };
+
+function AccountCard({ bank, accountName, accountNumber }: { bank: string; accountName: string; accountNumber: string }) {
+  return (
+    <div className="border border-white/10 p-8 space-y-6">
+      <div className="border-b border-white/10 pb-6">
+        <p className="ob-kicker-dim mb-2">Bank</p>
+        <p className="text-xl font-medium text-white tracking-tight">{bank}</p>
+      </div>
+      <div className="border-b border-white/10 pb-6">
+        <p className="ob-kicker-dim mb-2">Account Name</p>
+        <p className="text-xl font-medium text-white tracking-tight">{accountName}</p>
+      </div>
+      <div>
+        <p className="ob-kicker-dim mb-2">Account Number</p>
+        <p className="text-3xl font-semibold text-white tracking-widest mb-4">{accountNumber}</p>
+        <CopyAccountButton accountNumber={accountNumber} />
+      </div>
+    </div>
+  );
+}
 
 export default function GivingPage() {
   return (
@@ -36,8 +57,8 @@ export default function GivingPage() {
 
       {/* 2. WHY GIVE */}
       <section className="ob-section ob-section-light">
-        <div className="mx-auto w-full max-w-7xl grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
-          <div>
+        <div className="mx-auto w-full max-w-7xl grid grid-cols-1 gap-16 lg:grid-cols-[3fr_2fr] lg:items-center">
+          <div className="min-w-0">
             <p className="ob-kicker mb-5" data-gsap-reveal>
               Why Give
             </p>
@@ -76,37 +97,30 @@ export default function GivingPage() {
             Give directly to the church.
           </h2>
 
-          {/* Account card */}
-          <div className="max-w-xl" data-gsap-reveal>
-            <div className="border border-white/10 p-10 space-y-8">
-              <div className="flex items-start justify-between gap-8 border-b border-white/10 pb-8">
-                <div>
-                  <p className="ob-kicker-dim mb-2">Bank</p>
-                  <p className="text-2xl font-medium text-white tracking-tight">Sterling Bank</p>
-                </div>
-              </div>
-
-              <div className="flex items-start justify-between gap-8 border-b border-white/10 pb-8">
-                <div>
-                  <p className="ob-kicker-dim mb-2">Account Name</p>
-                  <p className="text-2xl font-medium text-white tracking-tight">Onebody Church</p>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between gap-8">
-                <div>
-                  <p className="ob-kicker-dim mb-2">Account Number</p>
-                  <p className="text-4xl font-semibold text-white tracking-widest">0094243924</p>
-                </div>
-                <CopyAccountButton accountNumber="0094243924" />
+          {/* All accounts */}
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_1fr]" data-gsap-reveal>
+            {/* Church */}
+            <div>
+              <p className="ob-kicker mb-6">Church</p>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <AccountCard bank="First Bank" accountName="Onebody Church" accountNumber="2034723621" />
+                <AccountCard bank="Sterling Bank" accountName="Onebody Church" accountNumber="0128161734" />
               </div>
             </div>
 
-            <p className="mt-6 text-sm text-white/40 leading-relaxed">
-              After your transfer, please send your name and amount to our WhatsApp or email so
-              we can acknowledge your giving. Thank you.
-            </p>
+            {/* Charity */}
+            <div>
+              <p className="ob-kicker mb-6">Charity</p>
+              <AccountCard bank="First Bank" accountName="Onebody Church" accountNumber="2047343092" />
+            </div>
           </div>
+
+          <InternationalAccounts />
+
+          <p className="mt-12 text-sm text-white/40 leading-relaxed max-w-xl">
+            After your transfer, please send your name and amount to our WhatsApp or email so
+            we can acknowledge your giving. Thank you.
+          </p>
         </div>
       </section>
 
@@ -121,21 +135,23 @@ export default function GivingPage() {
           </h2>
         </div>
         <div data-gsap-strip className="flex gap-4 w-max">
-          <figure className="overflow-hidden bg-stone-200 w-72 h-96 group shrink-0">
-            <img src="/home-gallery/photo-17.jpg" alt="Onebody community" className="w-full h-[115%] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-          </figure>
-          <figure className="overflow-hidden bg-stone-200 w-72 h-96 group shrink-0 mt-12">
-            <img src="/home-gallery/photo-18.jpg" alt="Onebody community" className="w-full h-[115%] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-          </figure>
-          <figure className="overflow-hidden bg-stone-200 w-72 h-96 group shrink-0">
-            <img src="/home-gallery/photo-19.jpg" alt="Onebody community" className="w-full h-[115%] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-          </figure>
-          <figure className="overflow-hidden bg-stone-200 w-72 h-96 group shrink-0 mt-12">
-            <img src="/home-gallery/photo-20.jpg" alt="Onebody community" className="w-full h-[115%] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-          </figure>
-          <figure className="overflow-hidden bg-stone-200 w-72 h-96 group shrink-0">
-            <img src="/home-gallery/photo-01.jpg" alt="Onebody community" className="w-full h-[115%] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-          </figure>
+          {[
+            { src: 'photo-17', offset: false },
+            { src: 'photo-18', offset: true },
+            { src: 'photo-19', offset: false },
+            { src: 'photo-20', offset: true },
+            { src: 'photo-01', offset: false },
+            { src: 'photo-02', offset: true },
+            { src: 'photo-03', offset: false },
+            { src: 'photo-04', offset: true },
+            { src: 'photo-05', offset: false },
+            { src: 'photo-06', offset: true },
+            { src: 'photo-07', offset: false },
+          ].map(({ src, offset }) => (
+            <figure key={src} className={`overflow-hidden bg-stone-200 w-72 h-96 group shrink-0${offset ? ' mt-12' : ''}`}>
+              <img src={`/home-gallery/${src}.jpg`} alt="Onebody community" className="w-full h-[115%] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+            </figure>
+          ))}
         </div>
       </section>
     </>

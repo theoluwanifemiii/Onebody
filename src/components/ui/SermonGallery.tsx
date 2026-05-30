@@ -87,14 +87,14 @@ export default function SermonGallery() {
         <div className="flex-1 overflow-hidden flex items-end">
           <div
             ref={trackRef}
-            className="flex items-end will-change-transform"
+            className="flex items-end will-change-transform h-full"
             style={{ paddingLeft: '3rem', gap: '1.25rem' }}
           >
             {IMAGES.map((img, i) => (
               <figure
                 key={i}
-                className={`flex-none overflow-hidden bg-stone-900${img.mt ? ' -mt-12' : ''}`}
-                style={{ width: 'clamp(220px, 26vw, 420px)', aspectRatio: '3/4' }}
+                className={`flex-none overflow-hidden bg-stone-900${img.mt ? ' h-[85%]' : ' h-full'}`}
+                style={{ aspectRatio: '3/4' }}
               >
                 <img
                   src={img.src}

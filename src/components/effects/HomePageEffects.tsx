@@ -30,10 +30,9 @@ export default function HomePageEffects() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (pathname !== '/') return;
     if (trailDisabled()) return;
 
-    const hero = document.querySelector<HTMLElement>('[data-home-hero]');
+    const hero = document.querySelector<HTMLElement>('[data-cursor-trail-hero]');
     if (!hero) return;
 
     const layer = document.createElement('div');

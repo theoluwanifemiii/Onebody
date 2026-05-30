@@ -13,6 +13,7 @@ export default function ServicesPage() {
     <>
       {/* 1. HERO */}
       <section
+        data-cursor-trail-hero
         className="ob-section ob-section-light flex flex-col justify-end"
         style={{ paddingTop: '9rem' }}
       >
@@ -263,7 +264,7 @@ export default function ServicesPage() {
             ].map((img, i) => (
               <figure
                 key={i}
-                className={`flex-none w-[48vw] md:w-[28vw] aspect-[4/3] overflow-hidden bg-stone-100${img.mt ? ' mt-10' : ''}`}
+                className={`flex-none w-[48vw] md:w-[28vw] aspect-4/3 overflow-hidden bg-stone-100${img.mt ? ' mt-10' : ''}`}
               >
                 <img
                   src={img.src}

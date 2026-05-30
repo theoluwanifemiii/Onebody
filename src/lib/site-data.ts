@@ -7,6 +7,14 @@ export const CHURCH_MAPS_URL =
 export const FEATURED_VIDEO_ID = 'Tp8Qa_5WRpQ';
 export const FEATURED_VIDEO_URL = `https://www.youtube.com/watch?v=${FEATURED_VIDEO_ID}`;
 
+export const YOUTUBE_CHANNEL_HANDLE = '@onebodychurchng';
+export const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@onebodychurchng';
+export const YOUTUBE_STREAMS_URL = 'https://www.youtube.com/@onebodychurchng/streams';
+
+// Set this to the live stream video ID when you go live, set to null when not live.
+// Find it in YouTube Studio → Go Live → copy the video ID from the stream URL.
+export const YOUTUBE_LIVE_VIDEO_ID: string | null = null;
+
 export const SERVICE_SCHEDULE = [
   {
     name: 'Passion Service',

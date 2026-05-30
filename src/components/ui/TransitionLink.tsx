@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { MouseEvent, ReactNode, AnchorHTMLAttributes } from 'react';
 
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -10,6 +10,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export default function TransitionLink({ href, children, onClick, ...props }: Props) {
   const router = useRouter();
+  const pathname = usePathname();
 
   const isExternal =
     href.startsWith('http') ||
@@ -23,6 +24,13 @@ export default function TransitionLink({ href, children, onClick, ...props }: Pr
     if (e.defaultPrevented || isExternal) return;
 
     e.preventDefault();
+
+    // Same page — skip transition to avoid overlay getting stuck
+    const hrefPathname = href.split('?')[0].split('#')[0];
+    if (hrefPathname === pathname) {
+      router.push(href);
+      return;
+    }
 
     const overlay = document.getElementById('page-transition');
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

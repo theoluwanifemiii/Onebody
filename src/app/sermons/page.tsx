@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import { PlayCircle, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { getAllSermons, extractYouTubeId } from '@/lib/sermons';
+import { YOUTUBE_CHANNEL_URL, YOUTUBE_STREAMS_URL } from '@/lib/site-data';
 import SermonFollowUpForm from '@/components/forms/SermonFollowUpForm';
 import SermonGallery from '@/components/ui/SermonGallery';
+import LivePlayer from '@/components/ui/LivePlayer';
+import FeaturedMessageLayout from '@/components/ui/FeaturedMessageLayout';
 
 export const metadata: Metadata = {
   title: 'Onebody Church | Sermons',
@@ -80,38 +83,10 @@ export default function SermonsPage() {
 
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-stretch">
             {/* YouTube Live */}
-            <div className="border border-white/10 p-10 flex flex-col gap-8" data-gsap-reveal>
-              <div className="flex items-center gap-4">
-                <div className="h-2 w-2 rounded-full bg-brand-500 animate-pulse"></div>
-                <p className="ob-kicker text-brand-500">Video — YouTube Live</p>
-              </div>
-              <div>
-                <h3 className="text-2xl font-medium text-white tracking-tight mb-3">Watch the live service</h3>
-                <p className="ob-body-dark">
-                  We stream every Sunday service live on YouTube. The link always goes to the
-                  current live broadcast — no searching required.
-                </p>
-              </div>
-              <div className="mt-auto flex flex-wrap gap-4">
-                <a
-                  href="https://www.youtube.com/@onebodychurchng/live"
-                  target="_blank"
-                  rel="noopener"
-                  className="inline-flex items-center gap-3 bg-brand-600 px-7 py-4 text-sm font-medium text-white tracking-widest uppercase transition-colors hover:bg-brand-700"
-                >
-                  Watch Live
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-                </a>
-                <a
-                  href="https://www.youtube.com/@onebodychurchng/streams"
-                  target="_blank"
-                  rel="noopener"
-                  className="inline-flex items-center gap-3 border border-white/20 px-7 py-4 text-sm font-medium text-white/70 tracking-widest uppercase hover:border-white/50 hover:text-white transition-colors"
-                >
-                  Past Streams
-                </a>
-              </div>
-            </div>
+            <LivePlayer
+              channelUrl={YOUTUBE_CHANNEL_URL}
+              streamsUrl={YOUTUBE_STREAMS_URL}
+            />
 
             {/* Mixlr Audio */}
             <div className="border border-white/10 p-10 flex flex-col gap-8" data-gsap-reveal>
@@ -127,15 +102,15 @@ export default function SermonsPage() {
                 </p>
               </div>
               {/* Mixlr embed player */}
-              <div className="w-full overflow-hidden rounded-sm">
+              <div className="flex-1 min-h-0 w-full overflow-hidden" style={{ minHeight: '200px' }}>
                 <iframe
                   src="https://onebodychurchng.mixlr.com/embed"
                   scrolling="no"
                   width="100%"
-                  height="120"
+                  height="100%"
                   title="Onebody Church — Mixlr Audio"
                   allow="autoplay"
-                  style={{ border: 0 }}
+                  style={{ border: 0, display: 'block' }}
                 />
               </div>
               <a
@@ -163,8 +138,8 @@ export default function SermonsPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-            <div className="overflow-hidden bg-black" data-gsap-reveal>
+          <FeaturedMessageLayout
+            video={
               <div className="relative aspect-video">
                 <iframe
                   className="absolute inset-0 h-full w-full"
@@ -176,32 +151,33 @@ export default function SermonsPage() {
                   allowFullScreen
                 />
               </div>
-            </div>
-
-            <div className="space-y-0" data-gsap-stagger>
-              <div className="pb-8 border-b border-stone-200">
-                <p className="ob-kicker text-stone-400 mb-4">After you watch</p>
-                <h3 className="text-2xl font-medium tracking-tight text-stone-900">Bring the message into the week.</h3>
-                <p className="mt-3 text-base leading-relaxed text-stone-500">Use the reflection guide below, revisit the key idea, and let the page guide you toward prayer or community.</p>
-              </div>
-              <div className="py-8 border-b border-stone-200">
-                <p className="ob-kicker text-stone-400 mb-4">Next gathering</p>
-                <h3 className="text-2xl font-medium tracking-tight text-stone-900">Do not stay online only.</h3>
-                <p className="mt-3 text-base leading-relaxed text-stone-500">Let the sermon route people back toward Passion Service, Hope Nights, and real connection.</p>
-                <a href="/services#visit" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-brand-600">
-                  Plan your visit <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
-                </a>
-              </div>
-              <div className="pt-8">
-                <p className="ob-kicker text-stone-400 mb-4">Need prayer?</p>
-                <h3 className="text-2xl font-medium tracking-tight text-stone-900">Follow up with the team.</h3>
-                <p className="mt-3 text-base leading-relaxed text-stone-500">If the message raises a burden or decision, reaching out should be as frictionless as pressing send.</p>
-                <a href="mailto:hello@onebodychurch.org?subject=Response%20to%20a%20message" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-brand-600">
-                  Email the team <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
-                </a>
-              </div>
-            </div>
-          </div>
+            }
+            panel={
+              <>
+                <div className="pb-8 border-b border-stone-200">
+                  <p className="ob-kicker text-stone-400 mb-4">After you watch</p>
+                  <h3 className="text-2xl font-medium tracking-tight text-stone-900">Bring the message into the week.</h3>
+                  <p className="mt-3 text-base leading-relaxed text-stone-500">Use the reflection guide below, revisit the key idea, and let the page guide you toward prayer or community.</p>
+                </div>
+                <div className="py-8 border-b border-stone-200">
+                  <p className="ob-kicker text-stone-400 mb-4">Next gathering</p>
+                  <h3 className="text-2xl font-medium tracking-tight text-stone-900">Do not stay online only.</h3>
+                  <p className="mt-3 text-base leading-relaxed text-stone-500">Let the sermon route people back toward Passion Service, Hope Nights, and real connection.</p>
+                  <a href="/services#visit" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-brand-600">
+                    Plan your visit <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
+                  </a>
+                </div>
+                <div className="pt-8">
+                  <p className="ob-kicker text-stone-400 mb-4">Need prayer?</p>
+                  <h3 className="text-2xl font-medium tracking-tight text-stone-900">Follow up with the team.</h3>
+                  <p className="mt-3 text-base leading-relaxed text-stone-500">If the message raises a burden or decision, reaching out should be as frictionless as pressing send.</p>
+                  <a href="mailto:hello@onebodychurch.org?subject=Response%20to%20a%20message" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-brand-600">
+                    Email the team <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
+                  </a>
+                </div>
+              </>
+            }
+          />
         </div>
       </section>
 
@@ -219,28 +195,28 @@ export default function SermonsPage() {
             strength, or personal response.
           </p>
 
-          <div className="grid grid-cols-1 gap-0 md:grid-cols-3" data-gsap-stagger>
-            <div className="py-10 md:py-0 md:pr-16 border-t border-white/10 md:border-t-0 md:border-r md:border-white/10">
+          <div className="grid grid-cols-1 gap-0 md:grid-cols-3 md:items-stretch" data-gsap-stagger>
+            <div className="flex flex-col py-10 md:py-0 md:pr-16 border-t border-white/10 md:border-t-0 md:border-r md:border-white/10">
               <p className="ob-kicker-dim mb-5">Sunday</p>
               <h3 className="text-2xl font-medium text-white tracking-tight mb-4">Featured Sunday message</h3>
-              <p className="ob-body-dark text-base mb-6">Go straight to the current featured sermon and keep the media page focused on what matters most.</p>
-              <a href="#featured-message" className="inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors">
+              <p className="ob-body-dark text-base">Go straight to the current featured sermon and keep the media page focused on what matters most.</p>
+              <a href="#featured-message" className="mt-auto pt-8 inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors">
                 Watch now <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
               </a>
             </div>
-            <div className="py-10 md:py-0 md:px-16 border-t border-white/10 md:border-t-0 md:border-r md:border-white/10">
+            <div className="flex flex-col py-10 md:py-0 md:px-16 border-t border-white/10 md:border-t-0 md:border-r md:border-white/10">
               <p className="ob-kicker-dim mb-5">Midweek</p>
               <h3 className="text-2xl font-medium text-white tracking-tight mb-4">Hope Nights — midweek strength</h3>
-              <p className="ob-body-dark text-base mb-6">Midweek teaching becomes more valuable when the site shows exactly how it fits into church life.</p>
-              <a href="/services" className="inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors">
+              <p className="ob-body-dark text-base">Midweek teaching becomes more valuable when the site shows exactly how it fits into church life.</p>
+              <a href="/services" className="mt-auto pt-8 inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors">
                 Service details <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
               </a>
             </div>
-            <div className="py-10 md:py-0 md:pl-16 border-t border-white/10 md:border-t-0">
+            <div className="flex flex-col py-10 md:py-0 md:pl-16 border-t border-white/10 md:border-t-0">
               <p className="ob-kicker-dim mb-5">Response</p>
               <h3 className="text-2xl font-medium text-white tracking-tight mb-4">Turn the word into action</h3>
-              <p className="ob-body-dark text-base mb-6">Sermon pages should help members share meaningful entry points, pray, and take one concrete next step.</p>
-              <a href="#reflection-guide" className="inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors">
+              <p className="ob-body-dark text-base">Sermon pages should help members share meaningful entry points, pray, and take one concrete next step.</p>
+              <a href="#reflection-guide" className="mt-auto pt-8 inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors">
                 Reflection guide <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
               </a>
             </div>
