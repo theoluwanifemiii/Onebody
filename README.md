@@ -23,7 +23,7 @@ The official website for Onebody Church, Lagos. Built with Next.js 15 App Router
 | `/services` | Service schedule |
 | `/sermons` | Sermon archive + YouTube live + Mixlr audio |
 | `/giving` | Giving / donation details |
-| `/academy` | Onebody Academy application |
+| `/academy` | Onebody LOVA Program|
 | `/charity` | Charity & outreach |
 | `/lords-table` | Lord's Table schedule |
 | `/blog` | Blog index |
