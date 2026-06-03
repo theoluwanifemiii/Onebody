@@ -11,9 +11,9 @@ export const YOUTUBE_CHANNEL_HANDLE = '@onebodychurchng';
 export const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@onebodychurchng';
 export const YOUTUBE_STREAMS_URL = 'https://www.youtube.com/@onebodychurchng/streams';
 
-// Set this to the live stream video ID when you go live, set to null when not live.
-// Find it in YouTube Studio → Go Live → copy the video ID from the stream URL.
-export const YOUTUBE_LIVE_VIDEO_ID: string | null = null;
+// Find this in YouTube Studio → Settings → Channel → Basic info. Starts with "UC".
+export const YOUTUBE_CHANNEL_ID = 'REPLACE_WITH_YOUR_CHANNEL_ID';
+
 
 export const SERVICE_SCHEDULE = [
   {

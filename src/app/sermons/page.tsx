@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { PlayCircle, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { getAllSermons, extractYouTubeId } from '@/lib/sermons';
-import { YOUTUBE_CHANNEL_URL, YOUTUBE_STREAMS_URL } from '@/lib/site-data';
+import { YOUTUBE_CHANNEL_ID, YOUTUBE_STREAMS_URL } from '@/lib/site-data';
 import SermonFollowUpForm from '@/components/forms/SermonFollowUpForm';
 import SermonGallery from '@/components/ui/SermonGallery';
 import LivePlayer from '@/components/ui/LivePlayer';
@@ -84,7 +84,7 @@ export default function SermonsPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-stretch">
             {/* YouTube Live */}
             <LivePlayer
-              channelUrl={YOUTUBE_CHANNEL_URL}
+              channelId={YOUTUBE_CHANNEL_ID}
               streamsUrl={YOUTUBE_STREAMS_URL}
             />
 
