@@ -8,7 +8,9 @@ import LivePlayer from '@/components/ui/LivePlayer';
 import FeaturedMessageLayout from '@/components/ui/FeaturedMessageLayout';
 
 export const metadata: Metadata = {
-  title: 'Onebody Church | Sermons',
+  title: 'Sermons & Messages — Onebody Church, Yaba',
+  description:
+    'Watch the latest sermon, join our live stream, or catch up on past messages from Onebody Church in Yaba, Lagos. Reflect, respond, and take your next step.',
 };
 
 export default function SermonsPage() {
@@ -45,9 +47,9 @@ export default function SermonsPage() {
           </h1>
           <div className="mt-10 flex flex-col gap-6 border-t border-white/10 pt-10 md:flex-row md:items-end md:justify-between">
             <p className="max-w-xl ob-body-dark" data-gsap-hero-reveal>
-              The message archive should help someone move from content consumption to actual
-              spiritual response. Every sermon points back to the church, to community, and to
-              Christ.
+              Every message we preach is meant to be lived, not just heard. Watch the latest
+              sermon, revisit a past one, and let it lead you back to Christ, to community, and
+              to action.
             </p>
             <div className="flex flex-wrap gap-4" data-gsap-hero-reveal>
               <a
@@ -161,8 +163,8 @@ export default function SermonsPage() {
                 </div>
                 <div className="py-8 border-b border-stone-200">
                   <p className="ob-kicker text-stone-400 mb-4">Next gathering</p>
-                  <h3 className="text-2xl font-medium tracking-tight text-stone-900">Do not stay online only.</h3>
-                  <p className="mt-3 text-base leading-relaxed text-stone-500">Let the sermon route people back toward Passion Service, Hope Nights, and real connection.</p>
+                  <h3 className="text-2xl font-medium tracking-tight text-stone-900">Don&apos;t stay online only.</h3>
+                  <p className="mt-3 text-base leading-relaxed text-stone-500">A sermon is a starting point. Join us in person at Passion Service or Hope Nights for real connection and community.</p>
                   <a href="/services#visit" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-brand-600">
                     Plan your visit <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
                   </a>
@@ -170,7 +172,7 @@ export default function SermonsPage() {
                 <div className="pt-8">
                   <p className="ob-kicker text-stone-400 mb-4">Need prayer?</p>
                   <h3 className="text-2xl font-medium tracking-tight text-stone-900">Follow up with the team.</h3>
-                  <p className="mt-3 text-base leading-relaxed text-stone-500">If the message raises a burden or decision, reaching out should be as frictionless as pressing send.</p>
+                  <p className="mt-3 text-base leading-relaxed text-stone-500">Carrying a burden or working through a decision after this message? Reach out — we&apos;d love to pray with you.</p>
                   <a href="mailto:hello@onebodychurch.org?subject=Response%20to%20a%20message" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-brand-600">
                     Email the team <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
                   </a>
@@ -199,7 +201,7 @@ export default function SermonsPage() {
             <div className="flex flex-col py-10 md:py-0 md:pr-16 border-t border-white/10 md:border-t-0 md:border-r md:border-white/10">
               <p className="ob-kicker-dim mb-5">Sunday</p>
               <h3 className="text-2xl font-medium text-white tracking-tight mb-4">Featured Sunday message</h3>
-              <p className="ob-body-dark text-base">Go straight to the current featured sermon and keep the media page focused on what matters most.</p>
+              <p className="ob-body-dark text-base">Catch the most recent Sunday sermon, full message and all.</p>
               <a href="#featured-message" className="mt-auto pt-8 inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors">
                 Watch now <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
               </a>
@@ -207,7 +209,7 @@ export default function SermonsPage() {
             <div className="flex flex-col py-10 md:py-0 md:px-16 border-t border-white/10 md:border-t-0 md:border-r md:border-white/10">
               <p className="ob-kicker-dim mb-5">Midweek</p>
               <h3 className="text-2xl font-medium text-white tracking-tight mb-4">Hope Nights — midweek strength</h3>
-              <p className="ob-body-dark text-base">Midweek teaching becomes more valuable when the site shows exactly how it fits into church life.</p>
+              <p className="ob-body-dark text-base">Join us midweek for teaching and prayer that keeps you grounded between Sundays.</p>
               <a href="/services" className="mt-auto pt-8 inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors">
                 Service details <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
               </a>
@@ -215,7 +217,7 @@ export default function SermonsPage() {
             <div className="flex flex-col py-10 md:py-0 md:pl-16 border-t border-white/10 md:border-t-0">
               <p className="ob-kicker-dim mb-5">Response</p>
               <h3 className="text-2xl font-medium text-white tracking-tight mb-4">Turn the word into action</h3>
-              <p className="ob-body-dark text-base">Sermon pages should help members share meaningful entry points, pray, and take one concrete next step.</p>
+              <p className="ob-body-dark text-base">Use the reflection guide below to pray through what you heard and take one concrete next step.</p>
               <a href="#reflection-guide" className="mt-auto pt-8 inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors">
                 Reflection guide <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
               </a>
@@ -288,8 +290,7 @@ export default function SermonsPage() {
                 Use the message beyond the moment.
               </h2>
               <p className="mt-8 ob-body max-w-md" data-gsap-reveal>
-                These prompts keep the page active and useful even when the media archive is still
-                small.
+                A few questions to sit with after you watch — alone, or with your community group.
               </p>
             </div>
 
@@ -338,8 +339,8 @@ export default function SermonsPage() {
                 Let the next action be simple.
               </h2>
               <p className="mt-8 ob-body-dark max-w-md" data-gsap-reveal>
-                If someone is helped by a message, they should be one click away from prayer,
-                discipleship, or a visit.
+                Whether you need prayer, want to talk about a message, or are ready to visit —
+                send us a note and someone from our team will respond.
               </p>
             </div>
             <SermonFollowUpForm />

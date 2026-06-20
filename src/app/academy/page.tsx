@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import AcademyApplicationForm from '@/components/forms/AcademyApplicationForm';
 
 export const metadata: Metadata = {
-  title: 'Onebody Church | Academy',
+  title: 'The Love Vision Academy (LOVA) — Onebody Church, Yaba',
   description:
     'LOVA exists to intimate believers with God\'s vision for His church through Christ-centered teaching, identity formation, and practical ministry direction.',
 };
@@ -50,8 +50,12 @@ export default function AcademyPage() {
       {/* 2. COHORT STATS */}
       <section className="ob-section ob-section-light">
         <div className="mx-auto w-full max-w-7xl">
-          <p className="ob-kicker mb-16" data-gsap-reveal>
+          <p className="ob-kicker mb-5" data-gsap-reveal>
             Cohort Snapshot
+          </p>
+          <p className="ob-body max-w-xl mb-11 text-stone-500" data-gsap-reveal>
+            Applications are open on a rolling basis. Email us to ask about the next cohort&apos;s
+            start date.
           </p>
           <div className="grid grid-cols-2 gap-y-12 lg:grid-cols-4" data-gsap-stagger>
             <div className="pr-8 lg:pr-16 border-r border-stone-200">
@@ -269,7 +273,7 @@ export default function AcademyPage() {
                   <span className="site-accordion-icon text-2xl leading-none shrink-0">+</span>
                 </summary>
                 <div className="accordion-body">
-                  Use the application form below or email the team at hello@onebodychurch.org and we will point you to the next step.
+                  We run cohorts on a rolling basis rather than fixed annual dates. Use the application form below or email hello@onebodychurch.org and we will tell you when the next cohort starts.
                 </div>
               </details>
             </div>
