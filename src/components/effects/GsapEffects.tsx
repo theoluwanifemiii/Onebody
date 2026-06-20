@@ -24,6 +24,12 @@ export default function GsapEffects() {
       const { ScrollTrigger } = await import('gsap/ScrollTrigger');
       gsap.registerPlugin(ScrollTrigger);
 
+      // Without this, ScrollTrigger.refresh() below tries to restore the
+      // previous page's scroll position proportionally onto the new page's
+      // (different) height — e.g. 25% down the old page becomes 25% down
+      // the new one, landing well past the top after every route change.
+      ScrollTrigger.clearScrollMemory();
+
       // Kill all previous ScrollTriggers on navigation
       ScrollTrigger.getAll().forEach((t) => t.kill());
 
@@ -231,7 +237,16 @@ export default function GsapEffects() {
         cleanup = () => observer.disconnect();
       }
 
+      // refresh() records the scroll position synchronously and restores it
+      // afterward. If we don't force it to 0 right here, it can capture a
+      // stale/in-flight position (e.g. mid smooth-scroll) and lock that in
+      // as the "resting" scroll position for the new page.
+      const html = document.documentElement;
+      const prevBehavior = html.style.scrollBehavior;
+      html.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
       ScrollTrigger.refresh();
+      html.style.scrollBehavior = prevBehavior;
     });
 
     return () => {

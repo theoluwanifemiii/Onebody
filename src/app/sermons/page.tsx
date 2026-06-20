@@ -21,7 +21,7 @@ export default function SermonsPage() {
       {/* 1. HERO */}
       <section
         className="ob-section ob-section-dark flex flex-col justify-end relative overflow-hidden"
-        style={{ paddingTop: '9rem' }}
+        style={{ paddingTop: '144px' }}
       >
         {/* Background image */}
         <div className="absolute inset-0 -z-0">

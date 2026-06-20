@@ -28,9 +28,6 @@ export default function HomePage() {
   return (
     <>
 
-      {/* ══════════════════════════════════════════════════
-          1. HERO
-          ══════════════════════════════════════════════════ */}
       <div className="flex h-screen flex-col overflow-hidden">
         <section
           data-cursor-trail-hero
@@ -67,7 +64,7 @@ export default function HomePage() {
 
 
       {/* ══════════════════════════════════════════════════
-          2. ABOUT — slide left text + scale-up video
+          2. ABOUT — heading + body row, full-width video below
           ══════════════════════════════════════════════════ */}
       <section
         id="home-about"
@@ -76,16 +73,19 @@ export default function HomePage() {
         <div className="mx-auto w-full max-w-7xl">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
 
-            {/* Left — slides in from left */}
+            {/* Left — heading, slides in from left */}
             <div data-apple-slide-left>
               <p className="ob-kicker mb-6">About Onebody</p>
               <h2
-                className="text-4xl font-medium tracking-tight text-stone-900 leading-tight mb-8 md:text-5xl lg:text-6xl"
+                className="text-4xl font-medium tracking-tight text-stone-900 leading-tight md:text-5xl lg:text-6xl"
                 data-gsap-words
               >
                 We Are A Church That Believes In And Preaches Jesus Christ
               </h2>
-              <div className="ob-divider mb-8" />
+            </div>
+
+            {/* Right — body text, slides in from right */}
+            <div data-apple-slide-right>
               <p className="ob-body mb-10 max-w-md">
                 In our community, the message of and about the teachings of Jesus Christ takes center
                 stage. Here, Jesus is our conversation, culture, aspiration, and our everything.
@@ -98,23 +98,23 @@ export default function HomePage() {
                 Read more <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
               </TransitionLink>
             </div>
+          </div>
 
-            {/* Right — scales up from small (product reveal) */}
-            <div
-              className="relative overflow-hidden rounded-2xl bg-black shadow-2xl"
-              style={{ aspectRatio: '16/9' }}
-              data-apple-scale-up
-            >
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/qdDPB-RlHgc?rel=0&modestbranding=1"
-                title="About Onebody Church"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full border-0"
-                loading="lazy"
-              />
-            </div>
+          {/* Full-width video — scales up from small (product reveal) */}
+          <div
+            className="relative mt-16 overflow-hidden rounded-2xl bg-black shadow-2xl"
+            style={{ aspectRatio: '16/9' }}
+            data-apple-scale-up
+          >
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/qdDPB-RlHgc?rel=0&modestbranding=1"
+              title="About Onebody Church"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              className="absolute inset-0 h-full w-full border-0"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -127,7 +127,7 @@ export default function HomePage() {
         className="overflow-hidden border-y border-stone-100 py-5"
         style={{ background: '#fafaf9' }}
       >
-        <div className="flex animate-marquee whitespace-nowrap" style={{ gap: '3rem' }}>
+        <div className="flex animate-marquee whitespace-nowrap" style={{ gap: '48px' }}>
           {SERVICE_MARQUEE_ITEMS.map((text, i) => (
             <span
               key={i}
@@ -314,10 +314,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-      {/* ══════════════════════════════════════════════════
-          7. LOVA — clip-path wipe on each benefit item
-          ══════════════════════════════════════════════════ */}
       <section
         id="home-lova"
         className="flex min-h-screen flex-col justify-center overflow-hidden bg-white px-6 py-24 md:px-12"
@@ -357,7 +353,7 @@ export default function HomePage() {
                 >
                   <span
                     className="shrink-0 text-xs font-medium uppercase tracking-widest text-stone-300 mt-1"
-                    style={{ minWidth: '2rem' }}
+                    style={{ minWidth: '32px' }}
                   >
                     {String(i + 1).padStart(2, '0')}
                   </span>

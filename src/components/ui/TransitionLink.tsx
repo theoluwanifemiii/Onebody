@@ -35,8 +35,12 @@ export default function TransitionLink({ href, children, onClick, ...props }: Pr
     const overlay = document.getElementById('page-transition');
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // scroll: false — Next's automatic scroll-into-view on navigation can
+    // target the wrong DOM node on this site (it's picked the wrong
+    // <section> before, landing mid-page). PageTransition handles scrolling
+    // to top itself once the new page has mounted.
     if (!overlay || prefersReduced) {
-      router.push(href);
+      router.push(href, { scroll: false });
       return;
     }
 
@@ -47,7 +51,7 @@ export default function TransitionLink({ href, children, onClick, ...props }: Pr
         yPercent: 0,
         duration: 0.35,
         ease: 'expo.inOut',
-        onComplete: () => router.push(href),
+        onComplete: () => router.push(href, { scroll: false }),
       });
     });
   };

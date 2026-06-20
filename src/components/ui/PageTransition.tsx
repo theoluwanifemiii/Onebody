@@ -13,6 +13,16 @@ export default function PageTransition() {
     const logo = logoRef.current;
     if (!overlay) return;
 
+    // Force an instant jump to top on every route change. The <html> element
+    // has `scroll-smooth` for in-page anchor links, but that same CSS
+    // scroll-behavior hijacks Next's scroll-to-top-on-navigate, animating it
+    // from the old scroll offset and letting in-flight layout shifts (GSAP
+    // word-splitting, images loading) leave the new page resting mid-scroll.
+    const html = document.documentElement;
+    html.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    requestAnimationFrame(() => { html.style.scrollBehavior = ''; });
+
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) {
       overlay.style.visibility = 'hidden';

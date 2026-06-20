@@ -18,7 +18,7 @@ export default function BlogPage() {
       {/* 1. HERO */}
       <section
         className="ob-section ob-section-dark flex flex-col justify-end"
-        style={{ paddingTop: '9rem' }}
+        style={{ paddingTop: '144px' }}
       >
         <div className="mx-auto w-full max-w-7xl">
           <p className="ob-kicker mb-6" data-gsap-hero-reveal>
@@ -44,7 +44,7 @@ export default function BlogPage() {
         <section
           id="blog-featured"
           className="ob-section ob-section-light"
-          style={{ minHeight: 'auto', paddingTop: '5rem', paddingBottom: '5rem' }}
+          style={{ minHeight: 'auto', paddingTop: '80px', paddingBottom: '80px' }}
         >
           <div className="mx-auto w-full max-w-7xl">
             <p className="ob-kicker mb-10">Featured</p>
@@ -83,7 +83,7 @@ export default function BlogPage() {
       {/* 3. POST GRID */}
       <section
         className="ob-section ob-section-stone"
-        style={{ minHeight: 'auto', paddingTop: '5rem', paddingBottom: '7rem' }}
+        style={{ minHeight: 'auto', paddingTop: '80px', paddingBottom: '112px' }}
       >
         <div className="mx-auto w-full max-w-7xl">
           <p className="ob-kicker mb-12">Recent Posts</p>
@@ -126,7 +126,7 @@ export default function BlogPage() {
       {/* 4. NEWSLETTER */}
       <section
         className="ob-section ob-section-dark"
-        style={{ minHeight: 'auto', paddingTop: '6rem', paddingBottom: '6rem' }}
+        style={{ minHeight: 'auto', paddingTop: '96px', paddingBottom: '96px' }}
       >
         <div className="mx-auto w-full max-w-3xl text-center">
           <p className="ob-kicker mb-6" data-gsap-reveal>

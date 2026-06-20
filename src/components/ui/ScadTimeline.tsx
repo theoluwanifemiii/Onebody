@@ -107,7 +107,7 @@ export default function ScadTimeline() {
               >
                 <p
                   className="leading-none font-bold tracking-tighter text-white/8 select-none"
-                  style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1 }}
+                  style={{ fontSize: 'clamp(64px, 8vw, 112px)', lineHeight: 1 }}
                 >
                   {step.letter}
                 </p>
@@ -116,7 +116,7 @@ export default function ScadTimeline() {
           </div>
 
           {/* Row 2: horizontal line + dots — sits flush below the letters */}
-          <div className="relative hidden md:block" style={{ height: '1.1rem' }}>
+          <div className="relative hidden md:block" style={{ height: '17.6px' }}>
             {/* Ghost track */}
             <div
               className="absolute top-1/2 left-0 right-0 -translate-y-1/2"
@@ -136,7 +136,7 @@ export default function ScadTimeline() {
                 style={{ left: `${(i / (STEPS.length - 1)) * 100}%` }}
               >
                 <div
-                  className="w-[1.1rem] h-[1.1rem] rounded-full border-2 border-brand-600 bg-stone-950"
+                  className="w-[17.6px] h-[17.6px] rounded-full border-2 border-brand-600 bg-stone-950"
                   style={{ boxShadow: '0 0 0 4px rgba(220,38,38,0.12)' }}
                 />
               </div>

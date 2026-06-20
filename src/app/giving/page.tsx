@@ -32,7 +32,7 @@ export default function GivingPage() {
   return (
     <>
       {/* 1. HERO */}
-      <section className="ob-section ob-section-dark" style={{ paddingTop: '9rem' }}>
+      <section className="ob-section ob-section-dark" style={{ paddingTop: '144px' }}>
         <div className="mx-auto w-full max-w-7xl">
           <p className="ob-kicker mb-8" data-gsap-reveal>
             2 Corinthians 9:7

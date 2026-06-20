@@ -26,7 +26,7 @@ export default function HorizontalGallery() {
       <div className="overflow-x-auto no-scrollbar">
         <div
           className="flex items-end"
-          style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem', gap: '1rem', width: 'max-content' }}
+          style={{ paddingLeft: '24px', paddingRight: '24px', gap: '16px', width: 'max-content' }}
         >
           {IMAGES.map((img, i) => (
             <figure

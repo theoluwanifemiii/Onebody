@@ -88,7 +88,7 @@ export default function SermonGallery() {
           <div
             ref={trackRef}
             className="flex items-end will-change-transform h-full"
-            style={{ paddingLeft: '3rem', gap: '1.25rem' }}
+            style={{ paddingLeft: '48px', gap: '20px' }}
           >
             {IMAGES.map((img, i) => (
               <figure

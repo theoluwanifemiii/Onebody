@@ -36,7 +36,7 @@ export default async function PostPage({ params }: Props) {
       {/* HERO */}
       <section
         className="ob-section ob-section-dark flex flex-col justify-end relative overflow-hidden"
-        style={{ minHeight: '70vh', paddingTop: '9rem' }}
+        style={{ minHeight: '70vh', paddingTop: '144px' }}
       >
         <div className="absolute inset-0 -z-0">
           <img
@@ -70,7 +70,7 @@ export default async function PostPage({ params }: Props) {
       {/* CONTENT */}
       <section
         className="ob-section ob-section-light"
-        style={{ minHeight: 'auto', paddingTop: '5rem', paddingBottom: '7rem' }}
+        style={{ minHeight: 'auto', paddingTop: '80px', paddingBottom: '112px' }}
       >
         <div className="mx-auto w-full max-w-2xl">
           {intro && (

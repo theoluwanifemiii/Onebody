@@ -13,7 +13,7 @@ export default function LordsTablePage() {
       {/* 1. HERO */}
       <section
         className="ob-section ob-section-dark flex flex-col justify-end"
-        style={{ paddingTop: '9rem' }}
+        style={{ paddingTop: '144px' }}
       >
         <div className="mx-auto w-full max-w-7xl">
           <p className="ob-kicker mb-6" data-gsap-hero-reveal>
